@@ -7,7 +7,7 @@ public class MainGUI {
 	public MainGUI()
 	{
 		JFrame frame = new JFrame ("90 Day Detox Tool"); 
-		frame.setSize(400, 100); 
+		frame.setSize(400, 400); 
 		frame.add(new Drawing()); 
 		frame.setVisible(true); 
 		

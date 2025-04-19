@@ -39,11 +39,14 @@ public class MainGUI implements ActionListener
 	{
 		if (e.getSource() == entryCreation)
 		{
+			entryCreation.setVisible(false);
+			editEntries.setVisible(false); 
 			
 		}
 		else if (e.getSource() == editEntries)
 		{
-			
+			entryCreation.setVisible(false);
+			editEntries.setVisible(false);
 		}
 		else
 			; 

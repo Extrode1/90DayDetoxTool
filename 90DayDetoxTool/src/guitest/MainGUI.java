@@ -37,7 +37,10 @@ public class MainGUI implements ActionListener
 		{
 			
 		}
-//		else if (e.getSource() = editEntries)
+		else if (e.getSource() == editEntries)
+		{
+			
+		}
 		else
 			; 
 	}

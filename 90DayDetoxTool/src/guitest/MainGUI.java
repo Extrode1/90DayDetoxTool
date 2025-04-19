@@ -8,7 +8,11 @@ public class MainGUI implements ActionListener
 {
 	JButton entryCreation = new JButton("Create a new journal entry"); 
 	JButton editEntries = new JButton("Edit current journal entries"); 
-	ArrayList <JournalEntry> entries = new ArrayList<>();  
+	ArrayList <JournalEntry> entries = new ArrayList<>(); 
+	JTextField day = new JTextField (10); 
+	JTextField month = new JTextField(10); 
+	JTextField year = new JTextField(10);
+	JTextField journalEntry = new JTextField (100000); 
 	
 	public MainGUI()
 	{

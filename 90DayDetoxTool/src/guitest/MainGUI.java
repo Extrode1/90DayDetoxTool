@@ -41,6 +41,9 @@ public class MainGUI implements ActionListener
 		{
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false); 
+			day = new JTextField (15); 
+			month = new JTextField (15); 
+			year = new JTextField (15); 
 			
 		}
 		else if (e.getSource() == editEntries)

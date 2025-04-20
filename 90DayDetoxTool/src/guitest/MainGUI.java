@@ -6,13 +6,15 @@ import java.util.ArrayList;
 
 public class MainGUI implements ActionListener 
 {
-	JButton entryCreation = new JButton("Create a new journal entry"); 
-	JButton editEntries = new JButton("Edit current journal entries"); 
-	ArrayList <JournalEntry> entries = new ArrayList<>(); 
-	JTextField day; 
-	JTextField month;
-	JTextField year;
-	JTextField journalEntry;
+	private JButton entryCreation = new JButton("Create a new journal entry"); 
+	private JButton editEntries = new JButton("Edit current journal entries");
+	private JButton back = new JButton("Back"); 
+
+	private ArrayList <JournalEntry> entries = new ArrayList<>(); 
+	private JTextField day; 
+	private JTextField month;
+	private JTextField year;
+	private JTextField journalEntry;
 	
 	public MainGUI()
 	{
@@ -26,10 +28,14 @@ public class MainGUI implements ActionListener
 		
 		frame.add(entryCreation); 
 		frame.add(editEntries); 
+		frame.add(back); 
+		back.setVisible(false);
+		
 		
 		//add action listener
 		entryCreation.addActionListener(this);
 		editEntries.addActionListener(this);
+		back.addActionListener(this); 
 		//create JTextFields
 		day = new JTextField (15); 
 		month = new JTextField (15); 
@@ -44,6 +50,8 @@ public class MainGUI implements ActionListener
 		frame.add(inFieldPane, BorderLayout.NORTH); 
 		inFieldPane.add(new JLabel("Month")); 
 		inFieldPane.add(month); 
+//		inFieldPane.setVisible(false);
+	
 		
 		
 	}
@@ -56,7 +64,8 @@ public class MainGUI implements ActionListener
 		if (e.getSource() == entryCreation)
 		{
 			entryCreation.setVisible(false);
-			editEntries.setVisible(false); 
+			editEntries.setVisible(false);
+			back.setVisible(true);
 				
 			
 		}

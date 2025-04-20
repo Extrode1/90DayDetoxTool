@@ -36,6 +36,7 @@ public class MainGUI implements ActionListener
 		entryCreation.addActionListener(this);
 		editEntries.addActionListener(this);
 		back.addActionListener(this); 
+		
 		//create JTextFields
 		day = new JTextField (15); 
 		month = new JTextField (15); 
@@ -52,6 +53,7 @@ public class MainGUI implements ActionListener
 		inFieldPane.add(month); 
 //		inFieldPane.setVisible(false);
 	
+//		inFieldPane.addComponentListener(null);
 		
 		
 	}
@@ -73,6 +75,13 @@ public class MainGUI implements ActionListener
 		{
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
+			back.setVisible(true);
+		}
+		else if (e.getSource() == back)
+		{
+			entryCreation.setVisible(true);
+			editEntries.setVisible(true);
+			back.setVisible(false);
 		}
 		else
 			; 

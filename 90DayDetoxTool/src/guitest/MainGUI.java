@@ -15,6 +15,8 @@ public class MainGUI implements ActionListener
 	private JTextField month;
 	private JTextField year;
 	private JTextArea journalEntry;
+	private JPanel inFieldPane; 
+	private JPanel otherPane; 
 	
 	
 	public MainGUI()
@@ -45,10 +47,10 @@ public class MainGUI implements ActionListener
 		journalEntry = new JTextArea (10, 20); 
 		
 		//create labelled fields
-		JPanel inFieldPane = new JPanel();
-		JPanel otherPanel = new JPanel(); 
+		inFieldPane = new JPanel();
+		otherPane = new JPanel(); 
 		frame.add(inFieldPane); 
-		frame.add(otherPanel); 
+		frame.add(otherPane); 
 
 		inFieldPane.setLayout(new GridLayout(0, 2)); 
 		inFieldPane.add(new JLabel("Day")); 
@@ -60,8 +62,8 @@ public class MainGUI implements ActionListener
 		inFieldPane.add(new JLabel("Year")); 
 		inFieldPane.add(year); 
 		
-		otherPanel.add(new JLabel("Journal Entry")); 
-		otherPanel.add(journalEntry); 
+		otherPane.add(new JLabel("Journal Entry")); 
+		otherPane.add(journalEntry); 
 //		inFieldPane.setVisible(false);
 //		inFieldPane.addComponentListener(null);
 		
@@ -78,6 +80,8 @@ public class MainGUI implements ActionListener
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
 			back.setVisible(true);
+			inFieldPane.setVisible(true);
+			otherPane.setVisible(true); 
 				
 			
 		}
@@ -86,12 +90,16 @@ public class MainGUI implements ActionListener
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
 			back.setVisible(true);
+			inFieldPane.setVisible(true);
+			otherPane.setVisible(true); 
 		}
 		else if (e.getSource() == back)
 		{
 			entryCreation.setVisible(true);
 			editEntries.setVisible(true);
 			back.setVisible(false);
+			inFieldPane.setVisible(false);
+			otherPane.setVisible(false); 
 		}
 		else
 			; 

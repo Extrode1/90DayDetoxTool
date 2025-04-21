@@ -14,13 +14,14 @@ public class MainGUI implements ActionListener
 	private JTextField day; 
 	private JTextField month;
 	private JTextField year;
-	private JTextField journalEntry;
+	private JTextArea journalEntry;
+	
 	
 	public MainGUI()
 	{
 		JFrame frame = new JFrame ("90 Day Detox Tool"); 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-		frame.setSize(800, 600); 
+		frame.setSize(500, 800); 
 		frame.setVisible(true); 
 		frame.setLayout(new FlowLayout()); 
 		//create JButtons
@@ -41,7 +42,7 @@ public class MainGUI implements ActionListener
 		day = new JTextField (15); 
 		month = new JTextField (15); 
 		year = new JTextField (15); 
-		journalEntry = new JTextField (30); 
+		journalEntry = new JTextArea (10, 20); 
 		
 		//create labelled fields
 		JPanel inFieldPane = new JPanel(); 
@@ -56,6 +57,9 @@ public class MainGUI implements ActionListener
 		
 		inFieldPane.add(new JLabel("Year")); 
 		inFieldPane.add(year); 
+		
+		inFieldPane.add(new JLabel("Journal Entry")); 
+		frame.add(journalEntry); 
 //		inFieldPane.setVisible(false);
 	
 //		inFieldPane.addComponentListener(null);

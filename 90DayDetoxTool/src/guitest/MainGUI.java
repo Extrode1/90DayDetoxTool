@@ -45,12 +45,17 @@ public class MainGUI implements ActionListener
 		
 		//create labelled fields
 		JPanel inFieldPane = new JPanel(); 
-		inFieldPane.setLayout(new GridLayout(2, 2)); 
+		frame.add(inFieldPane); 
+
+		inFieldPane.setLayout(new GridLayout(0, 2)); 
 		inFieldPane.add(new JLabel("Day")); 
 		inFieldPane.add(day); 
-		frame.add(inFieldPane, BorderLayout.NORTH); 
+		
 		inFieldPane.add(new JLabel("Month")); 
 		inFieldPane.add(month); 
+		
+		inFieldPane.add(new JLabel("Year")); 
+		inFieldPane.add(year); 
 //		inFieldPane.setVisible(false);
 	
 //		inFieldPane.addComponentListener(null);

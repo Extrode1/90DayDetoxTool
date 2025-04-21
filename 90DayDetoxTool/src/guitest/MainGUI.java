@@ -45,8 +45,10 @@ public class MainGUI implements ActionListener
 		journalEntry = new JTextArea (10, 20); 
 		
 		//create labelled fields
-		JPanel inFieldPane = new JPanel(); 
+		JPanel inFieldPane = new JPanel();
+		JPanel otherPanel = new JPanel(); 
 		frame.add(inFieldPane); 
+		frame.add(otherPanel); 
 
 		inFieldPane.setLayout(new GridLayout(0, 2)); 
 		inFieldPane.add(new JLabel("Day")); 
@@ -58,10 +60,9 @@ public class MainGUI implements ActionListener
 		inFieldPane.add(new JLabel("Year")); 
 		inFieldPane.add(year); 
 		
-		inFieldPane.add(new JLabel("Journal Entry")); 
-		frame.add(journalEntry); 
+		otherPanel.add(new JLabel("Journal Entry")); 
+		otherPanel.add(journalEntry); 
 //		inFieldPane.setVisible(false);
-	
 //		inFieldPane.addComponentListener(null);
 		
 		

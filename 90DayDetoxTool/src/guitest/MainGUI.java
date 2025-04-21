@@ -64,8 +64,7 @@ public class MainGUI implements ActionListener
 		
 		otherPane.add(new JLabel("Journal Entry")); 
 		otherPane.add(journalEntry); 
-//		inFieldPane.setVisible(false);
-//		inFieldPane.addComponentListener(null);
+
 		
 		
 	}

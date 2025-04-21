@@ -44,13 +44,16 @@ public class MainGUI implements ActionListener
 		day = new JTextField (15); 
 		month = new JTextField (15); 
 		year = new JTextField (15); 
-		journalEntry = new JTextArea (10, 20); 
+		journalEntry = new JTextArea (10, 20);
+		journalEntry.setLineWrap(true); 
+		JScrollPane scrollPane = new JScrollPane(journalEntry); 
 		
 		//create labelled fields
 		inFieldPane = new JPanel();
 		otherPane = new JPanel(); 
 		frame.add(inFieldPane); 
 		frame.add(otherPane); 
+		otherPane.add(scrollPane); 
 
 		inFieldPane.setLayout(new GridLayout(0, 2)); 
 		inFieldPane.add(new JLabel("Day")); 

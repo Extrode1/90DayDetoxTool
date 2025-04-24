@@ -60,18 +60,21 @@ public class MainGUI implements ActionListener
 		inFieldPane.setLayout(new GridLayout(0, 2)); 
 		inFieldPane.add(new JLabel("Day")); 
 		inFieldPane.add(day); 
+		day.addActionListener(this);
 		
 		inFieldPane.add(new JLabel("Month")); 
 		inFieldPane.add(month); 
+		month.addActionListener(this);
 		
 		inFieldPane.add(new JLabel("Year")); 
 		inFieldPane.add(year); 
+		year.addActionListener(this); 
 		
 		otherPane.add(new JLabel("Journal Entry")); 
 		otherPane.add(journalEntry); 
+//		journalEntry.addActionListener(this); 
 		
 		
-		//add action listeners to fields
 		
 		
 	}

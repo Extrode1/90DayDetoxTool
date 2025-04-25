@@ -9,6 +9,7 @@ public class MainGUI implements ActionListener
 	private JButton entryCreation = new JButton("Create a new journal entry"); 
 	private JButton editEntries = new JButton("Edit current journal entries");
 	private JButton back = new JButton("Back"); 
+	private JButton save = new JButton("Save Entry"); 
 
 	private ArrayList <JournalEntry> entries = new ArrayList<>(); 
 	private JTextField day; 
@@ -17,6 +18,7 @@ public class MainGUI implements ActionListener
 	private JTextArea journalEntry;
 	private JPanel inFieldPane; 
 	private JPanel otherPane; 
+	
 	
 	
 	public MainGUI()
@@ -73,6 +75,13 @@ public class MainGUI implements ActionListener
 		otherPane.add(new JLabel("Journal Entry")); 
 		otherPane.add(journalEntry); 
 //		journalEntry.addActionListener(this); 
+		
+		//add save button for journal entry
+		JPanel savePane = new JPanel(); 
+		savePane.setLayout(new FlowLayout()); 
+		save.addActionListener(this); 		
+		savePane.add(save); 
+		frame.add(savePane, BorderLayout.SOUTH); 
 		
 		
 		

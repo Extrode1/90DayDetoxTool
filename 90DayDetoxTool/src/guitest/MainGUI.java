@@ -18,6 +18,7 @@ public class MainGUI implements ActionListener
 	private JTextArea journalEntry;
 	private JPanel inFieldPane; 
 	private JPanel otherPane; 
+	private JPanel savePane; 
 	
 	
 	
@@ -77,7 +78,7 @@ public class MainGUI implements ActionListener
 //		journalEntry.addActionListener(this); 
 		
 		//add save button for journal entry
-		JPanel savePane = new JPanel(); 
+		savePane = new JPanel(); 
 		savePane.setLayout(new FlowLayout()); 
 		save.addActionListener(this); 		
 		savePane.add(save); 
@@ -100,6 +101,7 @@ public class MainGUI implements ActionListener
 			back.setVisible(true);
 			inFieldPane.setVisible(true);
 			otherPane.setVisible(true); 
+			savePane.setVisible(true);
 				
 			
 		}
@@ -110,6 +112,8 @@ public class MainGUI implements ActionListener
 			back.setVisible(true);
 			inFieldPane.setVisible(true);
 			otherPane.setVisible(true); 
+			savePane.setVisible(true);
+
 		}
 		else if (e.getSource() == back)
 		{
@@ -118,6 +122,8 @@ public class MainGUI implements ActionListener
 			back.setVisible(false);
 			inFieldPane.setVisible(false);
 			otherPane.setVisible(false); 
+			savePane.setVisible(false);
+
 		}
 		else
 			; 

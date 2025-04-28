@@ -106,7 +106,7 @@ public class MainGUI implements ActionListener
 		
 		//display journal entry
 		outFieldPaneTwo = new JPanel(); 
-		outFieldPaneTwo.setLayout(new GridLayout(1, 2));
+		outFieldPaneTwo.setLayout(new FlowLayout());
 		outFieldPaneTwo.add(new JLabel("Journal Entry")); 
 		outFieldPaneTwo.add(fullJournalEntry);
 		frame.add(outFieldPaneTwo); 

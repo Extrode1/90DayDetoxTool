@@ -102,15 +102,16 @@ public class MainGUI implements ActionListener
 		outFieldPane.setLayout(new GridLayout(1, 2));
 		outFieldPane.add(new JLabel("Date")); 
 		outFieldPane.add(fullDate);
-		frame.add(outFieldPane, BorderLayout.SOUTH); 
+		frame.add(outFieldPane, BorderLayout.SOUTH);
 		
 		//display journal entry
 		outFieldPaneTwo = new JPanel(); 
 		outFieldPaneTwo.setLayout(new FlowLayout());
 		outFieldPaneTwo.add(new JLabel("Journal Entry")); 
 		outFieldPaneTwo.add(fullJournalEntry);
-		frame.add(outFieldPaneTwo); 
 		
+		frame.add(outFieldPaneTwo); 
+
 		
 	}
 	public static void main(String[] args) {
@@ -127,8 +128,8 @@ public class MainGUI implements ActionListener
 			inFieldPane.setVisible(true);
 			otherPane.setVisible(true); 
 			savePane.setVisible(true);
-			outFieldPane.setVisible(true);
-			outFieldPaneTwo.setVisible(true);
+			outFieldPane.setVisible(false);
+			outFieldPaneTwo.setVisible(false);
 				
 			
 		}
@@ -140,8 +141,8 @@ public class MainGUI implements ActionListener
 			inFieldPane.setVisible(true);
 			otherPane.setVisible(true); 
 			savePane.setVisible(true);
-			outFieldPane.setVisible(true);
-			outFieldPaneTwo.setVisible(true);
+			outFieldPane.setVisible(false);
+			outFieldPaneTwo.setVisible(false);
 
 		}
 		else if (e.getSource() == back)
@@ -165,6 +166,8 @@ public class MainGUI implements ActionListener
 			fullJournalEntry.setText(entryFullString); 
 			JournalEntry newObject = new JournalEntry(day, month, year, journalEntry); 
 			entries.add(newObject); 
+			outFieldPane.setVisible(true);
+			outFieldPaneTwo.setVisible(true); 
 			
 			
 		}

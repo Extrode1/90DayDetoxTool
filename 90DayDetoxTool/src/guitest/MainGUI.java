@@ -163,6 +163,7 @@ public class MainGUI implements ActionListener
 			fullDate.setText(fullString); 
 			String entryFullString = journalEntry.getText().trim(); 
 			fullJournalEntry.setText(entryFullString); 
+			JournalEntry newObject = new JournalEntry(day, month, year, journalEntry); 
 			
 			
 		}

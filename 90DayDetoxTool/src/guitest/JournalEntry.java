@@ -1,14 +1,17 @@
 package guitest;
+import javax.swing.*; 
+import java.awt.*; 
+import java.awt.event.*;
 import java.util.ArrayList; 
 
 public class JournalEntry {
 	
-	private int day; 
-	private int month; 
-	private int year; 
-	private String journalEntry; 
+	private JTextField day; 
+	private JTextField month; 
+	private JTextField year; 
+	private JTextArea journalEntry; 
 	private static int dayCounter = 0; 
-	public JournalEntry (int day, int month, int year, String journalEntry)
+	public JournalEntry (JTextField day, JTextField month, JTextField year, JTextArea journalEntry)
 	{
 		this.day = day; 
 		this.month = month; 
@@ -16,35 +19,35 @@ public class JournalEntry {
 		this.journalEntry = journalEntry; 
 		dayCounter++; 
 	}
-	public int getDay()
+	public JTextField getDay()
 	{
 		return this.day; 
 	}
-	public int getMonth()
+	public JTextField getMonth()
 	{
 		return this.month; 
 	}
-	public int getYear()
+	public JTextField getYear()
 	{
 		return this.year; 
 	}
-	public String getJournalEntry()
+	public JTextArea getJournalEntry()
 	{
 		return this.journalEntry; 
 	}
-	public void setDay(int day)
+	public void setDay(JTextField day)
 	{
 		this.day = day; 
 	}
-	public void setMonth (int month)
+	public void setMonth (JTextField month)
 	{
 		this.month = month; 
 	}
-	public void setYear (int year)
+	public void setYear (JTextField year)
 	{
 		this.year = year; 
 	}
-	public void setJournalEntry (String journalEntry)
+	public void setJournalEntry (JTextArea journalEntry)
 	{
 		this.journalEntry = journalEntry; 
 	}

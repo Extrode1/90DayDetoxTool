@@ -164,6 +164,7 @@ public class MainGUI implements ActionListener
 			String entryFullString = journalEntry.getText().trim(); 
 			fullJournalEntry.setText(entryFullString); 
 			JournalEntry newObject = new JournalEntry(day, month, year, journalEntry); 
+			entries.add(newObject); 
 			
 			
 		}

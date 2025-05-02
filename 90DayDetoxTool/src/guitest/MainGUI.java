@@ -60,15 +60,16 @@ public class MainGUI implements ActionListener
 		fullJournalEntry.setEditable(false);
 		journalEntry.setLineWrap(true); 
 		fullJournalEntry.setLineWrap(true);
-		scrollPane = new JScrollPane(otherPane); 
 		
-		
+		otherPane.setLayout(new BorderLayout());
+
 		//create labelled fields
 		
 		frame.add(inFieldPane); 
 		frame.add(otherPane); 
-		frame.add(scrollPane); 
-	
+		scrollPane = new JScrollPane(journalEntry); 
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); 
+		
 
 		inFieldPane.setLayout(new GridLayout(0, 2)); 
 		inFieldPane.add(new JLabel("Day")); 
@@ -84,9 +85,9 @@ public class MainGUI implements ActionListener
 		year.addActionListener(this); 
 		
 		
-		otherPane.setLayout(new FlowLayout());
 		otherPane.add(new JLabel("Journal Entry")); 
-		otherPane.add(journalEntry); 
+		otherPane.add(journalEntry, BorderLayout.SOUTH); 
+//		otherPane.add(scrollPane); 
 //		journalEntry.addActionListener(this); 
 		
 		//add save button for journal entry
@@ -106,9 +107,9 @@ public class MainGUI implements ActionListener
 		
 		//display journal entry
 		outFieldPaneTwo = new JPanel(); 
-		outFieldPaneTwo.setLayout(new FlowLayout());
+		outFieldPaneTwo.setLayout(new BorderLayout());
 		outFieldPaneTwo.add(new JLabel("Journal Entry")); 
-		outFieldPaneTwo.add(fullJournalEntry);
+		outFieldPaneTwo.add(fullJournalEntry, BorderLayout.SOUTH);
 		
 		frame.add(outFieldPaneTwo); 
 

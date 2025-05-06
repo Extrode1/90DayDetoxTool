@@ -85,9 +85,7 @@ public class MainGUI implements ActionListener
 		
 		otherPane.add(new JLabel("Journal Entry")); 
 		otherPane.add(journalEntry, BorderLayout.SOUTH); 
-//		otherPane.add(scrollPane); 
-//		journalEntry.addActionListener(this); 
-		
+
 		//add save button for journal entry
 		savePane = new JPanel(); 
 		savePane.setLayout(new FlowLayout()); 

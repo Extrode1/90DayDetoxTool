@@ -10,8 +10,6 @@ public class MainGUI implements ActionListener
 	private JButton editEntries = new JButton("Edit current journal entries");
 	private JButton back = new JButton("Back"); 
 	private JButton save = new JButton("Save Entry");
-	
-
 	private ArrayList <JournalEntry> entries = new ArrayList<>(); 
 	private JTextField day; 
 	private JTextField month;

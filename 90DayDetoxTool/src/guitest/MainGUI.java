@@ -23,7 +23,7 @@ public class MainGUI implements ActionListener
 	private JScrollPane scrollPane; 
 	private JPanel outFieldPane; 
 	private JPanel outFieldPaneTwo;
-		
+	//Test
 	public MainGUI()
 	{
 		JFrame frame = new JFrame ("90 Day Detox Tool"); 

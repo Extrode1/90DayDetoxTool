@@ -38,7 +38,6 @@ public class MainGUI implements ActionListener
 		frame.add(back); 
 		back.setVisible(false);
 		
-		
 		//add action listener
 		entryCreation.addActionListener(this);
 		editEntries.addActionListener(this);

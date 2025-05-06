@@ -22,7 +22,6 @@ public class MainGUI implements ActionListener
 	private JPanel savePane; 
 	private JScrollPane scrollPane; 
 	private JPanel outFieldPane; 
-	
 	private JPanel outFieldPaneTwo;
 		
 	public MainGUI()

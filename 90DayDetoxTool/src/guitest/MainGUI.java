@@ -33,7 +33,6 @@ public class MainGUI implements ActionListener
 		frame.setLayout(new FlowLayout()); 
 		//create JButtons
 		
-		
 		frame.add(entryCreation); 
 		frame.add(editEntries); 
 		frame.add(back); 

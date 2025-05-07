@@ -43,7 +43,7 @@ public class MainGUI implements ActionListener
 		
 		//create a main menu label 
 		mainPane = new JPanel(new BorderLayout()); 
-		mainMenuLabel = new JLabel("Welcome to the 90 Day Detox Tool!"); 
+		mainMenuLabel = new JLabel("Welcome to the 90 Day Detox Tool!", SwingConstants.CENTER); 
 		mainMenuLabel.setFont(new Font("Calibri",  Font.BOLD, 40)); 
 		mainMenuLabel2 = new JLabel("This tool will allow you to create journal entries to keep track of your progress and record your thoughts and feelings when you are doing the 90 day detox. ");
 		mainMenuLabel2.setFont(new Font ("Calibri", Font.ITALIC, 15)); 

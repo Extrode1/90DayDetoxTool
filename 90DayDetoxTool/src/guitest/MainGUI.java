@@ -10,7 +10,7 @@ public class MainGUI implements ActionListener
 	private JButton editEntries = new JButton("Edit current journal entries");
 	private JButton back = new JButton("Back"); 
 	private JButton save = new JButton("Save Entry");
-	private ArrayList <JournalEntry> entries = new ArrayList<>(); 
+	private ArrayList <JournalEntry> entries; 
 	private JTextField day; 
 	private JTextField month;
 	private JTextField year;
@@ -29,7 +29,11 @@ public class MainGUI implements ActionListener
 	private JPanel mainPane; 
 	private JLabel mainMenuLabel2; 
 	
-		
+	//declare JList
+	private DefaultListModel<JournalEntry> listModel; 
+	private JList<JournalEntry> jList; 
+	
+	
 	public MainGUI()
 	{
 		JFrame frame = new JFrame ("90 Day Detox Tool"); 

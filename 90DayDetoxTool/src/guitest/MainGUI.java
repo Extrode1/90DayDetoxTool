@@ -49,7 +49,13 @@ public class MainGUI implements ActionListener
 		mainMenuLabel2.setFont(new Font ("Calibri", Font.ITALIC, 15)); 
 		
 		mainPane.add(mainMenuLabel, BorderLayout.NORTH); 
-		mainPane.add(mainMenuLabel2, BorderLayout.SOUTH); 
+		mainPane.add(mainMenuLabel2, BorderLayout.SOUTH);
+		
+		//change font of button
+		entryCreation.setFont(new Font("Calibri", Font.BOLD, 30));
+		editEntries.setFont(new Font("Calibri", Font.BOLD, 30)); 
+		
+		//add buttons to JFrame
 		frame.add(mainPane); 
 		frame.add(entryCreation); 
 		frame.add(editEntries); 
@@ -181,7 +187,7 @@ public class MainGUI implements ActionListener
 			fullJournalEntry.setText(entryFullString); 
 			JournalEntry newObject = new JournalEntry(day, month, year, journalEntry); 
 			entries.add(newObject); 
-			outFieldPane.setVisible(true);
+			outFieldPane.setVisible(true); 
 			outFieldPaneTwo.setVisible(true); 
 			
 			

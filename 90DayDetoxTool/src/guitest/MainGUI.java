@@ -6,11 +6,15 @@ import java.util.ArrayList;
 
 public class MainGUI implements ActionListener 
 {
+	//declare JFrame
+	private JFrame frame; 
+	
+	//declare buttons
 	private JButton entryCreation = new JButton("Create a new journal entry"); 
 	private JButton editEntries = new JButton("Edit current journal entries");
 	private JButton back = new JButton("Back"); 
 	private JButton save = new JButton("Save Entry");
-	private ArrayList <JournalEntry> entries; 
+	private ArrayList <JournalEntry> entries = new ArrayList<>(); 
 	private JTextField day; 
 	private JTextField month;
 	private JTextField year;
@@ -29,6 +33,7 @@ public class MainGUI implements ActionListener
 	private JPanel mainPane; 
 	private JLabel mainMenuLabel2; 
 	
+	
 	//declare JList
 	private DefaultListModel<JournalEntry> listModel; 
 	private JList<JournalEntry> jList; 
@@ -36,7 +41,7 @@ public class MainGUI implements ActionListener
 	
 	public MainGUI()
 	{
-		JFrame frame = new JFrame ("90 Day Detox Tool"); 
+		frame = new JFrame ("90 Day Detox Tool"); 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		frame.setSize(1000, 800); 
 		frame.setVisible(true); 
@@ -119,7 +124,7 @@ public class MainGUI implements ActionListener
 		frame.add(savePane, BorderLayout.SOUTH);
 		
 		//display date
-	
+		
 		outFieldPane = new JPanel(); 
 		outFieldPane.setLayout(new GridLayout(1, 2));
 		outFieldPane.add(new JLabel("Date")); 
@@ -127,12 +132,12 @@ public class MainGUI implements ActionListener
 		frame.add(outFieldPane, BorderLayout.SOUTH);
 		
 		//display journal entry
-		outFieldPaneTwo = new JPanel(); 
-		outFieldPaneTwo.setLayout(new BorderLayout());
-		outFieldPaneTwo.add(new JLabel("Journal Entry")); 
-		outFieldPaneTwo.add(fullJournalEntry, BorderLayout.SOUTH);
+//		outFieldPaneTwo = new JPanel(); 
+//		outFieldPaneTwo.setLayout(new BorderLayout());
+//		outFieldPaneTwo.add(new JLabel("Journal Entry")); 
+//		outFieldPaneTwo.add(fullJournalEntry, BorderLayout.SOUTH);
 		
-		frame.add(outFieldPaneTwo); 
+//		frame.add(outFieldPaneTwo); 
 
 		
 	}
@@ -151,7 +156,7 @@ public class MainGUI implements ActionListener
 			otherPane.setVisible(true); 
 			savePane.setVisible(true);
 			outFieldPane.setVisible(false);
-			outFieldPaneTwo.setVisible(false);
+//			outFieldPaneTwo.setVisible(false);
 			mainPane.setVisible(false);
 				
 			
@@ -165,7 +170,7 @@ public class MainGUI implements ActionListener
 			otherPane.setVisible(true); 
 			savePane.setVisible(true);
 			outFieldPane.setVisible(false);
-			outFieldPaneTwo.setVisible(false);
+//			outFieldPaneTwo.setVisible(false);
 			mainPane.setVisible(false);
 
 		}
@@ -178,7 +183,7 @@ public class MainGUI implements ActionListener
 			otherPane.setVisible(false); 
 			savePane.setVisible(false);
 			outFieldPane.setVisible(false);
-			outFieldPaneTwo.setVisible(false);
+//			outFieldPaneTwo.setVisible(false);
 			mainPane.setVisible(true);
 			
 
@@ -186,14 +191,16 @@ public class MainGUI implements ActionListener
 		else if (e.getSource() == save)
 		{
 			String fullString = month.getText().trim() + "/" + day.getText().trim() + "/" + year.getText().trim();
-			fullDate.setText(fullString); 
+//			fullDate.setText(fullString); 
 			String entryFullString = journalEntry.getText().trim(); 
-			fullJournalEntry.setText(entryFullString); 
-			JournalEntry newObject = new JournalEntry(day, month, year, journalEntry); 
-			entries.add(newObject); 
+//			fullJournalEntry.setText(entryFullString); 
+
 			outFieldPane.setVisible(true); 
-			outFieldPaneTwo.setVisible(true); 
+//			outFieldPaneTwo.setVisible(true); 
+			JOptionPane.showMessageDialog(frame, "Is this the entry that you want entered?\nDate: " + fullString + "\nJournal Entry: " + entryFullString  , "Entry Confirmation", JOptionPane.QUESTION_MESSAGE); 
 			
+			JournalEntry newObject = new JournalEntry(day, month, year, journalEntry); 
+			entries.add(newObject); 			
 			
 		}
 		else

@@ -20,7 +20,7 @@ public class MainGUI implements ActionListener
 	private JTextField year;
 	private JTextField fullDate; 
 	private JTextArea journalEntry;
-	private JTextArea fullJournalEntry; 
+//	private JTextArea fullJournalEntry; 
 	private JPanel inFieldPane; 
 	private JPanel otherPane; 
 	private JPanel savePane; 
@@ -38,6 +38,8 @@ public class MainGUI implements ActionListener
 	private DefaultListModel<JournalEntry> listModel; 
 	private JList<JournalEntry> jList; 
 	
+	private JTextArea fullJournalEntry = new JTextArea(15, 30); 
+
 	
 	public MainGUI()
 	{
@@ -84,7 +86,6 @@ public class MainGUI implements ActionListener
 		fullDate = new JTextField (15); 
 		fullDate.setEditable(false); 
 		journalEntry = new JTextArea (15, 30);
-		fullJournalEntry = new JTextArea(15, 30); 
 		fullJournalEntry.setEditable(false);
 		journalEntry.setLineWrap(true); 
 		fullJournalEntry.setLineWrap(true);
@@ -125,12 +126,12 @@ public class MainGUI implements ActionListener
 		
 		//display date
 		
-		outFieldPane = new JPanel(); 
-		outFieldPane.setLayout(new GridLayout(1, 2));
-		outFieldPane.add(new JLabel("Date")); 
-		outFieldPane.add(fullDate);
-		frame.add(outFieldPane, BorderLayout.SOUTH);
-		
+//		outFieldPane = new JPanel(); 
+//		outFieldPane.setLayout(new GridLayout(1, 2));
+//		outFieldPane.add(new JLabel("Date")); 
+//		outFieldPane.add(fullDate);
+//		frame.add(outFieldPane, BorderLayout.SOUTH);
+//		
 		//display journal entry
 //		outFieldPaneTwo = new JPanel(); 
 //		outFieldPaneTwo.setLayout(new BorderLayout());
@@ -155,7 +156,7 @@ public class MainGUI implements ActionListener
 			inFieldPane.setVisible(true);
 			otherPane.setVisible(true); 
 			savePane.setVisible(true);
-			outFieldPane.setVisible(false);
+//			outFieldPane.setVisible(false);
 //			outFieldPaneTwo.setVisible(false);
 			mainPane.setVisible(false);
 				
@@ -169,7 +170,7 @@ public class MainGUI implements ActionListener
 			inFieldPane.setVisible(true);
 			otherPane.setVisible(true); 
 			savePane.setVisible(true);
-			outFieldPane.setVisible(false);
+//			outFieldPane.setVisible(false);
 //			outFieldPaneTwo.setVisible(false);
 			mainPane.setVisible(false);
 
@@ -182,7 +183,7 @@ public class MainGUI implements ActionListener
 			inFieldPane.setVisible(false);
 			otherPane.setVisible(false); 
 			savePane.setVisible(false);
-			outFieldPane.setVisible(false);
+//			outFieldPane.setVisible(false);
 //			outFieldPaneTwo.setVisible(false);
 			mainPane.setVisible(true);
 			
@@ -194,11 +195,18 @@ public class MainGUI implements ActionListener
 //			fullDate.setText(fullString); 
 			String entryFullString = journalEntry.getText().trim(); 
 //			fullJournalEntry.setText(entryFullString); 
-
-			outFieldPane.setVisible(true); 
-//			outFieldPaneTwo.setVisible(true); 
-			JOptionPane.showConfirmDialog(frame, "Is this the entry that you want entered?\nDate: " + fullString + "\nJournal Entry: " + entryFullString  , "Entry Confirmation", JOptionPane.YES_NO_OPTION); 
+			//create JTextArea
+			JTextArea message = new JTextArea(entryFullString); 
+			message.setLineWrap(true); 
+			message.setWrapStyleWord(true); 
 			
+			JScrollPane scrollPane = new JScrollPane(message); 
+			scrollPane.setPreferredSize(new Dimension(500, 500)); 
+			
+//			outFieldPane.setVisible(true); 
+//			outFieldPaneTwo.setVisible(true); 
+//			JOptionPane.showConfirmDialog(null, "Is this the entry that you want entered?\nDate: " + fullString + "\nJournal Entry: " + scrollPane  , "Entry Confirmation", JOptionPane.YES_NO_OPTION); 
+			JOptionPane.showConfirmDialog(frame, scrollPane, "Is this the entry you want to enter? ", JOptionPane.YES_NO_OPTION); 
 			JournalEntry newObject = new JournalEntry(day, month, year, journalEntry); 
 			entries.add(newObject); 			
 			

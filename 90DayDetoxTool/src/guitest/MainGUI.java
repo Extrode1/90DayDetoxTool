@@ -197,7 +197,7 @@ public class MainGUI implements ActionListener
 
 			outFieldPane.setVisible(true); 
 //			outFieldPaneTwo.setVisible(true); 
-			JOptionPane.showMessageDialog(frame, "Is this the entry that you want entered?\nDate: " + fullString + "\nJournal Entry: " + entryFullString  , "Entry Confirmation", JOptionPane.QUESTION_MESSAGE); 
+			JOptionPane.showConfirmDialog(frame, "Is this the entry that you want entered?\nDate: " + fullString + "\nJournal Entry: " + entryFullString  , "Entry Confirmation", JOptionPane.YES_NO_OPTION); 
 			
 			JournalEntry newObject = new JournalEntry(day, month, year, journalEntry); 
 			entries.add(newObject); 			

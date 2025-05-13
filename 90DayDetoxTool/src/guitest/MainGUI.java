@@ -24,7 +24,7 @@ public class MainGUI implements ActionListener
 	private JPanel inFieldPane; 
 	private JPanel otherPane; 
 	private JPanel savePane; 
-	private JScrollPane scrollPane; 
+//	private JScrollPane scrollPane; 
 	private JPanel outFieldPane; 
 	private JPanel outFieldPaneTwo;
 	
@@ -96,8 +96,8 @@ public class MainGUI implements ActionListener
 		
 		frame.add(inFieldPane); 
 		frame.add(otherPane); 
-		scrollPane = new JScrollPane(journalEntry); 
-		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); 
+//		scrollPane = new JScrollPane(journalEntry); 
+//		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); 
 		
 
 		inFieldPane.setLayout(new GridLayout(0, 2)); 
@@ -113,10 +113,11 @@ public class MainGUI implements ActionListener
 		inFieldPane.add(year); 
 		year.addActionListener(this); 
 		
-		
-		otherPane.add(new JLabel("Journal Entry")); 
-		otherPane.add(journalEntry, BorderLayout.SOUTH); 
+		JScrollPane scrollPane = new JScrollPane(journalEntry); 
 
+		otherPane.add(new JLabel("Journal Entry")); 
+		otherPane.add(scrollPane, BorderLayout.SOUTH); 
+		
 		//add save button for journal entry
 		savePane = new JPanel(); 
 		savePane.setLayout(new FlowLayout()); 

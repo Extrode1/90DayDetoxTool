@@ -20,13 +20,9 @@ public class MainGUI implements ActionListener
 	private JTextField year;
 	private JTextField fullDate; 
 	private JTextArea journalEntry;
-//	private JTextArea fullJournalEntry; 
 	private JPanel inFieldPane; 
 	private JPanel otherPane; 
 	private JPanel savePane; 
-//	private JScrollPane scrollPane; 
-	private JPanel outFieldPane; 
-	private JPanel outFieldPaneTwo;
 	
 	//create additional JLabel
 	private JLabel mainMenuLabel; 
@@ -96,8 +92,7 @@ public class MainGUI implements ActionListener
 		
 		frame.add(inFieldPane); 
 		frame.add(otherPane); 
-//		scrollPane = new JScrollPane(journalEntry); 
-//		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); 
+
 		
 
 		inFieldPane.setLayout(new GridLayout(0, 2)); 
@@ -125,23 +120,7 @@ public class MainGUI implements ActionListener
 		savePane.add(save); 
 		frame.add(savePane, BorderLayout.SOUTH);
 		
-		//display date
-		
-//		outFieldPane = new JPanel(); 
-//		outFieldPane.setLayout(new GridLayout(1, 2));
-//		outFieldPane.add(new JLabel("Date")); 
-//		outFieldPane.add(fullDate);
-//		frame.add(outFieldPane, BorderLayout.SOUTH);
-//		
-		//display journal entry
-//		outFieldPaneTwo = new JPanel(); 
-//		outFieldPaneTwo.setLayout(new BorderLayout());
-//		outFieldPaneTwo.add(new JLabel("Journal Entry")); 
-//		outFieldPaneTwo.add(fullJournalEntry, BorderLayout.SOUTH);
-		
-//		frame.add(outFieldPaneTwo); 
 
-		
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -157,8 +136,6 @@ public class MainGUI implements ActionListener
 			inFieldPane.setVisible(true);
 			otherPane.setVisible(true); 
 			savePane.setVisible(true);
-//			outFieldPane.setVisible(false);
-//			outFieldPaneTwo.setVisible(false);
 			mainPane.setVisible(false);
 				
 			
@@ -171,8 +148,6 @@ public class MainGUI implements ActionListener
 			inFieldPane.setVisible(true);
 			otherPane.setVisible(true); 
 			savePane.setVisible(true);
-//			outFieldPane.setVisible(false);
-//			outFieldPaneTwo.setVisible(false);
 			mainPane.setVisible(false);
 
 		}
@@ -184,8 +159,6 @@ public class MainGUI implements ActionListener
 			inFieldPane.setVisible(false);
 			otherPane.setVisible(false); 
 			savePane.setVisible(false);
-//			outFieldPane.setVisible(false);
-//			outFieldPaneTwo.setVisible(false);
 			mainPane.setVisible(true);
 			
 
@@ -193,9 +166,7 @@ public class MainGUI implements ActionListener
 		else if (e.getSource() == save)
 		{
 			String fullString = month.getText().trim() + "/" + day.getText().trim() + "/" + year.getText().trim();
-//			fullDate.setText(fullString); 
 			String entryFullString = journalEntry.getText().trim(); 
-//			fullJournalEntry.setText(entryFullString); 
 			//create JTextArea
 			JTextArea message = new JTextArea(entryFullString); 
 			message.setLineWrap(true); 
@@ -203,16 +174,11 @@ public class MainGUI implements ActionListener
 			
 			JScrollPane scrollPane = new JScrollPane(message); 
 			scrollPane.setPreferredSize(new Dimension(500, 500)); 
-			
-//			outFieldPane.setVisible(true); 
-//			outFieldPaneTwo.setVisible(true); 
-//			JOptionPane.showConfirmDialog(null, "Is this the entry that you want entered?\nDate: " + fullString + "\nJournal Entry: " + scrollPane  , "Entry Confirmation", JOptionPane.YES_NO_OPTION); 
 			JOptionPane.showConfirmDialog(frame, scrollPane, "Is this the entry you want to enter? ", JOptionPane.YES_NO_OPTION); 
 			JournalEntry newObject = new JournalEntry(day, month, year, journalEntry); 
 			entries.add(newObject); 			
 			
 		}
-		else
 			; 
 	}
 

@@ -174,12 +174,23 @@ public class MainGUI implements ActionListener
 			
 			JScrollPane scrollPane = new JScrollPane(message); 
 			scrollPane.setPreferredSize(new Dimension(500, 500)); 
-			JOptionPane.showConfirmDialog(frame, scrollPane, "Is this the entry you want to enter? ", JOptionPane.YES_NO_OPTION); 
-			JournalEntry newObject = new JournalEntry(day, month, year, journalEntry); 
-			entries.add(newObject); 			
-			
+			int choice = JOptionPane.showConfirmDialog(frame, scrollPane, "Is this the entry you want to enter? ", JOptionPane.YES_NO_OPTION); 
+			if (choice == JOptionPane.YES_OPTION)
+			{
+				JournalEntry newObject = new JournalEntry(day, month, year, message); 
+				entries.add(newObject); 						
+			}
+			else if (choice == JOptionPane.NO_OPTION)
+			{
+				day.setText(""); 
+				month.setText("");
+				year.setText(""); 
+				journalEntry.setText(""); 
+			}
+			else
+				;
 		}
-			; 
+			
 	}
 
 		

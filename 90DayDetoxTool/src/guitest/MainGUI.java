@@ -166,13 +166,15 @@ public class MainGUI implements ActionListener
 		else if (e.getSource() == save)
 		{
 			String fullString = month.getText().trim() + "/" + day.getText().trim() + "/" + year.getText().trim();
+			JTextField entireDate = new JTextField(fullString); 
 			String entryFullString = journalEntry.getText().trim(); 
 			//create JTextArea
 			JTextArea message = new JTextArea(entryFullString); 
 			message.setLineWrap(true); 
 			message.setWrapStyleWord(true); 
 			
-			JScrollPane scrollPane = new JScrollPane(message); 
+			JScrollPane scrollPane = new JScrollPane(message);
+			
 			scrollPane.setPreferredSize(new Dimension(500, 500)); 
 			int choice = JOptionPane.showConfirmDialog(frame, scrollPane, "Is this the entry you want to enter? ", JOptionPane.YES_NO_OPTION); 
 			if (choice == JOptionPane.YES_OPTION)
@@ -188,7 +190,7 @@ public class MainGUI implements ActionListener
 				journalEntry.setText(""); 
 			}
 			else
-				;
+				; 
 		}
 			
 	}

@@ -18,6 +18,7 @@ public class MainGUI implements ActionListener
 	private JTextField day; 
 	private JTextField month;
 	private JTextField year;
+	private JTextField title; 
 	private JTextField fullDate; 
 	private JTextArea journalEntry;
 	private JPanel inFieldPane; 
@@ -80,6 +81,7 @@ public class MainGUI implements ActionListener
 		month = new JTextField (15); 
 		year = new JTextField (15); 
 		fullDate = new JTextField (15); 
+		title = new JTextField(15); 
 		fullDate.setEditable(false); 
 		journalEntry = new JTextArea (15, 30);
 		fullJournalEntry.setEditable(false);
@@ -96,6 +98,12 @@ public class MainGUI implements ActionListener
 		
 
 		inFieldPane.setLayout(new GridLayout(0, 2)); 
+		//create user input in GUI
+		inFieldPane.add(new JLabel("Entry Title")); 
+		inFieldPane.add(title); 
+		title.addActionListener(this); 
+		
+		
 		inFieldPane.add(new JLabel("Day")); 
 		inFieldPane.add(day); 
 		day.addActionListener(this);
@@ -108,6 +116,7 @@ public class MainGUI implements ActionListener
 		inFieldPane.add(year); 
 		year.addActionListener(this); 
 		
+	
 		JScrollPane scrollPane = new JScrollPane(journalEntry); 
 
 		otherPane.add(new JLabel("Journal Entry")); 

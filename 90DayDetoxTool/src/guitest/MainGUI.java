@@ -188,7 +188,7 @@ public class MainGUI implements ActionListener
 			int choice = JOptionPane.showConfirmDialog(frame, scrollPane, "Is this the entry you want to enter? ", JOptionPane.YES_NO_OPTION); 
 			if (choice == JOptionPane.YES_OPTION)
 			{
-				JournalEntry newObject = new JournalEntry(day, month, year, message); 
+				JournalEntry newObject = new JournalEntry(day, month, year, message, title); 
 				entries.add(newObject); 						
 			}
 			else if (choice == JOptionPane.NO_OPTION)

@@ -10,13 +10,15 @@ public class JournalEntry {
 	private JTextField month; 
 	private JTextField year; 
 	private JTextArea journalEntry; 
+	private JTextField title; 
 	private static int dayCounter = 0; 
-	public JournalEntry (JTextField day, JTextField month, JTextField year, JTextArea journalEntry)
+	public JournalEntry (JTextField day, JTextField month, JTextField year, JTextArea journalEntry, JTextField title)
 	{
 		this.day = day; 
 		this.month = month; 
 		this.year = year; 
 		this.journalEntry = journalEntry; 
+		this.title = title; 
 		dayCounter++; 
 	}
 	public JTextField getDay()
@@ -35,6 +37,10 @@ public class JournalEntry {
 	{
 		return this.journalEntry; 
 	}
+	public JTextField getTitle ()
+	{
+		return this.title; 
+	}
 	public void setDay(JTextField day)
 	{
 		this.day = day; 
@@ -50,6 +56,10 @@ public class JournalEntry {
 	public void setJournalEntry (JTextArea journalEntry)
 	{
 		this.journalEntry = journalEntry; 
+	}
+	public void setTitle (JTextField title)
+	{
+		this.title = title; 
 	}
 	
 

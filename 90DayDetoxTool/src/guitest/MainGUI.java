@@ -197,6 +197,7 @@ public class MainGUI implements ActionListener
 				month.setText("");
 				year.setText(""); 
 				journalEntry.setText(""); 
+				title.setText(""); 
 			}
 			else
 				; 

@@ -14,7 +14,6 @@ public class MainGUI implements ActionListener
 	private JButton editEntries = new JButton("Edit current journal entries");
 	private JButton back = new JButton("Back"); 
 	private JButton save = new JButton("Save Entry");
-	private ArrayList <JournalEntry> entries = new ArrayList<>(); 
 	private JTextField day; 
 	private JTextField month;
 	private JTextField year;
@@ -31,7 +30,7 @@ public class MainGUI implements ActionListener
 	private JPanel mainPane; 
 	private JLabel mainMenuLabel2; 
 	//declare JList
-	private DefaultListModel<String> listModel; 
+	private DefaultListModel listModel; 
 	private JList list; 
 	
 	private JTextArea fullJournalEntry = new JTextArea(15, 30); 
@@ -135,8 +134,8 @@ public class MainGUI implements ActionListener
 		savePane.add(save); 
 		frame.add(savePane, BorderLayout.SOUTH);
 		//create the list
-		listModel = new DefaultListModel<>();
-		list = new JList<>(listModel); 
+		listModel = new DefaultListModel();
+		list = new JList(listModel); 
 		entryList = new JScrollPane(list); 
 		entryPane = new JPanel(new BorderLayout()); 
 		entryLabel = new JLabel("Entries"); 
@@ -213,14 +212,12 @@ public class MainGUI implements ActionListener
 			int choice = JOptionPane.showConfirmDialog(frame, scrollPane, "Is this the entry you want to enter? ", JOptionPane.YES_NO_OPTION); 
 			if (choice == JOptionPane.YES_OPTION)
 			{
-				JournalEntry newObject = new JournalEntry(day, month, year, message, titleString); 
-				entries.add(newObject); 
+				listModel.addElement(new JournalEntry(day, month, year, message, titleString)); 
 				day.setText(""); 
 				month.setText("");
 				year.setText(""); 
 				journalEntry.setText(""); 
 				title.setText(""); 
-				listModel.addElement("Title: " + titleString); 
 				counter++; 
 				
 			}

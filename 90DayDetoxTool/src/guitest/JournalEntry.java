@@ -20,6 +20,7 @@ public class JournalEntry {
 		this.year = year; 
 		this.journalEntry = journalEntry; 
 		this.title = title; 
+		this.titleString = titleString; 
 		dayCounter++; 
 	}
 	public JTextField getDay()

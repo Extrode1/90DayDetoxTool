@@ -33,7 +33,6 @@ public class MainGUI implements ActionListener
 	
 	//declare JList
 	private DefaultListModel<JournalEntry> listModel; 
-	private JList<JournalEntry> jList; 
 	
 	private JTextArea fullJournalEntry = new JTextArea(15, 30); 
 
@@ -129,8 +128,7 @@ public class MainGUI implements ActionListener
 		savePane.add(save); 
 		frame.add(savePane, BorderLayout.SOUTH);
 		
-		//
-		
+		//declare JList
 
 	}
 	public static void main(String[] args) {
@@ -160,6 +158,7 @@ public class MainGUI implements ActionListener
 			otherPane.setVisible(true); 
 			savePane.setVisible(true);
 			mainPane.setVisible(false);
+			
 
 		}
 		else if (e.getSource() == back)

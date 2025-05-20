@@ -29,7 +29,7 @@ public class MainGUI implements ActionListener
 	private JLabel mainMenuLabel; 
 	private JPanel mainPane; 
 	private JLabel mainMenuLabel2; 
-	
+	private JList JListEntries; 
 	
 	//declare JList
 	private DefaultListModel<JournalEntry> listModel; 
@@ -154,11 +154,8 @@ public class MainGUI implements ActionListener
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
 			back.setVisible(true);
-			inFieldPane.setVisible(true);
-			otherPane.setVisible(true); 
-			savePane.setVisible(true);
 			mainPane.setVisible(false);
-			
+			JListEntries.setVisible(true);
 
 		}
 		else if (e.getSource() == back)
@@ -198,6 +195,7 @@ public class MainGUI implements ActionListener
 				year.setText(""); 
 				journalEntry.setText(""); 
 				title.setText(""); 
+				JListEntries = new JList<>(entries.toArray(new JournalEntry[entries.size()])); 
 				
 			}
 			else if (choice == JOptionPane.NO_OPTION)

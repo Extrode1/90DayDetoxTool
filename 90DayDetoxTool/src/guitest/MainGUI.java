@@ -135,8 +135,8 @@ public class MainGUI implements ActionListener
 		savePane.add(save); 
 		frame.add(savePane, BorderLayout.SOUTH);
 		//create the list
-		listModel = new DefaultListModel();
-		list = new JList(listModel); 
+		listModel = new DefaultListModel<>();
+		list = new JList<>(listModel); 
 		entryList = new JScrollPane(list); 
 		entryPane = new JPanel(new BorderLayout()); 
 		entryLabel = new JLabel("Entries"); 

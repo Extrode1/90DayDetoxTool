@@ -29,14 +29,17 @@ public class MainGUI implements ActionListener
 	private JLabel mainMenuLabel; 
 	private JPanel mainPane; 
 	private JLabel mainMenuLabel2; 
-	private JList JListEntries; 
-	
 	//declare JList
-	private DefaultListModel<JournalEntry> listModel; 
+	private DefaultListModel<String> listModel = new DefaultListModel<>(); 
 	
 	private JTextArea fullJournalEntry = new JTextArea(15, 30); 
-
+	int counter = 90; //90 day detox should have 90 entries max
 	
+	//strings
+	private String fullString; 
+	private JTextField entireDate; 
+	private String entryFullString; 
+	private String titleString; 
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -128,8 +131,12 @@ public class MainGUI implements ActionListener
 		savePane.add(save); 
 		frame.add(savePane, BorderLayout.SOUTH);
 		
-		//declare JList
-
+		//loop through JList
+		for (int i = 0; i < counter; i++)
+		{
+			listModel.addElement("Date " + entireDate + "Title " + titleString); 
+	
+		}
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -155,7 +162,6 @@ public class MainGUI implements ActionListener
 			editEntries.setVisible(false);
 			back.setVisible(true);
 			mainPane.setVisible(false);
-			JListEntries.setVisible(true);
 
 		}
 		else if (e.getSource() == back)
@@ -172,10 +178,10 @@ public class MainGUI implements ActionListener
 		}
 		else if (e.getSource() == save)
 		{
-			String fullString = month.getText().trim() + "/" + day.getText().trim() + "/" + year.getText().trim();
-			JTextField entireDate = new JTextField(fullString); 
-			String entryFullString = journalEntry.getText().trim(); 
-			String titleString = title.getText(); 
+			fullString = month.getText().trim() + "/" + day.getText().trim() + "/" + year.getText().trim();
+			entireDate = new JTextField(fullString); 
+			entryFullString = journalEntry.getText().trim(); 
+			titleString = title.getText(); 
 
 			//create JTextArea
 			JTextArea message = new JTextArea(entryFullString); 
@@ -195,7 +201,8 @@ public class MainGUI implements ActionListener
 				year.setText(""); 
 				journalEntry.setText(""); 
 				title.setText(""); 
-				JListEntries = new JList<>(entries.toArray(new JournalEntry[entries.size()])); 
+				listModel.addElement("Date " + entireDate + "Title " + titleString); 
+				counter++; 
 				
 			}
 			else if (choice == JOptionPane.NO_OPTION)

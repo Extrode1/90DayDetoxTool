@@ -24,6 +24,7 @@ public class MainGUI implements ActionListener
 	private JPanel inFieldPane; 
 	private JPanel otherPane; 
 	private JPanel savePane; 
+	private JPanel entryPane; 
 	
 	//create additional JLabel
 	private JLabel mainMenuLabel; 
@@ -42,6 +43,7 @@ public class MainGUI implements ActionListener
 	private String entryFullString; 
 	private String titleString; 
 	private JScrollPane entryList; 
+	private JLabel entryLabel; 
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -136,9 +138,18 @@ public class MainGUI implements ActionListener
 		listModel = new DefaultListModel();
 		list = new JList(listModel); 
 		entryList = new JScrollPane(list); 
-		//loop through JList
-		frame.add(entryList); 
+		entryPane = new JPanel(new BorderLayout()); 
+		entryLabel = new JLabel("Entries"); 
+		entryPane.add(entryLabel, BorderLayout.NORTH);
+		entryPane.add(entryList, BorderLayout.SOUTH); 
+		frame.add(entryPane); 
+		
+		//hide entry creation when JFrame opens
 		entryList.setVisible(false);
+		entryLabel.setVisible(false);
+		inFieldPane.setVisible(false); 
+		otherPane.setVisible(false);
+		savePane.setVisible(false); 
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -167,6 +178,7 @@ public class MainGUI implements ActionListener
 			back.setVisible(true);
 			mainPane.setVisible(false);
 			entryList.setVisible(true); 
+			entryLabel.setVisible(true); 
 			
 
 		}
@@ -180,6 +192,7 @@ public class MainGUI implements ActionListener
 			savePane.setVisible(false);
 			mainPane.setVisible(true);
 			entryList.setVisible(false); 
+			entryLabel.setVisible(false);
 
 		}
 		else if (e.getSource() == save)

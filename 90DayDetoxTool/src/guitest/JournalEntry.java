@@ -38,9 +38,9 @@ public class JournalEntry {
 	{
 		return this.journalEntry; 
 	}
-	public JTextField getTitle ()
+	public String getTitleString ()
 	{
-		return this.title; 
+		return this.titleString; 
 	}
 	public void setDay(JTextField day)
 	{
@@ -58,9 +58,13 @@ public class JournalEntry {
 	{
 		this.journalEntry = journalEntry; 
 	}
-	public void setTitle (JTextField title)
+	public void setTitleString (String titleString)
 	{
-		this.title = title; 
+		this.titleString = titleString; 
+	}
+	public String toString()
+	{
+		return titleString; 
 	}
 
 	

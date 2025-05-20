@@ -11,8 +11,9 @@ public class JournalEntry {
 	private JTextField year; 
 	private JTextArea journalEntry; 
 	private JTextField title; 
+	private String titleString; 
 	private static int dayCounter = 0; 
-	public JournalEntry (JTextField day, JTextField month, JTextField year, JTextArea journalEntry, JTextField title)
+	public JournalEntry (JTextField day, JTextField month, JTextField year, JTextArea journalEntry, String titleString)
 	{
 		this.day = day; 
 		this.month = month; 
@@ -61,6 +62,7 @@ public class JournalEntry {
 	{
 		this.title = title; 
 	}
+
 	
 
 }

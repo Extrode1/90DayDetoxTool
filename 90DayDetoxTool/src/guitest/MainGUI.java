@@ -129,6 +129,8 @@ public class MainGUI implements ActionListener
 		savePane.add(save); 
 		frame.add(savePane, BorderLayout.SOUTH);
 		
+		//
+		
 
 	}
 	public static void main(String[] args) {
@@ -177,6 +179,8 @@ public class MainGUI implements ActionListener
 			String fullString = month.getText().trim() + "/" + day.getText().trim() + "/" + year.getText().trim();
 			JTextField entireDate = new JTextField(fullString); 
 			String entryFullString = journalEntry.getText().trim(); 
+			String titleString = title.getText(); 
+
 			//create JTextArea
 			JTextArea message = new JTextArea(entryFullString); 
 			message.setLineWrap(true); 
@@ -188,8 +192,9 @@ public class MainGUI implements ActionListener
 			int choice = JOptionPane.showConfirmDialog(frame, scrollPane, "Is this the entry you want to enter? ", JOptionPane.YES_NO_OPTION); 
 			if (choice == JOptionPane.YES_OPTION)
 			{
-				JournalEntry newObject = new JournalEntry(day, month, year, message, title); 
-				entries.add(newObject); 						
+				JournalEntry newObject = new JournalEntry(day, month, year, message, titleString); 
+				entries.add(newObject); 
+				
 			}
 			else if (choice == JOptionPane.NO_OPTION)
 			{

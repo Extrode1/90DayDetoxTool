@@ -62,6 +62,7 @@ public class JournalEntry {
 	{
 		this.titleString = titleString; 
 	}
+	@Override
 	public String toString()
 	{
 		return titleString; 

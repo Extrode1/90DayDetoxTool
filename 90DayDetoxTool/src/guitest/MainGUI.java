@@ -193,6 +193,11 @@ public class MainGUI implements ActionListener
 			{
 				JournalEntry newObject = new JournalEntry(day, month, year, message, titleString); 
 				entries.add(newObject); 
+				day.setText(""); 
+				month.setText("");
+				year.setText(""); 
+				journalEntry.setText(""); 
+				title.setText(""); 
 				
 			}
 			else if (choice == JOptionPane.NO_OPTION)

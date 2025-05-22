@@ -235,8 +235,5 @@ public class MainGUI implements ActionListener
 		}
 			
 	}
-
-		
 	
-
 }

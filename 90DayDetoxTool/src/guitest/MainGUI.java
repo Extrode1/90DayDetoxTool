@@ -14,6 +14,7 @@ public class MainGUI implements ActionListener
 	private JButton editEntries = new JButton("Edit current journal entries");
 	private JButton back = new JButton("Back"); 
 	private JButton save = new JButton("Save Entry");
+	private JButton deleteEntry = new JButton("Delete Entry"); 
 	private JTextField day; 
 	private JTextField month;
 	private JTextField year;
@@ -143,13 +144,17 @@ public class MainGUI implements ActionListener
 		entryPane.add(entryLabel, BorderLayout.NORTH);
 		entryPane.add(entryList, BorderLayout.SOUTH); 
 		frame.add(entryPane); 
-		
+		frame.add(deleteEntry); 
 		//hide entry creation when JFrame opens
 		entryList.setVisible(false);
 		entryLabel.setVisible(false);
 		inFieldPane.setVisible(false); 
 		otherPane.setVisible(false);
 		savePane.setVisible(false); 
+		deleteEntry.setVisible(false);
+		
+		//implement button that deletes journal entries
+		
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -179,6 +184,8 @@ public class MainGUI implements ActionListener
 			mainPane.setVisible(false);
 			entryList.setVisible(true); 
 			entryLabel.setVisible(true); 
+			deleteEntry.setVisible(true);
+
 			
 
 		}
@@ -193,6 +200,7 @@ public class MainGUI implements ActionListener
 			mainPane.setVisible(true);
 			entryList.setVisible(false); 
 			entryLabel.setVisible(false);
+			deleteEntry.setVisible(false);
 
 		}
 		else if (e.getSource() == save)

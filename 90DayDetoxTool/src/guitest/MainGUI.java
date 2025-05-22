@@ -135,9 +135,15 @@ public class MainGUI implements ActionListener, ListSelectionListener
 		save.addActionListener(this); 		
 		savePane.add(save); 
 		frame.add(savePane, BorderLayout.SOUTH);
+		
 		//create the list
 		listModel = new DefaultListModel();
 		list = new JList(listModel); 
+		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+		list.setSelectedIndex(0);
+		list.addListSelectionListener(this);
+		
+		//put list into JScrollPane
 		entryList = new JScrollPane(list); 
 		entryList.setPreferredSize(new Dimension(200, 600)); 
 		entryPane = new JPanel(new BorderLayout()); 
@@ -145,13 +151,15 @@ public class MainGUI implements ActionListener, ListSelectionListener
 		entryPane.add(entryLabel, BorderLayout.NORTH);
 		entryPane.add(entryList, BorderLayout.SOUTH); 
 		frame.add(entryPane); 
-		frame.add(deleteEntry); 
+		frame.add(deleteEntry);
+		
 		//hide entry creation when JFrame opens
 		entryList.setVisible(false);
 		entryLabel.setVisible(false);
 		inFieldPane.setVisible(false); 
 		otherPane.setVisible(false);
-		savePane.setVisible(false); 		
+		savePane.setVisible(false); 
+		
 		//implement button that deletes journal entries
 		deleteEntry.setVisible(false);
 		deleteEntry.addActionListener(this); 

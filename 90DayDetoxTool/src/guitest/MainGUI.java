@@ -123,7 +123,7 @@ public class MainGUI implements ActionListener
 		
 	
 		JScrollPane scrollPane = new JScrollPane(journalEntry); 
-
+		
 		otherPane.add(new JLabel("Journal Entry")); 
 		otherPane.add(scrollPane, BorderLayout.SOUTH); 
 		
@@ -137,6 +137,7 @@ public class MainGUI implements ActionListener
 		listModel = new DefaultListModel();
 		list = new JList(listModel); 
 		entryList = new JScrollPane(list); 
+		entryList.setPreferredSize(new Dimension(200, 600)); 
 		entryPane = new JPanel(new BorderLayout()); 
 		entryLabel = new JLabel("Entries"); 
 		entryPane.add(entryLabel, BorderLayout.NORTH);

@@ -93,18 +93,14 @@ public class MainGUI implements ActionListener, ListSelectionListener
 		journalEntry = new JTextArea (15, 30);
 		fullJournalEntry.setEditable(false);
 		journalEntry.setLineWrap(true); 
-		fullJournalEntry.setLineWrap(true);
-		
+		fullJournalEntry.setLineWrap(true);		
 		otherPane.setLayout(new BorderLayout());
 
-		//create labelled fields
-		
+		//create labelled fields		
 		frame.add(inFieldPane); 
 		frame.add(otherPane); 
-
-		
-
 		inFieldPane.setLayout(new GridLayout(0, 2)); 
+		
 		//create user input in GUI
 		inFieldPane.add(new JLabel("Entry Title")); 
 		inFieldPane.add(title); 

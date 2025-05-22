@@ -2,9 +2,10 @@ package guitest;
 import javax.swing.*; 
 import java.awt.*; 
 import java.awt.event.*;
+import javax.swing.event.*; 
 import java.util.ArrayList; 
 
-public class MainGUI implements ActionListener 
+public class MainGUI implements ActionListener, ListSelectionListener
 {
 	//declare JFrame
 	private JFrame frame; 
@@ -150,11 +151,28 @@ public class MainGUI implements ActionListener
 		entryLabel.setVisible(false);
 		inFieldPane.setVisible(false); 
 		otherPane.setVisible(false);
-		savePane.setVisible(false); 
-		deleteEntry.setVisible(false);
-		
+		savePane.setVisible(false); 		
 		//implement button that deletes journal entries
+		deleteEntry.setVisible(false);
+		deleteEntry.addActionListener(this); 
 		
+	}
+	//required by ListSelectionListener
+	public void valueChanged(ListSelectionEvent e)
+	{
+		if (e.getValueIsAdjusting() == false)
+		{
+			if (list.getSelectedIndex() == -1)
+			{
+			//no selection, disable delete button
+				deleteEntry.setEnabled(false); 
+			}
+			else
+			{
+			//selection, enable fire button
+				deleteEntry.setEnabled(true);
+			}
+		}
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -241,6 +259,32 @@ public class MainGUI implements ActionListener
 			else
 				; 
 		}
+		else if (e.getSource() == deleteEntry)
+		{
+			int index = list.getSelectedIndex();
+			listModel.remove(index); 
+
+			//consider edge case - nothing left
+			int size = listModel.getSize(); 
+			
+			if (size == 0)
+			{
+				deleteEntry.setEnabled(false); 
+			}
+			else
+			{
+				if (index == listModel.getSize())
+				{
+					//last index removed
+					index--; 
+				}
+				list.setSelectedIndex(index);
+				list.ensureIndexIsVisible(index);
+			}
+
+			
+		}	
+		
 			
 	}
 	

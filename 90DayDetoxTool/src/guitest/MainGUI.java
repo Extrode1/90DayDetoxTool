@@ -163,6 +163,7 @@ public class MainGUI implements ActionListener, ListSelectionListener
 		//implement button that deletes journal entries
 		deleteEntry.setVisible(false);
 		deleteEntry.addActionListener(this); 
+		deleteEntry.setEnabled(false); 
 		
 	}
 	//required by ListSelectionListener

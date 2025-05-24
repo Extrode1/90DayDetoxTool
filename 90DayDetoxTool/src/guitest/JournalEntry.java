@@ -6,58 +6,55 @@ import java.util.ArrayList;
 
 public class JournalEntry {
 	
-	private JTextField day; 
-	private JTextField month; 
-	private JTextField year; 
-	private JTextArea journalEntry; 
-	private JTextField title; 
+	private String dayString; 
+	private String monthString; 
+	private String yearString; 
+	private String entryFullString; 
 	private String titleString; 
 	private static int dayCounter = 0; 
-	public JournalEntry (JTextField day, JTextField month, JTextField year, JTextArea journalEntry, String titleString)
+	public JournalEntry (String dayString, String monthString, String yearString, String entryFullString, String titleString)
 	{
-		this.day = day; 
-		this.month = month; 
-		this.year = year; 
-		this.journalEntry = journalEntry; 
-		this.title = title; 
+		this.dayString = dayString; 
+		this.monthString = monthString; 
+		this.yearString = yearString; 
+		this.entryFullString = entryFullString; 
 		this.titleString = titleString; 
-		dayCounter++; 
 	}
-	public JTextField getDay()
+	public String getDay()
 	{
-		return this.day; 
+		return this.dayString; 
 	}
-	public JTextField getMonth()
+	public String getMonth()
 	{
-		return this.month; 
+		return this.monthString; 
 	}
-	public JTextField getYear()
+	public String getYear()
 	{
-		return this.year; 
+		return this.yearString; 
 	}
-	public JTextArea getJournalEntry()
+	public String getJournalEntry()
 	{
-		return this.journalEntry; 
+		return this.entryFullString; 
 	}
 	public String getTitleString ()
 	{
 		return this.titleString; 
 	}
-	public void setDay(JTextField day)
+	public void setDay(String dayString)
 	{
-		this.day = day; 
+		this.dayString = dayString; 
 	}
-	public void setMonth (JTextField month)
+	public void setMonth (String monthString)
 	{
-		this.month = month; 
+		this.monthString = monthString; 
 	}
-	public void setYear (JTextField year)
+	public void setYear (String yearString)
 	{
-		this.year = year; 
+		this.yearString = yearString; 
 	}
-	public void setJournalEntry (JTextArea journalEntry)
+	public void setJournalEntry (String entryFullString)
 	{
-		this.journalEntry = journalEntry; 
+		this.entryFullString = entryFullString; 
 	}
 	public void setTitleString (String titleString)
 	{

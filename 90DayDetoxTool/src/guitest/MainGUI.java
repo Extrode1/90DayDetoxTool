@@ -45,6 +45,9 @@ public class MainGUI implements ActionListener, ListSelectionListener
 	private JTextField entireDate; 
 	private String entryFullString; 
 	private String titleString; 
+	private String dayString; 
+	private String monthString; 
+	private String yearString; 
 	private JScrollPane entryList; 
 	private JLabel entryLabel; 
 	public MainGUI()
@@ -247,38 +250,20 @@ public class MainGUI implements ActionListener, ListSelectionListener
 			fullString = month.getText().trim() + "/" + day.getText().trim() + "/" + year.getText().trim();
 			entireDate = new JTextField(fullString); 
 			entryFullString = journalEntry.getText().trim(); 
-			titleString = title.getText(); 
+			titleString = title.getText();
+			dayString = day.getText();
+			monthString = month.getText(); 
+			yearString = year.getText(); 
 
-			//create JTextArea
-			JTextArea message = new JTextArea(entryFullString); 
-			message.setLineWrap(true); 
-			message.setWrapStyleWord(true); 
-			
-			JScrollPane scrollPane = new JScrollPane(message);
-			
-			scrollPane.setPreferredSize(new Dimension(500, 500)); 
-			int choice = JOptionPane.showConfirmDialog(frame, scrollPane, "Is this the entry you want to enter? ", JOptionPane.YES_NO_OPTION); 
-			if (choice == JOptionPane.YES_OPTION)
-			{
-				listModel.addElement(new JournalEntry(day, month, year, message, titleString)); 
-				day.setText(""); 
-				month.setText("");
-				year.setText(""); 
-				journalEntry.setText(""); 
-				title.setText(""); 
-				counter++; 
-				
-			}
-			else if (choice == JOptionPane.NO_OPTION)
-			{
-				day.setText(""); 
-				month.setText("");
-				year.setText(""); 
-				journalEntry.setText(""); 
-				title.setText(""); 
-			}
-			else
-				; 
+
+			listModel.addElement(new JournalEntry(dayString, monthString, yearString, entryFullString, titleString)); 
+			day.setText(""); 
+			month.setText("");
+			year.setText(""); 
+			journalEntry.setText(""); 
+			title.setText(""); 
+			counter++; 
+
 		}
 		else if (e.getSource() == deleteEntry)
 		{
@@ -319,7 +304,17 @@ public class MainGUI implements ActionListener, ListSelectionListener
 			entryLabel.setVisible(false);
 			deleteEntry.setVisible(false);
 			editEntry.setVisible(false);
-			
+			//convert JTextField to string
+			int entryIndex = list.getSelectedIndex();
+			if (entryIndex >= 0)
+			{
+				JournalEntry index = (JournalEntry) listModel.get(entryIndex);
+				
+				day.setText(""); 
+				month.setText("");
+				year.setText(""); 
+				journalEntry.setText("");
+			}
 		}
 			
 	}

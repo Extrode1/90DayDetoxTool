@@ -182,6 +182,9 @@ public class MainGUI implements ActionListener, ListSelectionListener
 		editEntry.setVisible(false);
 		editEntry.addActionListener(this);
 		editEntry.setEnabled(false);
+		
+		//disable saveExisting
+		saveExisting.setEnabled(false);
 	}
 	//required by ListSelectionListener
 	public void valueChanged(ListSelectionEvent e)
@@ -193,12 +196,14 @@ public class MainGUI implements ActionListener, ListSelectionListener
 			//no selection, disable delete button
 				deleteEntry.setEnabled(false); 
 				editEntry.setEnabled(false);
+				saveExisting.setEnabled(false);
 			}
 			else
 			{
 			//selection, enable fire button
 				deleteEntry.setEnabled(true);
 				editEntry.setEnabled(true);
+				saveExisting.setEnabled(true);
 			}
 		}
 	}
@@ -263,7 +268,7 @@ public class MainGUI implements ActionListener, ListSelectionListener
 
 			//add element to list
 			listModel.addElement(new JournalEntry(dayString, monthString, yearString, entryFullString, titleString));
-			
+			saveExisting.setEnabled(true); 
 			//reset fields to blank
 			day.setText(""); 
 			month.setText("");
@@ -308,7 +313,8 @@ public class MainGUI implements ActionListener, ListSelectionListener
 			//edit element in list
 			listModel.remove(entryIndex); 
 			listModel.add(entryIndex, new JournalEntry(dayString, monthString, yearString, entryFullString, titleString));
-			
+			//disable existing if there is nothing in the list
+		
 			//reset fields to blank
 			day.setText(""); 
 			month.setText("");

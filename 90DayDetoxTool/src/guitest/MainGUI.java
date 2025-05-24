@@ -305,7 +305,22 @@ public class MainGUI implements ActionListener, ListSelectionListener
 
 			
 		}	
-		
+		else if (e.getSource() == editEntry)
+		{
+			entryCreation.setVisible(false);
+			editEntries.setVisible(false);
+			back.setVisible(true);
+			inFieldPane.setVisible(true);
+			otherPane.setVisible(true); 
+			savePane.setVisible(true);
+			mainPane.setVisible(false);
+			//remove list from view
+			entryList.setVisible(false); 
+			entryLabel.setVisible(false);
+			deleteEntry.setVisible(false);
+			editEntry.setVisible(false);
+			
+		}
 			
 	}
 	

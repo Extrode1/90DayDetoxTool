@@ -255,8 +255,15 @@ public class MainGUI implements ActionListener, ListSelectionListener
 			monthString = month.getText(); 
 			yearString = year.getText(); 
 
-
-			listModel.addElement(new JournalEntry(dayString, monthString, yearString, entryFullString, titleString)); 
+			if (list.isSelectionEmpty())
+			{
+				listModel.addElement(new JournalEntry(dayString, monthString, yearString, entryFullString, titleString));
+			}
+			else
+			{
+				int currentIndex = list.getSelectedIndex(); 
+				listModel.setElementAt(new JournalEntry(dayString, monthString, yearString, entryFullString, titleString), currentIndex); 
+			}
 			day.setText(""); 
 			month.setText("");
 			year.setText(""); 

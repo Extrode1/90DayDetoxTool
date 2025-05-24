@@ -51,6 +51,9 @@ public class MainGUI implements ActionListener, ListSelectionListener
 	private String yearString; 
 	private JScrollPane entryList; 
 	private JLabel entryLabel; 
+	
+	//entry index
+	private int entryIndex; 
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -283,6 +286,68 @@ public class MainGUI implements ActionListener, ListSelectionListener
 			//make entry editing information hidden
 			
 		}
+		else if (e.getSource() == saveExisting)
+		{
+			fullString = month.getText().trim() + "/" + day.getText().trim() + "/" + year.getText().trim();
+			entireDate = new JTextField(fullString); 
+			entryFullString = journalEntry.getText().trim(); 
+			titleString = title.getText();
+			dayString = day.getText();
+			monthString = month.getText(); 
+			yearString = year.getText(); 
+
+			//add element to list
+			fullString = month.getText().trim() + "/" + day.getText().trim() + "/" + year.getText().trim();
+			entireDate = new JTextField(fullString); 
+			entryFullString = journalEntry.getText().trim(); 
+			titleString = title.getText();
+			dayString = day.getText();
+			monthString = month.getText(); 
+			yearString = year.getText(); 
+
+			//edit element in list
+			listModel.remove(entryIndex); 
+			listModel.add(entryIndex, new JournalEntry(dayString, monthString, yearString, entryFullString, titleString));
+			
+			//reset fields to blank
+			day.setText(""); 
+			month.setText("");
+			year.setText(""); 
+			journalEntry.setText(""); 
+			title.setText(""); 
+			back.setEnabled(true); 
+			
+			//original entry editing shows
+			entryCreation.setVisible(false);
+			editEntries.setVisible(false);
+			mainPane.setVisible(false);
+			inFieldPane.setVisible(false);
+			otherPane.setVisible(false); 
+			savePane.setVisible(false); 
+			entryList.setVisible(true); 
+			entryLabel.setVisible(true); 
+			deleteEntry.setVisible(true);
+			editEntry.setVisible(true);			
+			//reset fields to blank
+			day.setText(""); 
+			month.setText("");
+			year.setText(""); 
+			journalEntry.setText(""); 
+			title.setText(""); 
+			back.setEnabled(true); 
+			
+			//original entry editing shows
+			entryCreation.setVisible(false);
+			editEntries.setVisible(false);
+			mainPane.setVisible(false);
+			inFieldPane.setVisible(false);
+			otherPane.setVisible(false); 
+			savePane.setVisible(false); 
+			entryList.setVisible(true); 
+			entryLabel.setVisible(true); 
+			deleteEntry.setVisible(true);
+			editEntry.setVisible(true);
+		}
 		else if (e.getSource() == deleteEntry)
 		{
 			int index = list.getSelectedIndex();
@@ -323,7 +388,7 @@ public class MainGUI implements ActionListener, ListSelectionListener
 			deleteEntry.setVisible(false);
 			editEntry.setVisible(false);
 			//convert JTextField to string
-			int entryIndex = list.getSelectedIndex();
+			entryIndex = list.getSelectedIndex();
 			if (entryIndex >= 0)
 			{
 				JournalEntry index = (JournalEntry) listModel.get(entryIndex);
@@ -335,7 +400,7 @@ public class MainGUI implements ActionListener, ListSelectionListener
 				title.setText(index.getTitleString()); 
 				//cannot go back unless entry is saved
 				back.setEnabled(false); 
-				listModel.remove(entryIndex); 
+				
 			}
 		}
 			

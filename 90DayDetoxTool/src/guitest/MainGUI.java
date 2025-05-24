@@ -310,10 +310,12 @@ public class MainGUI implements ActionListener, ListSelectionListener
 			{
 				JournalEntry index = (JournalEntry) listModel.get(entryIndex);
 				
-				day.setText(""); 
-				month.setText("");
-				year.setText(""); 
-				journalEntry.setText("");
+				day.setText(index.getDay()); 
+				month.setText(index.getMonth());
+				year.setText(index.getYear()); 
+				journalEntry.setText(index.getJournalEntry());
+				title.setText(index.getTitleString()); 
+				listModel.remove(entryIndex); 
 			}
 		}
 			

@@ -100,9 +100,8 @@ public class MainGUI implements ActionListener, ListSelectionListener
 		title = new JTextField(15); 
 		fullDate.setEditable(false); 
 		journalEntry = new JTextArea (15, 30);
-		fullJournalEntry.setEditable(false);
-		journalEntry.setLineWrap(true); 
-		fullJournalEntry.setLineWrap(true);		
+		journalEntry.setLineWrap(true);
+		journalEntry.setWrapStyleWord(true); 
 		otherPane.setLayout(new BorderLayout());
 
 		//create labelled fields		

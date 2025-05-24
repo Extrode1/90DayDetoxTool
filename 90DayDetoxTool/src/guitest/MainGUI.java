@@ -16,6 +16,7 @@ public class MainGUI implements ActionListener, ListSelectionListener
 	private JButton back = new JButton("Back"); 
 	private JButton save = new JButton("Save Entry");
 	private JButton deleteEntry = new JButton("Delete Entry"); 
+	private JButton editEntry = new JButton("Edit Entry"); 
 	private JTextField day; 
 	private JTextField month;
 	private JTextField year;
@@ -26,6 +27,7 @@ public class MainGUI implements ActionListener, ListSelectionListener
 	private JPanel otherPane; 
 	private JPanel savePane; 
 	private JPanel entryPane; 
+	private JPanel crudPane; 
 	
 	//create additional JLabel
 	private JLabel mainMenuLabel; 
@@ -147,20 +149,29 @@ public class MainGUI implements ActionListener, ListSelectionListener
 		entryPane.add(entryLabel, BorderLayout.NORTH);
 		entryPane.add(entryList, BorderLayout.SOUTH); 
 		frame.add(entryPane); 
-		frame.add(deleteEntry);
+		
+		//create crudpane
+		crudPane = new JPanel(new BorderLayout()); 
+		crudPane.add(deleteEntry, BorderLayout.NORTH);
+		crudPane.add(editEntry, BorderLayout.SOUTH); 
+		frame.add(crudPane); 
 		
 		//hide entry creation when JFrame opens
 		entryList.setVisible(false);
 		entryLabel.setVisible(false);
 		inFieldPane.setVisible(false); 
 		otherPane.setVisible(false);
-		savePane.setVisible(false); 
+		savePane.setVisible(false);
+		
 		
 		//implement button that deletes journal entries
 		deleteEntry.setVisible(false);
 		deleteEntry.addActionListener(this); 
 		deleteEntry.setEnabled(false); 
 		
+		//implement button that allows journal entries to be edited
+		editEntry.setVisible(false);
+		editEntry.addActionListener(this);
 	}
 	//required by ListSelectionListener
 	public void valueChanged(ListSelectionEvent e)
@@ -208,6 +219,7 @@ public class MainGUI implements ActionListener, ListSelectionListener
 			entryList.setVisible(true); 
 			entryLabel.setVisible(true); 
 			deleteEntry.setVisible(true);
+			editEntry.setVisible(true);
 
 			
 
@@ -224,6 +236,7 @@ public class MainGUI implements ActionListener, ListSelectionListener
 			entryList.setVisible(false); 
 			entryLabel.setVisible(false);
 			deleteEntry.setVisible(false);
+			editEntry.setVisible(false);
 
 		}
 		else if (e.getSource() == save)

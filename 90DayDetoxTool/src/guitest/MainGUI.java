@@ -262,8 +262,21 @@ public class MainGUI implements ActionListener, ListSelectionListener
 			year.setText(""); 
 			journalEntry.setText(""); 
 			title.setText(""); 
-			counter++; 
-
+			back.setEnabled(true); 
+			
+			//original entry editing shows
+			entryCreation.setVisible(false);
+			editEntries.setVisible(false);
+			mainPane.setVisible(false);
+			inFieldPane.setVisible(false);
+			otherPane.setVisible(false); 
+			savePane.setVisible(false); 
+			entryList.setVisible(true); 
+			entryLabel.setVisible(true); 
+			deleteEntry.setVisible(true);
+			editEntry.setVisible(true);
+			//make entry editing information hidden
+			
 		}
 		else if (e.getSource() == deleteEntry)
 		{
@@ -315,6 +328,8 @@ public class MainGUI implements ActionListener, ListSelectionListener
 				year.setText(index.getYear()); 
 				journalEntry.setText(index.getJournalEntry());
 				title.setText(index.getTitleString()); 
+				//cannot go back unless entry is saved
+				back.setEnabled(false); 
 				listModel.remove(entryIndex); 
 			}
 		}

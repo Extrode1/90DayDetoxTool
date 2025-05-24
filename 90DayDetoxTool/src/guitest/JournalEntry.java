@@ -11,7 +11,6 @@ public class JournalEntry {
 	private String yearString; 
 	private String entryFullString; 
 	private String titleString; 
-	private static int dayCounter = 0; 
 	public JournalEntry (String dayString, String monthString, String yearString, String entryFullString, String titleString)
 	{
 		this.dayString = dayString; 

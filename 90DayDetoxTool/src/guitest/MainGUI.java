@@ -38,9 +38,6 @@ public class MainGUI implements ActionListener, ListSelectionListener
 	private DefaultListModel listModel; 
 	private JList list; 
 	
-	private JTextArea fullJournalEntry = new JTextArea(15, 30); 
-	int counter = 90; //90 day detox should have 90 entries max
-	
 	//list
 	private String fullString; 
 	private JTextField entireDate; 

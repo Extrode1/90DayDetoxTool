@@ -172,6 +172,7 @@ public class MainGUI implements ActionListener, ListSelectionListener
 		//implement button that allows journal entries to be edited
 		editEntry.setVisible(false);
 		editEntry.addActionListener(this);
+		editEntry.setEnabled(false);
 	}
 	//required by ListSelectionListener
 	public void valueChanged(ListSelectionEvent e)
@@ -182,11 +183,13 @@ public class MainGUI implements ActionListener, ListSelectionListener
 			{
 			//no selection, disable delete button
 				deleteEntry.setEnabled(false); 
+				editEntry.setEnabled(false);
 			}
 			else
 			{
 			//selection, enable fire button
 				deleteEntry.setEnabled(true);
+				editEntry.setEnabled(true);
 			}
 		}
 	}

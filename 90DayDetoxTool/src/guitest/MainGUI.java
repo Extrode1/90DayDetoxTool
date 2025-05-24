@@ -14,7 +14,8 @@ public class MainGUI implements ActionListener, ListSelectionListener
 	private JButton entryCreation = new JButton("Create a new journal entry"); 
 	private JButton editEntries = new JButton("Edit current journal entries");
 	private JButton back = new JButton("Back"); 
-	private JButton save = new JButton("Save Entry");
+	private JButton save = new JButton("Save New");
+	private JButton saveExisting = new JButton ("Save Existing"); 
 	private JButton deleteEntry = new JButton("Delete Entry"); 
 	private JButton editEntry = new JButton("Edit Entry"); 
 	private JTextField day; 
@@ -132,9 +133,11 @@ public class MainGUI implements ActionListener, ListSelectionListener
 		
 		//add save button for journal entry
 		savePane = new JPanel(); 
-		savePane.setLayout(new FlowLayout()); 
-		save.addActionListener(this); 		
-		savePane.add(save); 
+		savePane.setLayout(new BorderLayout()); 
+		save.addActionListener(this); 	
+		saveExisting.addActionListener(this); 
+		savePane.add(saveExisting, BorderLayout.SOUTH); 
+		savePane.add(save, BorderLayout.NORTH); 
 		frame.add(savePane, BorderLayout.SOUTH);
 		
 		//create the list
@@ -255,15 +258,10 @@ public class MainGUI implements ActionListener, ListSelectionListener
 			monthString = month.getText(); 
 			yearString = year.getText(); 
 
-			if (list.isSelectionEmpty())
-			{
-				listModel.addElement(new JournalEntry(dayString, monthString, yearString, entryFullString, titleString));
-			}
-			else
-			{
-				int currentIndex = list.getSelectedIndex(); 
-				listModel.setElementAt(new JournalEntry(dayString, monthString, yearString, entryFullString, titleString), currentIndex); 
-			}
+			//add element to list
+			listModel.addElement(new JournalEntry(dayString, monthString, yearString, entryFullString, titleString));
+			
+			//reset fields to blank
 			day.setText(""); 
 			month.setText("");
 			year.setText(""); 

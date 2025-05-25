@@ -261,7 +261,11 @@ public class MainGUI implements ActionListener, ListSelectionListener
 			dayString = day.getText();
 			monthString = month.getText(); 
 			yearString = year.getText(); 
-
+			if (titleString.equals(""))
+			{
+				titleString = "no title entered"; 
+			}
+				
 			//add element to list
 			listModel.addElement(new JournalEntry(dayString, monthString, yearString, entryFullString, titleString));
 			saveExisting.setEnabled(true); 
@@ -305,7 +309,10 @@ public class MainGUI implements ActionListener, ListSelectionListener
 			dayString = day.getText();
 			monthString = month.getText(); 
 			yearString = year.getText(); 
-
+			if (titleString.equals(""))
+			{
+				titleString = "no title entered"; 
+			}
 			//edit element in list
 			listModel.remove(entryIndex); 
 			listModel.add(entryIndex, new JournalEntry(dayString, monthString, yearString, entryFullString, titleString));

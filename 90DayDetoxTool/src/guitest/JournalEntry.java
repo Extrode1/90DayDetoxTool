@@ -3,9 +3,11 @@ import javax.swing.*;
 import java.awt.*; 
 import java.awt.event.*;
 import java.util.ArrayList; 
+import java.io.*; 
 
-public class JournalEntry {
+public class JournalEntry implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	private String dayString; 
 	private String monthString; 
 	private String yearString; 

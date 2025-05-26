@@ -2,13 +2,14 @@ package guitest;
 import javax.swing.*; 
 import java.awt.*; 
 import java.awt.event.*;
-import javax.swing.event.*; 
-import java.util.ArrayList; 
+import javax.swing.event.*;
+
 import java.io.*; 
-import java.util.*; 
+import java.util.*;
+import java.util.List; 
 
 
-public class MainGUI implements ActionListener, ListSelectionListener, WindowListener
+public class MainGUI implements ActionListener, ListSelectionListener, WindowListener, Serializable 
 {
 	//declare JFrame
 	private JFrame frame; 
@@ -38,8 +39,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private JPanel mainPane; 
 	private JLabel mainMenuLabel2; 
 	//declare JList
-	private static DefaultListModel listModel; 
-	private static JList list; 
+	private DefaultListModel<JournalEntry> listModel; 
+	private JList list; 
 	//declare list Object
 	private JournalEntry[] entryArray;  
 	
@@ -56,6 +57,9 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	
 	//entry index
 	private int entryIndex; 
+	
+	//Java IO to save file
+	private String fileName = "JournalEntries"; 
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -231,21 +235,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 //		{
 //			i.printStackTrace(); 
 //		}
-//		try 
-//		{
-//			//read file
-//			FileInputStream fin = new FileInputStream(fileName); 
-//			ObjectInputStream oos = new ObjectInputStream(fin); 
-//			//deserialize object
-//			listModel = (DefaultListModel)oos.readObject(); 
-//			fin.close(); 
-//			oos.close(); 
-//			
-//		}
-//		catch(IOException i)
-//		{
-//			i.printStackTrace();
-//		}
+//		
 	
 		
 	}
@@ -458,10 +448,54 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	@Override
 	public void windowOpened(WindowEvent e) {
 		// TODO Auto-generated method stub
+		try 
+		{
+			//read file
+			FileInputStream fin = new FileInputStream(fileName); 
+			ObjectInputStream ois = new ObjectInputStream(fin); 
+			//deserialize object
+			ArrayList<JournalEntry> dataList = (ArrayList<JournalEntry>) ois.readObject(); 
+			for (int i = 0; i < dataList.size(); i++)
+			{
+				listModel.addElement((JournalEntry) dataList.get(i));
+			}
+			fin.close(); 
+			ois.close(); 
+			
+		}
+		catch(IOException | ClassNotFoundException i)
+		{
+			i.printStackTrace();
+		}
 	}
 	@Override
 	public void windowClosing(WindowEvent e) {
 		// TODO Auto-generated method stub
+		try
+		{
+			//save Object in a file
+			FileOutputStream fos = new FileOutputStream(fileName); 
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			
+			//serialization
+			//convert to arraylist of objects
+			ArrayList<JournalEntry> dataList = new ArrayList<>(); 
+
+			for (int i = 0; i < listModel.size(); i++)
+			{
+				dataList.add(listModel.elementAt(i)); 
+			}
+			oos.writeObject(dataList);
+			
+			oos.close();
+			fos.close(); 
+			
+			
+		}
+		catch(IOException i) 
+		{
+			i.printStackTrace(); 
+		}
 	}
 	@Override
 	public void windowClosed(WindowEvent e) {

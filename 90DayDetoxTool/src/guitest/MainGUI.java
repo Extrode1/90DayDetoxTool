@@ -216,27 +216,6 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	public static void main(String[] args)  {
 		// TODO Auto-generated method stub
 		new MainGUI();
-//		String fileName = "journalEntries";
-//		try
-//		{
-//			//save Object in a file
-//			FileOutputStream fos = new FileOutputStream(fileName); 
-//			ObjectOutputStream oos = new ObjectOutputStream(fos);
-//			
-//			//serialization
-//			oos.writeObject(listModel);
-//			
-//			oos.close();
-//			fos.close(); 
-//			
-//			
-//		}
-//		catch(IOException i) 
-//		{
-//			i.printStackTrace(); 
-//		}
-//		
-	
 		
 	}
 	public void actionPerformed(ActionEvent e)

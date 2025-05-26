@@ -5,6 +5,7 @@ import java.awt.event.*;
 import javax.swing.event.*; 
 import java.util.ArrayList; 
 import java.io.*; 
+import java.util.*; 
 
 public class MainGUI implements ActionListener, ListSelectionListener
 {
@@ -36,8 +37,10 @@ public class MainGUI implements ActionListener, ListSelectionListener
 	private JPanel mainPane; 
 	private JLabel mainMenuLabel2; 
 	//declare JList
-	private DefaultListModel listModel; 
-	private JList list; 
+	private static DefaultListModel listModel; 
+	private static JList list; 
+	//declare list Object
+	private JournalEntry[] entryArray;  
 	
 	//list
 	private String fullString; 
@@ -207,6 +210,36 @@ public class MainGUI implements ActionListener, ListSelectionListener
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		new MainGUI();
+		String fileName = "journalEntries";
+		try
+		{
+			//save Object in a file
+			FileOutputStream fos = new FileOutputStream(fileName); 
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			
+			//serialization
+			oos.writeObject(list);
+			
+			oos.close();
+			fos.close(); 
+			
+			
+		}
+		catch(IOException i) 
+		{
+			i.printStackTrace(); 
+		}
+		try 
+		{
+			FileInputStream fin = new FileInputStream(fileName); 
+			ObjectInputStream oos = new ObjectInputStream(fin); 
+			
+		}
+		catch(IOException i)
+		{
+			i.printStackTrace();
+		}
+	
 		
 	}
 	public void actionPerformed(ActionEvent e)

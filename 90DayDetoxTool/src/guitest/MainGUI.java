@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.io.*; 
 import java.util.*; 
 
+
 public class MainGUI implements ActionListener, ListSelectionListener
 {
 	//declare JFrame
@@ -207,38 +208,43 @@ public class MainGUI implements ActionListener, ListSelectionListener
 			}
 		}
 	}
-	public static void main(String[] args) {
+	public static void main(String[] args)  {
 		// TODO Auto-generated method stub
 		new MainGUI();
-		String fileName = "journalEntries";
-		try
-		{
-			//save Object in a file
-			FileOutputStream fos = new FileOutputStream(fileName); 
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			
-			//serialization
-			oos.writeObject(list);
-			
-			oos.close();
-			fos.close(); 
-			
-			
-		}
-		catch(IOException i) 
-		{
-			i.printStackTrace(); 
-		}
-		try 
-		{
-			FileInputStream fin = new FileInputStream(fileName); 
-			ObjectInputStream oos = new ObjectInputStream(fin); 
-			
-		}
-		catch(IOException i)
-		{
-			i.printStackTrace();
-		}
+//		String fileName = "journalEntries";
+//		try
+//		{
+//			//save Object in a file
+//			FileOutputStream fos = new FileOutputStream(fileName); 
+//			ObjectOutputStream oos = new ObjectOutputStream(fos);
+//			
+//			//serialization
+//			oos.writeObject(listModel);
+//			
+//			oos.close();
+//			fos.close(); 
+//			
+//			
+//		}
+//		catch(IOException i) 
+//		{
+//			i.printStackTrace(); 
+//		}
+//		try 
+//		{
+//			//read file
+//			FileInputStream fin = new FileInputStream(fileName); 
+//			ObjectInputStream oos = new ObjectInputStream(fin); 
+//			//deserialize object
+//			listModel = (DefaultListModel)oos.readObject(); 
+//			fin.close(); 
+//			oos.close(); 
+//			
+//		}
+//		catch(IOException i)
+//		{
+//			i.printStackTrace();
+//		}
 	
 		
 	}

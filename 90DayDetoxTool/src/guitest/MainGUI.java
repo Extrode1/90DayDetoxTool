@@ -39,7 +39,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private JPanel mainPane; 
 	private JLabel mainMenuLabel2; 
 	//declare JList
-	private DefaultListModel<JournalEntry> listModel; 
+	private static DefaultListModel<JournalEntry> listModel; 
 	private JList list; 
 	//declare list Object
 	private JournalEntry[] entryArray;  
@@ -60,6 +60,9 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	
 	//Java IO to save file
 	private String fileName = "JournalEntries"; 
+	
+	//try to fix nullpointerexception
+	ArrayList<JournalEntry> dataList; 
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -433,7 +436,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			FileInputStream fin = new FileInputStream(fileName); 
 			ObjectInputStream ois = new ObjectInputStream(fin); 
 			//deserialize object
-			ArrayList<JournalEntry> dataList = (ArrayList<JournalEntry>) ois.readObject(); 
+			dataList = (ArrayList<JournalEntry>) ois.readObject(); 
 			for (int i = 0; i < dataList.size(); i++)
 			{
 				listModel.addElement((JournalEntry) dataList.get(i));
@@ -458,7 +461,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			
 			//serialization
 			//convert to arraylist of objects
-			ArrayList<JournalEntry> dataList = new ArrayList<>(); 
+			dataList = new ArrayList<>(); 
 
 			for (int i = 0; i < listModel.size(); i++)
 			{

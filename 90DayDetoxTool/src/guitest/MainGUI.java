@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.event.*; 
 import java.util.ArrayList; 
-import java.io. *; 
+import java.io.*; 
 
 public class MainGUI implements ActionListener, ListSelectionListener
 {

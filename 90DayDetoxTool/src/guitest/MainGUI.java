@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.*; 
 
 
-public class MainGUI implements ActionListener, ListSelectionListener
+public class MainGUI implements ActionListener, ListSelectionListener, WindowListener
 {
 	//declare JFrame
 	private JFrame frame; 
@@ -63,6 +63,7 @@ public class MainGUI implements ActionListener, ListSelectionListener
 		frame.setSize(1000, 800); 
 		frame.setVisible(true); 
 		frame.setLayout(new FlowLayout()); 
+		frame.addWindowListener(this); 
 		//create JButtons		
 		 
 		back.setVisible(false);
@@ -453,6 +454,39 @@ public class MainGUI implements ActionListener, ListSelectionListener
 			}
 		}
 			
+	}
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+	}
+	@Override
+	public void windowClosing(WindowEvent e) {
+		// TODO Auto-generated method stub
+	}
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

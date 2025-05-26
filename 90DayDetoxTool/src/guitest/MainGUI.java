@@ -9,7 +9,7 @@ import java.util.*;
 import java.util.List; 
 
 
-public class MainGUI implements ActionListener, ListSelectionListener, WindowListener, Serializable 
+public class MainGUI implements ActionListener, ListSelectionListener, WindowListener
 {
 	//declare JFrame
 	private JFrame frame; 

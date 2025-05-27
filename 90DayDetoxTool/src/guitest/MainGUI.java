@@ -3,10 +3,8 @@ import javax.swing.*;
 import java.awt.*; 
 import java.awt.event.*;
 import javax.swing.event.*;
-
 import java.io.*; 
 import java.util.*;
-import java.util.List; 
 
 
 public class MainGUI implements ActionListener, ListSelectionListener, WindowListener

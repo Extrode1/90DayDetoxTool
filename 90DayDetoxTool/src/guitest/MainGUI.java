@@ -38,7 +38,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private JLabel mainMenuLabel2; 
 	//declare JList
 	private static DefaultListModel<JournalEntry> listModel; 
-	private JList<JournalEntry> list; 
+	private JList list; 
 	//declare list Object
 	private JournalEntry[] entryArray;  
 	

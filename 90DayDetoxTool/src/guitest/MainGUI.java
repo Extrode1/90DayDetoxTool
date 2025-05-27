@@ -37,7 +37,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private JPanel mainPane; 
 	private JLabel mainMenuLabel2; 
 	//declare JList
-	private static DefaultListModel<JournalEntry> listModel; 
+	private static DefaultListModel<JournalEntry> listModel = new DefaultListModel<>(); 
 	private JList list; 
 	//declare list Object
 	private JournalEntry[] entryArray;  
@@ -151,7 +151,6 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		frame.add(savePane, BorderLayout.SOUTH);
 		
 		//create the list
-		listModel = new DefaultListModel();
 		list = new JList(listModel); 
 		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		list.setSelectedIndex(0);

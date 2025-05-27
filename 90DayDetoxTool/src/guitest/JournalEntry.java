@@ -7,7 +7,7 @@ import java.io.*;
 
 public class JournalEntry implements Serializable {
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -455091837724834099L;
 	private String dayString; 
 	private String monthString; 
 	private String yearString; 

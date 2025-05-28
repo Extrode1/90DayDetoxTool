@@ -36,15 +36,13 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private JLabel mainMenuLabel; 
 	private JPanel mainPane; 
 	private JLabel mainMenuLabel2; 
+	
 	//declare JList
 	private static DefaultListModel<JournalEntry> listModel; 
 	private static JList list; 
-	//declare list Object
-	private JournalEntry[] entryArray;  
 	
 	//list
 	private String fullString; 
-	private JTextField entireDate; 
 	private String entryFullString; 
 	private String titleString; 
 	private String dayString; 
@@ -266,7 +264,6 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		else if (e.getSource() == save)
 		{
 			fullString = month.getText().trim() + "/" + day.getText().trim() + "/" + year.getText().trim();
-			entireDate = new JTextField(fullString); 
 			entryFullString = journalEntry.getText().trim(); 
 			titleString = title.getText();
 			dayString = day.getText();
@@ -304,8 +301,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		}
 		else if (e.getSource() == saveExisting)
 		{
-			fullString = month.getText().trim() + "/" + day.getText().trim() + "/" + year.getText().trim();
-			entireDate = new JTextField(fullString); 
+			
 			entryFullString = journalEntry.getText().trim(); 
 			titleString = title.getText();
 			dayString = day.getText();
@@ -313,8 +309,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			yearString = year.getText(); 
 
 			//add element to list
-			fullString = month.getText().trim() + "/" + day.getText().trim() + "/" + year.getText().trim();
-			entireDate = new JTextField(fullString); 
+			
 			entryFullString = journalEntry.getText().trim(); 
 			titleString = title.getText();
 			dayString = day.getText();

@@ -39,10 +39,9 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	
 	//declare JList
 	private static DefaultListModel<JournalEntry> listModel; 
-	private static JList list; 
+	private static JList<JournalEntry> list; 
 	
 	//list
-	private String fullString; 
 	private String entryFullString; 
 	private String titleString; 
 	private String dayString; 
@@ -263,7 +262,6 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		}
 		else if (e.getSource() == save)
 		{
-			fullString = month.getText().trim() + "/" + day.getText().trim() + "/" + year.getText().trim();
 			entryFullString = journalEntry.getText().trim(); 
 			titleString = title.getText();
 			dayString = day.getText();

@@ -66,6 +66,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		frame.setVisible(true); 
 		frame.setLayout(new FlowLayout()); 
 		frame.addWindowListener(this); 
+		frame.setLocationRelativeTo(null);
 		//create JButtons		
 		 
 		back.setVisible(false);

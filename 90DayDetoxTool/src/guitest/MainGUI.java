@@ -362,28 +362,31 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		}
 		else if (e.getSource() == deleteEntry)
 		{
-			int index = list.getSelectedIndex();
-			listModel.remove(index); 
-
-			//consider edge case - nothing left
-			int size = listModel.getSize(); 
-			
-			if (size == 0)
+			int choice = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this entry?", "Confirm deletion", JOptionPane.YES_NO_OPTION); 
+			if (choice == JOptionPane.YES_OPTION)
 			{
-				deleteEntry.setEnabled(false); 
-			}
-			else
-			{
-				if (index == listModel.getSize())
+				int index = list.getSelectedIndex();
+				listModel.remove(index); 
+	
+				//consider edge case - nothing left
+				int size = listModel.getSize(); 
+				
+				if (size == 0)
 				{
-					//last index removed
-					index--; 
+					deleteEntry.setEnabled(false); 
 				}
-				list.setSelectedIndex(index);
-				list.ensureIndexIsVisible(index);
-			}
+				else
+				{
+					if (index == listModel.getSize())
+					{
+						//last index removed
+						index--; 
+					}
+					list.setSelectedIndex(index);
+					list.ensureIndexIsVisible(index);
+				}
 
-			
+			}
 		}	
 		else if (e.getSource() == editEntry)
 		{

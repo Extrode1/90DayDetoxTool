@@ -1,0 +1,2 @@
+Hi everyone! This is the 90 day detox tool, which is targeted for those who are really struggling with a video game addiction and are trying to curb it. The idea of the 90 day detox is to cut out video games completely for 90 days while your brain gets adjusted to the dopamine 
+levels, since gaming is a very overstimulating activity. This tool is currently not available for use, as it is still in the development process, but a JAR file will be released soon when the app is ready. 

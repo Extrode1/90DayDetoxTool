@@ -216,6 +216,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		// TODO Auto-generated method stub
 		//change look and feel to nimbus
 		try {
+	
 			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
 				if ("Nimbus".equals(info.getName())) {
 					UIManager.setLookAndFeel(info.getClassName()); 

@@ -214,18 +214,18 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	}
 	public static void main(String[] args)  {
 		// TODO Auto-generated method stub
-//		//change look and feel to nimbus
-//		try {
-//
-//			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-//				if ("Nimbus".equals(info.getName())) {
-//					UIManager.setLookAndFeel(info.getClassName()); 
-//					break; 
-//				}
-//			}
-//		} catch (Exception e) {
-//			//use another look and feel if nimbus isn't available
-//		}
+		//change look and feel to nimbus
+		try {
+	
+			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+				if ("Nimbus".equals(info.getName())) {
+					UIManager.setLookAndFeel(info.getClassName()); 
+					break; 
+				}
+			}
+		} catch (Exception e) {
+			//use another look and feel if nimbus isn't available
+		}
 		new MainGUI();
 		
 	}

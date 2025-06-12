@@ -54,6 +54,13 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	//entry index
 	private int entryIndex; 
 	
+	
+	//create JMenu
+	private JMenuBar menuBar; 
+	private JMenu menu, submenu; 
+	private JMenu menuItem; 
+	private JRadioButtonMenuItem rbMenuItem; 
+	private JCheckBoxMenuItem cbMenuItem; 
 	//Java IO to save file
 	private String fileName = "JournalEntries"; 
 	
@@ -190,6 +197,12 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		
 		//disable saveExisting
 		saveExisting.setEnabled(false);
+		
+		//instantiate JMenu
+		menuBar = new JMenuBar(); 
+		menu = new JMenu("File"); 
+		menuBar.add(menu); 
+		frame.setJMenuBar(menuBar); 
 	}
 	//required by ListSelectionListener
 	public void valueChanged(ListSelectionEvent e)

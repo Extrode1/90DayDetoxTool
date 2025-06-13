@@ -212,7 +212,11 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		menuBar.add(c);
 		menuBar.add(d);
 		menuBar.add(e); 
-		
+		a.setMargin(new Insets(6, 6, 6, 6));
+		b.setMargin(new Insets(6, 6, 6, 6));
+		c.setMargin(new Insets(6, 6, 6, 6));
+		d.setMargin(new Insets(6, 6, 6, 6));
+		e.setMargin(new Insets(6, 6, 6, 6));
 		frame.setJMenuBar(menuBar); 
 	}
 	//required by ListSelectionListener

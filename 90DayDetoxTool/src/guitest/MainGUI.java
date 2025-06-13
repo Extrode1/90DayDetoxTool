@@ -70,7 +70,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-		frame.setSize(1000, 800); 
+		frame.setSize(1100, 900); 
 		frame.setVisible(true); 
 		frame.setLayout(new FlowLayout()); 
 		frame.addWindowListener(this); 
@@ -82,16 +82,16 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		//create a main menu label 
 		mainPane = new JPanel(new BorderLayout()); 
 		mainMenuLabel = new JLabel("Welcome to the 90 Day Detox Tool!", SwingConstants.CENTER); 
-		mainMenuLabel.setFont(new Font("Calibri",  Font.BOLD, 40)); 
+		mainMenuLabel.setFont(new Font("Roboto",  Font.BOLD, 40)); 
 		mainMenuLabel2 = new JLabel("This tool will allow you to create journal entries to keep track of your progress and record your thoughts and feelings when you are doing the 90 day detox. ");
-		mainMenuLabel2.setFont(new Font ("Calibri", Font.ITALIC, 15)); 
+		mainMenuLabel2.setFont(new Font ("Roboto", Font.ITALIC, 15)); 
 		
 		mainPane.add(mainMenuLabel, BorderLayout.NORTH); 
 		mainPane.add(mainMenuLabel2, BorderLayout.SOUTH);
 		
 		//change font of button
-		entryCreation.setFont(new Font("Calibri", Font.BOLD, 30));
-		editEntries.setFont(new Font("Calibri", Font.BOLD, 30)); 
+		entryCreation.setFont(new Font("Roboto", Font.BOLD, 30));
+		editEntries.setFont(new Font("Roboto", Font.BOLD, 30)); 
 		
 		//add buttons to JFrame
 		frame.add(mainPane); 

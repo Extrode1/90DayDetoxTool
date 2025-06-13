@@ -58,7 +58,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	//create JMenu
 	private JMenuBar menuBar; 
 	private JMenu a, b, c, d, e; 
-	private JMenuItem e1;  
+	private JMenuItem a1, b1, b2, c1, d1, e1;  
 	private JRadioButtonMenuItem rbMenuItem; 
 	private JCheckBoxMenuItem cbMenuItem; 
 	//Java IO to save file
@@ -205,7 +205,18 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		c = new JMenu("Settings"); 
 		d = new JMenu("View"); 
 		e = new JMenu("Help"); 
+		//create submenu items
+		a1 = new JMenuItem("New"); 
+		b1 = new JMenuItem("Undo"); 
+		b2 = new JMenuItem("Redo"); 
+		c1 = new JMenuItem("Properties"); 
+		d1 = new JMenuItem("Change theme"); 
 		e1 = new JMenuItem("About"); 
+		a.add(a1);
+		b.add(b1);
+		b.add(b2);
+		c.add(c1);
+		d.add(d1); 
 		e.add(e1); 
 		menuBar.add(a); 
 		menuBar.add(b); 

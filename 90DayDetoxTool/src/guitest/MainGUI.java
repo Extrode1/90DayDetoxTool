@@ -128,18 +128,21 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		inFieldPane.add(title); 
 		title.addActionListener(this); 
 		
-		
-		inFieldPane.add(new JLabel("Day")); 
-		inFieldPane.add(day); 
-		day.addActionListener(this);
+		inFieldPane.add(new JLabel("Year")); 
+		inFieldPane.add(year); 
+		year.addActionListener(this);
 		
 		inFieldPane.add(new JLabel("Month")); 
 		inFieldPane.add(month); 
 		month.addActionListener(this);
 		
-		inFieldPane.add(new JLabel("Year")); 
-		inFieldPane.add(year); 
-		year.addActionListener(this); 
+		inFieldPane.add(new JLabel("Day")); 
+		inFieldPane.add(day); 
+		day.addActionListener(this);
+		
+		
+		
+		 
 		
 	
 		JScrollPane scrollPane = new JScrollPane(journalEntry); 

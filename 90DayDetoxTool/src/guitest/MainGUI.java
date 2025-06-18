@@ -3,6 +3,8 @@ import javax.swing.*;
 import java.awt.*; 
 import java.awt.event.*;
 import javax.swing.event.*;
+import javax.swing.undo.UndoManager;
+
 import java.io.*; 
 import java.util.*;
 import javax.swing.UIManager.*; 
@@ -66,6 +68,10 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	
 	//try to fix nullpointerexception
 	ArrayList<JournalEntry> dataList; 
+	
+	//add undo manager
+	UndoManager undo = new UndoManager(); 
+	Function_Edit edit = new Function_Edit(this); 
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -116,6 +122,19 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		journalEntry = new JTextArea (15, 30);
 		journalEntry.setLineWrap(true);
 		journalEntry.setWrapStyleWord(true); 
+		journalEntry.getDocument().addUndoableEditListener(
+				new UndoableEditListener() {
+					@Override
+					public void undoableEditHappened(UndoableEditEvent e)
+					{
+						//remember the edit and update menus
+						undo.addEdit(e.getEdit());
+						
+					}
+				}
+				
+				
+				);
 		otherPane.setLayout(new BorderLayout());
 
 		//create labelled fields		
@@ -140,10 +159,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		inFieldPane.add(day); 
 		day.addActionListener(this);
 		
-		
-		
-		 
-		
+
 	
 		JScrollPane scrollPane = new JScrollPane(journalEntry); 
 		
@@ -210,7 +226,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		e = new JMenu("Help"); 
 		//create submenu items
 		a1 = new JMenuItem("New"); 
-		b1 = new JMenuItem("Undo"); 
+		b1 = new JMenuItem("Undo");
 		b1.addActionListener(this);
 		b2 = new JMenuItem("Redo");
 		b2.addActionListener(this);
@@ -476,6 +492,15 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 				
 			}
 		}
+		else if (e.getSource() == b1)
+		{
+			edit.undo(); 
+		}
+		else if (e.getSource() == b2)
+		{
+			edit.redo(); 
+		}
+		
 			
 	}
 	@Override

@@ -3,7 +3,7 @@ import javax.swing.*;
 import java.awt.*; 
 import java.awt.event.*;
 import javax.swing.event.*;
-import javax.swing.undo.UndoManager;
+import javax.swing.undo.*; 
 
 import java.io.*; 
 import java.util.*;
@@ -113,11 +113,63 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		//create JTextFields
 		inFieldPane = new JPanel();
 		otherPane = new JPanel(); 
-		day = new JTextField (15); 
+		day = new JTextField (15);
+		day.getDocument().addUndoableEditListener(
+				new UndoableEditListener() {
+					@Override
+					public void undoableEditHappened(UndoableEditEvent e)
+					{
+						//remember the edit and update menus
+						undo.addEdit(e.getEdit());
+						
+					}
+				}
+				
+				
+				);
 		month = new JTextField (15); 
+		month.getDocument().addUndoableEditListener(
+				new UndoableEditListener() {
+					@Override
+					public void undoableEditHappened(UndoableEditEvent e)
+					{
+						//remember the edit and update menus
+						undo.addEdit(e.getEdit());
+						
+					}
+				}
+				
+				
+				);
 		year = new JTextField (15); 
+		year.getDocument().addUndoableEditListener(
+				new UndoableEditListener() {
+					@Override
+					public void undoableEditHappened(UndoableEditEvent e)
+					{
+						//remember the edit and update menus
+						undo.addEdit(e.getEdit());
+						
+					}
+				}
+				
+				
+				);;
 		fullDate = new JTextField (15); 
 		title = new JTextField(15); 
+		title.getDocument().addUndoableEditListener(
+				new UndoableEditListener() {
+					@Override
+					public void undoableEditHappened(UndoableEditEvent e)
+					{
+						//remember the edit and update menus
+						undo.addEdit(e.getEdit());
+						
+					}
+				}
+				
+				
+				);
 		fullDate.setEditable(false); 
 		journalEntry = new JTextArea (15, 30);
 		journalEntry.setLineWrap(true);
@@ -494,11 +546,26 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		}
 		else if (e.getSource() == b1)
 		{
+			try
+			{
 			edit.undo(); 
+			}
+			catch (CannotUndoException ex) {
+				JOptionPane.showMessageDialog(frame, "Unable to undo: " + ex, "Undo error", JOptionPane.ERROR_MESSAGE);
+				
+		
+			}
 		}
 		else if (e.getSource() == b2)
 		{
+			try {
 			edit.redo(); 
+			}
+			catch (CannotRedoException ex) {
+				JOptionPane.showMessageDialog(frame, "Unable to redo: " + ex, "Redo error", JOptionPane.ERROR_MESSAGE);
+
+			}
+			
 		}
 		
 			

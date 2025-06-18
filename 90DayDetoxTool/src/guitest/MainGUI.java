@@ -211,7 +211,9 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		//create submenu items
 		a1 = new JMenuItem("New"); 
 		b1 = new JMenuItem("Undo"); 
-		b2 = new JMenuItem("Redo"); 
+		b1.addActionListener(this);
+		b2 = new JMenuItem("Redo");
+		b2.addActionListener(this);
 		c1 = new JMenuItem("Properties"); 
 		d1 = new JMenuItem("Change theme"); 
 		e1 = new JMenuItem("About"); 

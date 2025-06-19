@@ -72,6 +72,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	//add undo manager
 	UndoManager undo = new UndoManager(); 
 	Function_Edit edit = new Function_Edit(this); 
+	
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -302,6 +303,11 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		d.setMargin(new Insets(6, 6, 6, 6));
 		e.setMargin(new Insets(6, 6, 6, 6));
 		frame.setJMenuBar(menuBar); 
+		
+		//add key bindings for undo/redo
+		InputMap inputMap = journalEntry.getInputMap(); 
+		KeyStroke key = KeyStroke.getKeyStroke(KeyEvent.VK_Z, KeyEvent.CTRL_DOWN_MASK); 
+		inputMap.put(key, b1);
 	}
 	//required by ListSelectionListener
 	public void valueChanged(ListSelectionEvent e)

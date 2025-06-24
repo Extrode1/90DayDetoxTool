@@ -279,9 +279,9 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		e = new JMenu("Help"); 
 		//create submenu items
 		a1 = new JMenuItem("New"); 
-		b1 = new JMenuItem("Undo                    CTRL+Z");
+		b1 = new JMenuItem("Undo                                                                 Ctrl+Z");
 		b1.addActionListener(this);
-		b2 = new JMenuItem("Redo                    CTRL+Y");
+		b2 = new JMenuItem("Redo                                                                 Ctrl+Y");
 		b2.addActionListener(this);
 		c1 = new JMenuItem("Properties"); 
 		d1 = new JMenuItem("Change theme"); 

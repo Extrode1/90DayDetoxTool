@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*; 
 import java.awt.event.*;
 import javax.swing.event.*;
+import javax.swing.text.DefaultEditorKit;
 import javax.swing.undo.*; 
 
 import java.io.*; 
@@ -60,7 +61,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	//create JMenu
 	private JMenuBar menuBar; 
 	private JMenu a, b, c, d, e; 
-	private JMenuItem a1, b1, b2, c1, d1, e1;  
+	private JMenuItem a1, b1, b2, b3, b4, b5, b6, c1, d1, e1;  
 	private JRadioButtonMenuItem rbMenuItem; 
 	private JCheckBoxMenuItem cbMenuItem; 
 	//Java IO to save file
@@ -283,12 +284,23 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		b1.addActionListener(this);
 		b2 = new JMenuItem("Redo                                                                 Ctrl+Y");
 		b2.addActionListener(this);
+		b3 = new JMenuItem("Move caret forward                                         Ctrl+B");
+		b3.addActionListener(this);
+		b4 = new JMenuItem("Move caret backward                                     Ctrl+F");
+		b4.addActionListener(this);
+		b5 = new JMenuItem("Move caret down one line                             Ctrl+N"); 
+		b5.addActionListener(this);
+		b6 = new JMenuItem("Move caret up one line                                  Ctrl+P"); 
 		c1 = new JMenuItem("Properties"); 
 		d1 = new JMenuItem("Change theme"); 
 		e1 = new JMenuItem("About"); 
 		a.add(a1);
 		b.add(b1);
 		b.add(b2);
+		b.add(b3); 
+		b.add(b4); 
+		b.add(b5); 
+		b.add(b6); 
 		c.add(c1);
 		d.add(d1); 
 		e.add(e1); 
@@ -306,8 +318,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		
 		//add key bindings for undo/redo
 		InputMap inputMap = journalEntry.getInputMap(); 
-		KeyStroke key = KeyStroke.getKeyStroke(KeyEvent.VK_Z, KeyEvent.CTRL_DOWN_MASK); 
-		inputMap.put(key, b1);
+		KeyStroke key = KeyStroke.getKeyStroke(KeyEvent.VK_B, Event.CTRL_MASK); 
+		inputMap.put(key, DefaultEditorKit.backwardAction);
 	}
 	//required by ListSelectionListener
 	public void valueChanged(ListSelectionEvent e)

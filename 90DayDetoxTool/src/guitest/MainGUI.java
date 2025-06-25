@@ -291,6 +291,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		b5 = new JMenuItem("Move caret down one line                             Ctrl+N"); 
 		b5.addActionListener(this);
 		b6 = new JMenuItem("Move caret up one line                                  Ctrl+P"); 
+		b6.addActionListener(this); 
 		c1 = new JMenuItem("Properties"); 
 		d1 = new JMenuItem("Change theme"); 
 		e1 = new JMenuItem("About"); 
@@ -316,10 +317,10 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		e.setMargin(new Insets(6, 6, 6, 6));
 		frame.setJMenuBar(menuBar); 
 		
-		//add key bindings for undo/redo
+		//add key bindings for moving caret backwards in journal entry box
 		InputMap inputMap = journalEntry.getInputMap(); 
-		KeyStroke key = KeyStroke.getKeyStroke(KeyEvent.VK_B, Event.CTRL_MASK); 
-		inputMap.put(key, DefaultEditorKit.backwardAction);
+		KeyStroke keyBack = KeyStroke.getKeyStroke(KeyEvent.VK_B, Event.CTRL_MASK); 
+		inputMap.put(keyBack, DefaultEditorKit.backwardAction);
 	}
 	//required by ListSelectionListener
 	public void valueChanged(ListSelectionEvent e)
@@ -585,6 +586,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			}
 			
 		}
+	
 		
 			
 	}

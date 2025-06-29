@@ -317,14 +317,28 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		e.setMargin(new Insets(6, 6, 6, 6));
 		frame.setJMenuBar(menuBar); 
 		
-		//add key bindings for moving caret backwards in journal entry box
-		InputMap inputMap = journalEntry.getInputMap(); 
+		//create input map for every text box
+		InputMap inputMap1 = journalEntry.getInputMap(); 
+		InputMap inputMap2 = day.getInputMap(); 
+		InputMap inputMap3 = month.getInputMap(); 
+		InputMap inputMap4 = year.getInputMap(); 
+		InputMap inputMap5 = title.getInputMap(); 
+		//set key bind to Ctrl-B
 		KeyStroke keyBack = KeyStroke.getKeyStroke(KeyEvent.VK_B, Event.CTRL_MASK); 
-		inputMap.put(keyBack, DefaultEditorKit.backwardAction);
-		
+		inputMap1.put(keyBack, DefaultEditorKit.backwardAction);
+		inputMap2.put(keyBack, DefaultEditorKit.backwardAction);
+		inputMap3.put(keyBack, DefaultEditorKit.backwardAction);
+		inputMap4.put(keyBack, DefaultEditorKit.backwardAction);
+		inputMap5.put(keyBack, DefaultEditorKit.backwardAction);
+
 		//add keybinding for moving caret forwards in journal entry box
 		KeyStroke keyForward = KeyStroke.getKeyStroke(KeyEvent.VK_F, Event.CTRL_MASK); 
-		inputMap.put(keyForward, DefaultEditorKit.forwardAction);
+		inputMap1.put(keyForward, DefaultEditorKit.forwardAction);
+		inputMap2.put(keyForward, DefaultEditorKit.forwardAction);
+		inputMap3.put(keyForward, DefaultEditorKit.forwardAction);
+		inputMap5.put(keyForward, DefaultEditorKit.forwardAction);
+		inputMap5.put(keyForward, DefaultEditorKit.forwardAction);
+
 	}
 	//required by ListSelectionListener
 	public void valueChanged(ListSelectionEvent e)

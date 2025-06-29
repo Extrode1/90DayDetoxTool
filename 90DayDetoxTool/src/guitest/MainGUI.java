@@ -321,6 +321,10 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		InputMap inputMap = journalEntry.getInputMap(); 
 		KeyStroke keyBack = KeyStroke.getKeyStroke(KeyEvent.VK_B, Event.CTRL_MASK); 
 		inputMap.put(keyBack, DefaultEditorKit.backwardAction);
+		
+		//add keybinding for moving caret forwards in journal entry box
+		KeyStroke keyForward = KeyStroke.getKeyStroke(KeyEvent.VK_F, Event.CTRL_MASK); 
+		inputMap.put(keyForward, DefaultEditorKit.forwardAction);
 	}
 	//required by ListSelectionListener
 	public void valueChanged(ListSelectionEvent e)

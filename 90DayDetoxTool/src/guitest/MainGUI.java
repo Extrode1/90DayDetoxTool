@@ -74,6 +74,10 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	UndoManager undo = new UndoManager(); 
 	Function_Edit edit = new Function_Edit(this); 
 	
+	//create about page
+	private JPanel aboutPane;
+	private JLabel aboutTheApp; 
+	
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -341,7 +345,13 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		inputMap3.put(keyForward, DefaultEditorKit.forwardAction);
 		inputMap5.put(keyForward, DefaultEditorKit.forwardAction);
 		inputMap5.put(keyForward, DefaultEditorKit.forwardAction);
-
+		
+		
+		//add information for about page
+		aboutPane = new JPanel(new BorderLayout()); 
+		frame.add(aboutPane);
+		aboutTheApp = new JLabel("This application was made to help those who struggle with a video game addiction");
+		aboutPane.add(aboutTheApp, BorderLayout.NORTH); 
 	}
 	//required by ListSelectionListener
 	public void valueChanged(ListSelectionEvent e)
@@ -392,6 +402,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			otherPane.setVisible(true); 
 			savePane.setVisible(true);
 			mainPane.setVisible(false);
+			aboutPane.setVisible(false);
 			
 				
 			
@@ -406,6 +417,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			entryLabel.setVisible(true); 
 			deleteEntry.setVisible(true);
 			editEntry.setVisible(true);
+			aboutPane.setVisible(false);
 
 			
 
@@ -423,6 +435,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			entryLabel.setVisible(false);
 			deleteEntry.setVisible(false);
 			editEntry.setVisible(false);
+			aboutPane.setVisible(false);
+
 
 		}
 		else if (e.getSource() == save)
@@ -459,6 +473,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			entryLabel.setVisible(true); 
 			deleteEntry.setVisible(true);
 			editEntry.setVisible(true);
+			aboutPane.setVisible(false);
+
 			//make entry editing information hidden
 			
 		}
@@ -525,6 +541,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			entryLabel.setVisible(true); 
 			deleteEntry.setVisible(true);
 			editEntry.setVisible(true);
+			aboutPane.setVisible(false);
+
 		}
 		else if (e.getSource() == deleteEntry)
 		{
@@ -568,6 +586,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			entryLabel.setVisible(false);
 			deleteEntry.setVisible(false);
 			editEntry.setVisible(false);
+			aboutPane.setVisible(false);
+
 			//convert JTextField to string
 			entryIndex = list.getSelectedIndex();
 			if (entryIndex >= 0)
@@ -616,6 +636,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			otherPane.setVisible(false); 
 			savePane.setVisible(false);
 			mainPane.setVisible(false);
+			aboutPane.setVisible(true);
+
 		}
 	
 		

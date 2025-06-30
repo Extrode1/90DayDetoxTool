@@ -352,6 +352,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		frame.add(aboutPane);
 		aboutTheApp = new JLabel("This application was made to help those who struggle with a video game addiction");
 		aboutPane.add(aboutTheApp, BorderLayout.NORTH); 
+		aboutPane.setVisible(false);
 	}
 	//required by ListSelectionListener
 	public void valueChanged(ListSelectionEvent e)

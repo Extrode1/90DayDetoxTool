@@ -607,6 +607,16 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			}
 			
 		}
+		else if (e.getSource() == e1)
+		{
+			entryCreation.setVisible(false);
+			editEntries.setVisible(false);
+			back.setVisible(true);
+			inFieldPane.setVisible(false);
+			otherPane.setVisible(false); 
+			savePane.setVisible(false);
+			mainPane.setVisible(false);
+		}
 	
 		
 			

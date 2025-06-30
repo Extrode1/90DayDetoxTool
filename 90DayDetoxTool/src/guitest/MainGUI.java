@@ -630,6 +630,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		}
 		else if (e.getSource() == e1)
 		{
+			//hide information when about is clicked
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
 			back.setVisible(true);
@@ -638,6 +639,12 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			savePane.setVisible(false);
 			mainPane.setVisible(false);
 			aboutPane.setVisible(true);
+			
+			//make entry information hidden  
+			entryList.setVisible(false); 
+			entryLabel.setVisible(false); 
+			deleteEntry.setVisible(false);
+			editEntry.setVisible(false);
 
 		}
 	

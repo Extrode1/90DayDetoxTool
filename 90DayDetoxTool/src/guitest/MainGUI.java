@@ -76,7 +76,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	
 	//create about page
 	private JPanel aboutPane;
-	private JLabel aboutTheApp; 
+	private JTextField aboutTheApp; 
 	
 	public MainGUI()
 	{
@@ -350,7 +350,9 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		//add information for about page
 		aboutPane = new JPanel(new BorderLayout()); 
 		frame.add(aboutPane);
-		aboutTheApp = new JLabel("This application was made to help those who struggle with a video game addiction");
+		aboutTheApp = new JTextField("This application was made to help those who struggle with a video game addiction.");
+		aboutTheApp.setFont(new Font("Roboto",  Font.PLAIN, 20)); 
+		aboutTheApp.setEditable(false);
 		aboutPane.add(aboutTheApp, BorderLayout.NORTH); 
 		aboutPane.setVisible(false);
 	}

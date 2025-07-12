@@ -302,7 +302,12 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		d1.addActionListener(this);
 		e1 = new JMenuItem("About");
 		e1.addActionListener(this); 
-		
+		//change fonts to Calibri
+		a.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
+		b.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
+		c.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
+		d.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
+		e.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
 
 		a.add(a1);
 		b.add(b1);

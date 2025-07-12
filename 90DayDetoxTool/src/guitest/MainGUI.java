@@ -104,7 +104,11 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		//change font of button
 		entryCreation.setFont(new Font("Calibri", Font.BOLD, 30));
 		editEntries.setFont(new Font("Calibri", Font.BOLD, 30)); 
-		
+		back.setFont(new Font("Calibri", Font.PLAIN, 17)); 
+		save.setFont(new Font("Calibri", Font.PLAIN, 17));
+		saveExisting.setFont(new Font("Calibri", Font.PLAIN, 17));
+		deleteEntry.setFont(new Font("Calibri", Font.PLAIN, 17));
+		editEntry.setFont(new Font("Calibri", Font.PLAIN, 17));
 		//add buttons to JFrame
 		frame.add(mainPane); 
 		frame.add(entryCreation); 

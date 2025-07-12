@@ -94,16 +94,16 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		//create a main menu label 
 		mainPane = new JPanel(new BorderLayout()); 
 		mainMenuLabel = new JLabel("Welcome to the 90 Day Detox Tool!", SwingConstants.CENTER); 
-		mainMenuLabel.setFont(new Font("Roboto",  Font.BOLD, 40)); 
+		mainMenuLabel.setFont(new Font("Calibri",  Font.BOLD, 40)); 
 		mainMenuLabel2 = new JLabel("This tool will allow you to create journal entries to keep track of your progress and record your thoughts and feelings when you are doing the 90 day detox. ");
-		mainMenuLabel2.setFont(new Font ("Roboto", Font.ITALIC, 15)); 
+		mainMenuLabel2.setFont(new Font ("Calibri", Font.ITALIC, 15)); 
 		
 		mainPane.add(mainMenuLabel, BorderLayout.NORTH); 
 		mainPane.add(mainMenuLabel2, BorderLayout.SOUTH);
 		
 		//change font of button
-		entryCreation.setFont(new Font("Roboto", Font.BOLD, 30));
-		editEntries.setFont(new Font("Roboto", Font.BOLD, 30)); 
+		entryCreation.setFont(new Font("Calibri", Font.BOLD, 30));
+		editEntries.setFont(new Font("Calibri", Font.BOLD, 30)); 
 		
 		//add buttons to JFrame
 		frame.add(mainPane); 
@@ -302,6 +302,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		d1.addActionListener(this);
 		e1 = new JMenuItem("About");
 		e1.addActionListener(this); 
+		
+
 		a.add(a1);
 		b.add(b1);
 		b.add(b2);
@@ -351,7 +353,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		aboutPane = new JPanel(new BorderLayout()); 
 		frame.add(aboutPane);
 		aboutTheApp = new JLabel("<html>This application was made to help those who struggle with a video game addiction. This app specifically <br/> helps you with keeping track of your thoughts and feelings during the 90 day detox. </html>");
-		aboutTheApp.setFont(new Font("Roboto",  Font.PLAIN, 20)); 
+		aboutTheApp.setFont(new Font("Calibri",  Font.PLAIN, 20)); 
 		aboutPane.add(aboutTheApp, BorderLayout.NORTH); 
 		aboutPane.setVisible(false);
 	}

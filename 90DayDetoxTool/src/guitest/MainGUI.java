@@ -350,7 +350,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		//add information for about page
 		aboutPane = new JPanel(new BorderLayout()); 
 		frame.add(aboutPane);
-		aboutTheApp = new JLabel("<html>This application was made to help those who struggle with a video game addiction.<br/> This app specifically helps you with keeping track of your thoughts and feelings during the 90 day detox</html>");
+		aboutTheApp = new JLabel("<html>This application was made to help those who struggle with a video game addiction. This app specifically <br/> helps you with keeping track of your thoughts and feelings during the 90 day detox. </html>");
 		aboutTheApp.setFont(new Font("Roboto",  Font.PLAIN, 20)); 
 		aboutPane.add(aboutTheApp, BorderLayout.NORTH); 
 		aboutPane.setVisible(false);

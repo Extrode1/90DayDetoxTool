@@ -301,17 +301,17 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		e = new JMenu("Help"); 
 		//create submenu items
 		a1 = new JMenuItem("New"); 
-		b1 = new JMenuItem("Undo                                                                 Ctrl+Z");
+		b1 = new JMenuItem("Undo                                                                    Ctrl+Z");
 		b1.addActionListener(this);
-		b2 = new JMenuItem("Redo                                                                 Ctrl+Y");
+		b2 = new JMenuItem("Redo                                                                    Ctrl+Y");
 		b2.addActionListener(this);
-		b3 = new JMenuItem("Move caret forward                                         Ctrl+B");
+		b3 = new JMenuItem("Move caret forward                                      Ctrl+B");
 		b3.addActionListener(this);
-		b4 = new JMenuItem("Move caret backward                                     Ctrl+F");
+		b4 = new JMenuItem("Move caret backward                                   Ctrl+F");
 		b4.addActionListener(this);
-		b5 = new JMenuItem("Move caret down one line                             Ctrl+N"); 
+		b5 = new JMenuItem("Move caret down one line                         Ctrl+N"); 
 		b5.addActionListener(this);
-		b6 = new JMenuItem("Move caret up one line                                  Ctrl+P"); 
+		b6 = new JMenuItem("Move caret up one line                               Ctrl+P"); 
 		b6.addActionListener(this); 
 		c1 = new JMenuItem("Properties"); 
 		c1.addActionListener(this); 
@@ -325,6 +325,17 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		c.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
 		d.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
 		e.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
+		//change submenu fonts to Calibri
+		a1.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
+		b1.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
+		b2.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
+		b3.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
+		b4.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
+		b5.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
+		b6.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
+		c1.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
+		d1.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
+		e1.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
 
 		a.add(a1);
 		b.add(b1);

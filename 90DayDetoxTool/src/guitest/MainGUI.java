@@ -233,7 +233,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		inFieldPane.add(day); 
 		day.addActionListener(this);
 		
-
+		
 	
 		JScrollPane scrollPane = new JScrollPane(journalEntry); 
 		
@@ -241,6 +241,14 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		otherPane.add(entryBox); 
 		otherPane.add(scrollPane, BorderLayout.SOUTH); 
 		
+		
+		//change JLabel font to Calibri
+		titleBox.setFont(new Font("Calibri", Font.ITALIC, 15));
+		yearBox.setFont(new Font("Calibri", Font.ITALIC, 15));
+		monthBox.setFont(new Font("Calibri", Font.ITALIC, 15));
+		dayBox.setFont(new Font("Calibri", Font.ITALIC, 15));
+		entryBox.setFont(new Font("Calibri", Font.ITALIC, 15));
+
 		//add save button for journal entry
 		savePane = new JPanel(); 
 		savePane.setLayout(new BorderLayout()); 

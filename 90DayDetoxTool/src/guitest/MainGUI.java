@@ -263,7 +263,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		list.setSelectedIndex(0);
 		list.addListSelectionListener(this);
-		
+		list.setFont(new Font("Calibri", Font.PLAIN, 15));
+
 		//put list into JScrollPane
 		entryList = new JScrollPane(list); 
 		entryList.setPreferredSize(new Dimension(200, 600)); 

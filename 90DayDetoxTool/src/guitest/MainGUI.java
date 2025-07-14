@@ -270,6 +270,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		entryList.setPreferredSize(new Dimension(200, 600)); 
 		entryPane = new JPanel(new BorderLayout()); 
 		entryLabel = new JLabel("Entries"); 
+		entryLabel.setFont(new Font("Calibri", Font.PLAIN, 15));
 		entryPane.add(entryLabel, BorderLayout.NORTH);
 		entryPane.add(entryList, BorderLayout.SOUTH); 
 		frame.add(entryPane); 

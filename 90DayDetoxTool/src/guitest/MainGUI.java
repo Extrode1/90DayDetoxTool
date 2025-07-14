@@ -78,6 +78,14 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private JPanel aboutPane;
 	private JLabel aboutTheApp; 
 	
+	//create JLabel that replaces original anonymous objects
+	private JLabel titleBox; 
+	private JLabel dayBox; 
+	private JLabel monthBox; 
+	private JLabel yearBox; 
+	private JLabel entryBox; 
+	
+	
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -205,19 +213,23 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		inFieldPane.setLayout(new GridLayout(0, 2)); 
 		
 		//create user input in GUI
-		inFieldPane.add(new JLabel("Entry Title")); 
+		titleBox = new JLabel("Entry Title"); 
+		inFieldPane.add(titleBox); 
 		inFieldPane.add(title); 
 		title.addActionListener(this); 
 		
-		inFieldPane.add(new JLabel("Year")); 
+		yearBox = new JLabel("Year"); 
+		inFieldPane.add(yearBox); 
 		inFieldPane.add(year); 
 		year.addActionListener(this);
 		
-		inFieldPane.add(new JLabel("Month")); 
+		monthBox = new JLabel("Month"); 
+		inFieldPane.add(monthBox); 
 		inFieldPane.add(month); 
 		month.addActionListener(this);
 		
-		inFieldPane.add(new JLabel("Day")); 
+		dayBox = new JLabel("Day"); 
+		inFieldPane.add(dayBox); 
 		inFieldPane.add(day); 
 		day.addActionListener(this);
 		
@@ -225,7 +237,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	
 		JScrollPane scrollPane = new JScrollPane(journalEntry); 
 		
-		otherPane.add(new JLabel("Journal Entry")); 
+		entryBox = new JLabel("Journal Entry"); 
+		otherPane.add(entryBox); 
 		otherPane.add(scrollPane, BorderLayout.SOUTH); 
 		
 		//add save button for journal entry

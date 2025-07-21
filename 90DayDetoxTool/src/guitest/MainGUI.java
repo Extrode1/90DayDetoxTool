@@ -19,6 +19,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	//declare buttons
 	private JButton entryCreation = new JButton("Create a new journal entry"); 
 	private JButton editEntries = new JButton("Edit current journal entries");
+	private JButton startDetox = new JButton("Start a 90 Day Detox"); 
 	private JButton back = new JButton("Back"); 
 	private JButton save = new JButton("Save New");
 	private JButton saveExisting = new JButton ("Save Existing"); 
@@ -112,6 +113,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		//change font of button
 		entryCreation.setFont(new Font("Calibri", Font.BOLD, 30));
 		editEntries.setFont(new Font("Calibri", Font.BOLD, 30)); 
+		startDetox.setFont(new Font("Calibri", Font.BOLD, 30));		
+
 		back.setFont(new Font("Calibri", Font.PLAIN, 17)); 
 		save.setFont(new Font("Calibri", Font.PLAIN, 17));
 		saveExisting.setFont(new Font("Calibri", Font.PLAIN, 17));
@@ -122,7 +125,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		frame.add(entryCreation); 
 		frame.add(editEntries); 
 		frame.add(back);
-		
+		frame.add(startDetox);
 		//add action listener
 		entryCreation.addActionListener(this);
 		editEntries.addActionListener(this);
@@ -444,6 +447,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		{
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
+			startDetox.setVisible(false); 
 			back.setVisible(true);
 			inFieldPane.setVisible(true);
 			otherPane.setVisible(true); 
@@ -458,6 +462,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		{
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
+			startDetox.setVisible(false);
 			back.setVisible(true);
 			mainPane.setVisible(false);
 			entryList.setVisible(true); 
@@ -473,6 +478,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		{
 			entryCreation.setVisible(true);
 			editEntries.setVisible(true);
+			startDetox.setVisible(true);
 			back.setVisible(false);
 			inFieldPane.setVisible(false);
 			otherPane.setVisible(false); 
@@ -561,6 +567,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			//original entry editing shows
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
+			startDetox.setVisible(false);
 			mainPane.setVisible(false);
 			inFieldPane.setVisible(false);
 			otherPane.setVisible(false); 
@@ -568,7 +575,9 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			entryList.setVisible(true); 
 			entryLabel.setVisible(true); 
 			deleteEntry.setVisible(true);
-			editEntry.setVisible(true);			
+			editEntry.setVisible(true);	
+			aboutPane.setVisible(false);
+
 			//reset fields to blank
 			day.setText(""); 
 			month.setText("");
@@ -578,17 +587,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			back.setEnabled(true); 
 			
 			//original entry editing shows
-			entryCreation.setVisible(false);
-			editEntries.setVisible(false);
-			mainPane.setVisible(false);
-			inFieldPane.setVisible(false);
-			otherPane.setVisible(false); 
-			savePane.setVisible(false); 
-			entryList.setVisible(true); 
-			entryLabel.setVisible(true); 
-			deleteEntry.setVisible(true);
-			editEntry.setVisible(true);
-			aboutPane.setVisible(false);
+	
 
 		}
 		else if (e.getSource() == deleteEntry)
@@ -623,6 +622,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		{
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
+			startDetox.setVisible(false); 
 			back.setVisible(true);
 			inFieldPane.setVisible(true);
 			otherPane.setVisible(true); 
@@ -679,6 +679,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			//hide information when about is clicked
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
+			startDetox.setVisible(false); 
 			back.setVisible(true);
 			inFieldPane.setVisible(false);
 			otherPane.setVisible(false); 

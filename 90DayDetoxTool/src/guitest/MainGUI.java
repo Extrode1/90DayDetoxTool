@@ -407,11 +407,13 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		inputMap3.put(keyUp, DefaultEditorKit.upAction);
 		inputMap5.put(keyUp, DefaultEditorKit.upAction);
 		inputMap5.put(keyUp, DefaultEditorKit.upAction);
+
 		
 		//add information for about page
 		aboutPane = new JPanel(new BorderLayout()); 
 		frame.add(aboutPane);
-		aboutTheApp = new JLabel("<html>This application was made to help those who struggle with a video game addiction. This app specifically <br/> helps you with keeping track of your thoughts and feelings during the 90 day detox. </html>");
+		aboutTheApp = new JLabel("<html>This application was made to help those who struggle with a video game addiction. This app specifically <br/> helps you with keeping track of your thoughts and feelings during the 90 day detox. To use this app, you </html>");
+		
 		aboutTheApp.setFont(new Font("Calibri",  Font.PLAIN, 20)); 
 		aboutPane.add(aboutTheApp, BorderLayout.NORTH); 
 		aboutPane.setVisible(false);

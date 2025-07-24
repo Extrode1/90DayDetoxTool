@@ -393,7 +393,20 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		inputMap3.put(keyForward, DefaultEditorKit.forwardAction);
 		inputMap5.put(keyForward, DefaultEditorKit.forwardAction);
 		inputMap5.put(keyForward, DefaultEditorKit.forwardAction);
-		
+		//add keybinding to move caret down one line
+		KeyStroke keyDown = KeyStroke.getKeyStroke(KeyEvent.VK_N, Event.CTRL_MASK); 
+		inputMap1.put(keyDown, DefaultEditorKit.downAction);
+		inputMap2.put(keyDown, DefaultEditorKit.downAction);
+		inputMap3.put(keyDown, DefaultEditorKit.downAction);
+		inputMap5.put(keyDown, DefaultEditorKit.downAction);
+		inputMap5.put(keyDown, DefaultEditorKit.downAction);
+		//add keybinding to move caret up one line
+		KeyStroke keyUp = KeyStroke.getKeyStroke(KeyEvent.VK_P, Event.CTRL_MASK); 
+		inputMap1.put(keyUp, DefaultEditorKit.upAction);
+		inputMap2.put(keyUp, DefaultEditorKit.upAction);
+		inputMap3.put(keyUp, DefaultEditorKit.upAction);
+		inputMap5.put(keyUp, DefaultEditorKit.upAction);
+		inputMap5.put(keyUp, DefaultEditorKit.upAction);
 		
 		//add information for about page
 		aboutPane = new JPanel(new BorderLayout()); 

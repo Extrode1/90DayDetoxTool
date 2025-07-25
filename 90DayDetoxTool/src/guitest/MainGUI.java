@@ -378,6 +378,12 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		InputMap inputMap3 = month.getInputMap(); 
 		InputMap inputMap4 = year.getInputMap(); 
 		InputMap inputMap5 = title.getInputMap(); 
+		//create action map for every text box
+		ActionMap actionMap1 = journalEntry.getActionMap();
+		ActionMap actionMap2 = day.getActionMap();
+		ActionMap actionMap3 = month.getActionMap();
+		ActionMap actionMap4 = year.getActionMap();
+		ActionMap actionMap5 = title.getActionMap(); 
 		//set key bind to Ctrl-B
 		KeyStroke keyBack = KeyStroke.getKeyStroke(KeyEvent.VK_B, Event.CTRL_MASK); 
 		inputMap1.put(keyBack, DefaultEditorKit.backwardAction);
@@ -407,8 +413,13 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		inputMap3.put(keyUp, DefaultEditorKit.upAction);
 		inputMap5.put(keyUp, DefaultEditorKit.upAction);
 		inputMap5.put(keyUp, DefaultEditorKit.upAction);
-
-		
+		//set up undo key
+		KeyStroke undoKey = KeyStroke.getKeyStroke(KeyEvent.VK_Y, Toolkit.getDefaultToolkit().getMenuShortcutKeyMaskEx());
+		inputMap1.put(keyUp, "Undo");
+		inputMap2.put(keyUp, "Undo");
+		inputMap3.put(keyUp, "Undo");
+		inputMap5.put(keyUp, "Undo");
+		inputMap5.put(keyUp, "Undo");
 		//add information for about page
 		aboutPane = new JPanel(new BorderLayout()); 
 		frame.add(aboutPane);

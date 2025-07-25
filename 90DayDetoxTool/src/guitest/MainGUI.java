@@ -415,11 +415,28 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		inputMap5.put(keyUp, DefaultEditorKit.upAction);
 		//set up undo key
 		KeyStroke undoKey = KeyStroke.getKeyStroke(KeyEvent.VK_Y, Toolkit.getDefaultToolkit().getMenuShortcutKeyMaskEx());
-		inputMap1.put(keyUp, "Undo");
-		inputMap2.put(keyUp, "Undo");
-		inputMap3.put(keyUp, "Undo");
-		inputMap5.put(keyUp, "Undo");
-		inputMap5.put(keyUp, "Undo");
+		inputMap1.put(undoKey, "Undo");
+		inputMap2.put(undoKey, "Undo");
+		inputMap3.put(undoKey, "Undo");
+		inputMap5.put(undoKey, "Undo");
+		inputMap5.put(undoKey, "Undo");
+		
+		//set up actionMap
+		actionMap1.put("Undo", new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				try {
+					edit.undo(); 
+					}
+					catch (CannotRedoException ex) {
+						JOptionPane.showMessageDialog(frame, "Unable to undo: " + ex, "Undo error", JOptionPane.ERROR_MESSAGE);
+
+					}
+			}
+		
+			
+		});
 		//add information for about page
 		aboutPane = new JPanel(new BorderLayout()); 
 		frame.add(aboutPane);

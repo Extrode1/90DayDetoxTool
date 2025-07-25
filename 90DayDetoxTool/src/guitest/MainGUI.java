@@ -373,11 +373,11 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		frame.setJMenuBar(menuBar); 
 		
 		//create input map for every text box
-		InputMap inputMap1 = journalEntry.getInputMap(); 
-		InputMap inputMap2 = day.getInputMap(); 
-		InputMap inputMap3 = month.getInputMap(); 
-		InputMap inputMap4 = year.getInputMap(); 
-		InputMap inputMap5 = title.getInputMap(); 
+		InputMap inputMap1 = journalEntry.getInputMap(JComponent.WHEN_FOCUSED); 
+		InputMap inputMap2 = day.getInputMap(JComponent.WHEN_FOCUSED); 
+		InputMap inputMap3 = month.getInputMap(JComponent.WHEN_FOCUSED); 
+		InputMap inputMap4 = year.getInputMap(JComponent.WHEN_FOCUSED); 
+		InputMap inputMap5 = title.getInputMap(JComponent.WHEN_FOCUSED); 
 		//create action map for every text box
 		ActionMap actionMap1 = journalEntry.getActionMap();
 		ActionMap actionMap2 = day.getActionMap();
@@ -414,7 +414,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		inputMap5.put(keyUp, DefaultEditorKit.upAction);
 		inputMap5.put(keyUp, DefaultEditorKit.upAction);
 		//set up undo key
-		KeyStroke undoKey = KeyStroke.getKeyStroke(KeyEvent.VK_Y, Toolkit.getDefaultToolkit().getMenuShortcutKeyMaskEx());
+		KeyStroke undoKey = KeyStroke.getKeyStroke(KeyEvent.VK_Z, Toolkit.getDefaultToolkit().getMenuShortcutKeyMaskEx());
 		inputMap1.put(undoKey, "Undo");
 		inputMap2.put(undoKey, "Undo");
 		inputMap3.put(undoKey, "Undo");
@@ -427,7 +427,9 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			public void actionPerformed(ActionEvent e)
 			{
 				try {
-					edit.undo(); 
+						if (undo.canUndo())
+							undo.undo(); 
+						
 					}
 					catch (CannotRedoException ex) {
 						JOptionPane.showMessageDialog(frame, "Unable to undo: " + ex, "Undo error", JOptionPane.ERROR_MESSAGE);

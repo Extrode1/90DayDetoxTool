@@ -420,8 +420,14 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		inputMap3.put(undoKey, "Undo");
 		inputMap4.put(undoKey, "Undo");
 		inputMap5.put(undoKey, "Undo");
-		
-		//set up actionMap
+		//set up redo key 
+		KeyStroke redoKey = KeyStroke.getKeyStroke(KeyEvent.VK_Y, Toolkit.getDefaultToolkit().getMenuShortcutKeyMaskEx());
+		inputMap1.put(redoKey, "Redo");
+		inputMap2.put(redoKey, "Redo");
+		inputMap3.put(redoKey, "Redo");
+		inputMap4.put(redoKey, "Redo");
+		inputMap5.put(redoKey, "Redo");
+		//set up actionMap for undo
 		actionMap1.put("Undo", new AbstractAction() {
 			@Override
 			public void actionPerformed(ActionEvent e)
@@ -507,6 +513,110 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		
 			
 		});
+		//set up action map for redo
+				actionMap1.put("Redo", new AbstractAction() {
+					@Override
+					public void actionPerformed(ActionEvent e)
+					{
+						try {
+								if(undo.canRedo())
+									undo.redo(); 
+								
+							}
+							catch (CannotRedoException ex) {
+								JOptionPane.showMessageDialog(frame, "Unable to redo: " + ex, "redo error", JOptionPane.ERROR_MESSAGE);
+
+							}
+					}
+				
+					
+				});
+				actionMap1.put("Redo", new AbstractAction() {
+					@Override
+					public void actionPerformed(ActionEvent e)
+					{
+						try {
+								if(undo.canRedo())
+									undo.redo(); 
+								
+							}
+							catch (CannotRedoException ex) {
+								JOptionPane.showMessageDialog(frame, "Unable to redo: " + ex, "redo error", JOptionPane.ERROR_MESSAGE);
+
+							}
+					}
+				
+					
+				});	
+				actionMap2.put("Redo", new AbstractAction() {
+					@Override
+					public void actionPerformed(ActionEvent e)
+					{
+						try {
+								if(undo.canRedo())
+									undo.redo(); 
+								
+							}
+							catch (CannotRedoException ex) {
+								JOptionPane.showMessageDialog(frame, "Unable to redo: " + ex, "redo error", JOptionPane.ERROR_MESSAGE);
+
+							}
+					}
+				
+					
+				});		
+				actionMap3.put("Redo", new AbstractAction() {
+					@Override
+					public void actionPerformed(ActionEvent e)
+					{
+						try {
+								if(undo.canRedo())
+									undo.redo(); 
+								
+							}
+							catch (CannotRedoException ex) {
+								JOptionPane.showMessageDialog(frame, "Unable to redo: " + ex, "redo error", JOptionPane.ERROR_MESSAGE);
+
+							}
+					}
+				
+					
+				});		
+				actionMap4.put("Redo", new AbstractAction() {
+					@Override
+					public void actionPerformed(ActionEvent e)
+					{
+						try {
+								if(undo.canRedo())
+									undo.redo(); 
+								
+							}
+							catch (CannotRedoException ex) {
+								JOptionPane.showMessageDialog(frame, "Unable to redo: " + ex, "redo error", JOptionPane.ERROR_MESSAGE);
+
+							}
+					}
+				
+					
+				});		
+				actionMap5.put("Redo", new AbstractAction() {
+					@Override
+					public void actionPerformed(ActionEvent e)
+					{
+						try {
+								if(undo.canRedo())
+									undo.redo(); 
+								
+							}
+							catch (CannotRedoException ex) {
+								JOptionPane.showMessageDialog(frame, "Unable to redo: " + ex, "redo error", JOptionPane.ERROR_MESSAGE);
+
+							}
+					}
+				
+					
+				});		
+				
 		//add information for about page
 		aboutPane = new JPanel(new BorderLayout()); 
 		frame.add(aboutPane);

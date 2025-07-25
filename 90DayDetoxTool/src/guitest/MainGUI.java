@@ -418,11 +418,79 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		inputMap1.put(undoKey, "Undo");
 		inputMap2.put(undoKey, "Undo");
 		inputMap3.put(undoKey, "Undo");
-		inputMap5.put(undoKey, "Undo");
+		inputMap4.put(undoKey, "Undo");
 		inputMap5.put(undoKey, "Undo");
 		
 		//set up actionMap
 		actionMap1.put("Undo", new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				try {
+						if (undo.canUndo())
+							undo.undo(); 
+						
+					}
+					catch (CannotRedoException ex) {
+						JOptionPane.showMessageDialog(frame, "Unable to undo: " + ex, "Undo error", JOptionPane.ERROR_MESSAGE);
+
+					}
+			}
+		
+			
+		});
+		actionMap2.put("Undo", new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				try {
+						if (undo.canUndo())
+							undo.undo(); 
+						
+					}
+					catch (CannotRedoException ex) {
+						JOptionPane.showMessageDialog(frame, "Unable to undo: " + ex, "Undo error", JOptionPane.ERROR_MESSAGE);
+
+					}
+			}
+		
+			
+		});
+		actionMap3.put("Undo", new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				try {
+						if (undo.canUndo())
+							undo.undo(); 
+						
+					}
+					catch (CannotRedoException ex) {
+						JOptionPane.showMessageDialog(frame, "Unable to undo: " + ex, "Undo error", JOptionPane.ERROR_MESSAGE);
+
+					}
+			}
+		
+			
+		});
+		actionMap4.put("Undo", new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				try {
+						if (undo.canUndo())
+							undo.undo(); 
+						
+					}
+					catch (CannotRedoException ex) {
+						JOptionPane.showMessageDialog(frame, "Unable to undo: " + ex, "Undo error", JOptionPane.ERROR_MESSAGE);
+
+					}
+			}
+		
+			
+		});
+		actionMap5.put("Undo", new AbstractAction() {
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{

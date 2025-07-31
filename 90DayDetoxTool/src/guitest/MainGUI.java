@@ -885,7 +885,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		{
 			try
 			{
-			edit.undo(); 
+				if (undo.canUndo())
+					undo.undo(); 
 			}
 			catch (CannotUndoException ex) {
 				JOptionPane.showMessageDialog(frame, "Unable to undo: " + ex, "Undo error", JOptionPane.ERROR_MESSAGE);
@@ -896,7 +897,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		else if (e.getSource() == b2)
 		{
 			try {
-			edit.redo(); 
+				if (undo.canRedo())
+					undo.redo(); 
 			}
 			catch (CannotRedoException ex) {
 				JOptionPane.showMessageDialog(frame, "Unable to redo: " + ex, "Redo error", JOptionPane.ERROR_MESSAGE);

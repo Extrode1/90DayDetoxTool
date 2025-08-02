@@ -86,6 +86,9 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private JLabel monthBox; 
 	private JLabel yearBox; 
 	private JLabel entryBox; 
+	//create text editor features (bold, italic etc) 
+	//create button for bold text
+	private JButton bold; 
 	
 	
 	public MainGUI()
@@ -110,11 +113,15 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		
 		mainPane.add(mainMenuLabel, BorderLayout.NORTH); 
 		mainPane.add(mainMenuLabel2, BorderLayout.SOUTH);
-		
+		//create bold button
+		String boldSymbol = new String("𝐁");
+		bold = new JButton(boldSymbol);
+
 		//change font of button
 		entryCreation.setFont(new Font("Calibri", Font.BOLD, 30));
 		editEntries.setFont(new Font("Calibri", Font.BOLD, 30)); 
 		startDetox.setFont(new Font("Calibri", Font.BOLD, 30));		
+		bold.setFont(new Font("serif", Font.PLAIN, 20));
 
 		back.setFont(new Font("Calibri", Font.PLAIN, 17)); 
 		save.setFont(new Font("Calibri", Font.PLAIN, 17));
@@ -127,6 +134,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		frame.add(editEntries); 
 		frame.add(back);
 		frame.add(startDetox);
+
 		//add action listener
 		entryCreation.addActionListener(this);
 		editEntries.addActionListener(this);
@@ -215,7 +223,6 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		frame.add(inFieldPane); 
 		frame.add(otherPane); 
 		inFieldPane.setLayout(new GridLayout(0, 2)); 
-		
 		//create user input in GUI
 		titleBox = new JLabel("Entry Title"); 
 		inFieldPane.add(titleBox); 
@@ -242,9 +249,10 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		JScrollPane scrollPane = new JScrollPane(journalEntry); 
 		
 		entryBox = new JLabel("Journal Entry"); 
-		otherPane.add(entryBox); 
+		otherPane.add(entryBox, BorderLayout.NORTH); 
 		otherPane.add(scrollPane, BorderLayout.SOUTH); 
-		
+		otherPane.add(bold); 
+
 		
 		//change JLabel font to Calibri
 		titleBox.setFont(new Font("Calibri", Font.ITALIC, 15));
@@ -631,7 +639,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		aboutPane.add(aboutTheApp2, BorderLayout.SOUTH); 
 
 		aboutPane.setVisible(false);
-
+		
 	}
 	//required by ListSelectionListener
 	public void valueChanged(ListSelectionEvent e)

@@ -124,13 +124,17 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		italic = new JButton(italicSymbol); 
 		//create underline symbol
 		underline = new JButton("<html><u>U</u></html>"); 
+		//change size of text change JButtons		
+		bold.setPreferredSize(new Dimension(115, 50));
+		italic.setPreferredSize(new Dimension(50, 50));
+		underline.setPreferredSize(new Dimension(115, 50));
 		//change font of button
 		entryCreation.setFont(new Font("Calibri", Font.BOLD, 30));
 		editEntries.setFont(new Font("Calibri", Font.BOLD, 30)); 
 		startDetox.setFont(new Font("Calibri", Font.BOLD, 30));		
-		bold.setFont(new Font("serif", Font.BOLD, 20));
-		italic.setFont(new Font("serif", Font.BOLD, 20));
-		underline.setFont(new Font("serif", Font.BOLD, 20));
+		bold.setFont(new Font("serif", Font.BOLD, 30));
+		italic.setFont(new Font("serif", Font.BOLD, 30));
+		underline.setFont(new Font("serif", Font.BOLD, 30));
 		back.setFont(new Font("Calibri", Font.PLAIN, 17)); 
 		save.setFont(new Font("Calibri", Font.PLAIN, 17));
 		saveExisting.setFont(new Font("Calibri", Font.PLAIN, 17));

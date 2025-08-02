@@ -35,8 +35,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private JPanel otherPane; 
 	private JPanel savePane; 
 	private JPanel entryPane; 
-	private JPanel crudPane; 
-	
+	private JPanel crudPane; 	
 	//create additional JLabel
 	private JLabel mainMenuLabel; 
 	private JPanel mainPane; 
@@ -89,7 +88,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	//create text editor features (bold, italic etc) 
 	//create button for bold text
 	private JButton bold; 
-	
+	//create italic button
+	private JButton italic; 
 	
 	public MainGUI()
 	{
@@ -116,12 +116,16 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		//create bold button
 		String boldSymbol = new String("𝐁");
 		bold = new JButton(boldSymbol);
+		//create italic button
+		String italicSymbol = new String("𝐼"); 
+		italic = new JButton(italicSymbol); 
 
 		//change font of button
 		entryCreation.setFont(new Font("Calibri", Font.BOLD, 30));
 		editEntries.setFont(new Font("Calibri", Font.BOLD, 30)); 
 		startDetox.setFont(new Font("Calibri", Font.BOLD, 30));		
 		bold.setFont(new Font("serif", Font.PLAIN, 20));
+		italic.setFont(new Font("serif", Font.PLAIN, 20));
 
 		back.setFont(new Font("Calibri", Font.PLAIN, 17)); 
 		save.setFont(new Font("Calibri", Font.PLAIN, 17));
@@ -218,7 +222,6 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 				
 				);
 		otherPane.setLayout(new BorderLayout());
-
 		//create labelled fields		
 		frame.add(inFieldPane); 
 		frame.add(otherPane); 
@@ -245,13 +248,15 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		day.addActionListener(this);
 		
 		
-	
+		//add JScrollPane to journal entry box
 		JScrollPane scrollPane = new JScrollPane(journalEntry); 
-		
+		//create journal entry box
 		entryBox = new JLabel("Journal Entry"); 
+		//add components into otherPane
 		otherPane.add(entryBox, BorderLayout.NORTH); 
 		otherPane.add(scrollPane, BorderLayout.SOUTH); 
-		otherPane.add(bold); 
+		otherPane.add(bold, BorderLayout.LINE_START); 
+		otherPane.add(italic, BorderLayout.LINE_END); 
 
 		
 		//change JLabel font to Calibri
@@ -358,7 +363,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		c1.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
 		d1.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
 		e1.setFont(new Font ("Calibri", Font.PLAIN, 15)); 
-
+		//add all sub-menu items to menu
 		a.add(a1);
 		b.add(b1);
 		b.add(b2);

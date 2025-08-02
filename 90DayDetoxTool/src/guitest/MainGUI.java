@@ -85,11 +85,14 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private JLabel monthBox; 
 	private JLabel yearBox; 
 	private JLabel entryBox; 
-	//create text editor features (bold, italic etc) 
+	//create text editor features (bold, italic, underline) 
 	//create button for bold text
 	private JButton bold; 
 	//create italic button
 	private JButton italic; 
+	//create underline button
+	private JButton underline; 
+	
 	
 	public MainGUI()
 	{
@@ -119,14 +122,15 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		//create italic button
 		String italicSymbol = new String("𝐼"); 
 		italic = new JButton(italicSymbol); 
-
+		//create underline symbol
+		underline = new JButton("<html><u>U</u></html>"); 
 		//change font of button
 		entryCreation.setFont(new Font("Calibri", Font.BOLD, 30));
 		editEntries.setFont(new Font("Calibri", Font.BOLD, 30)); 
 		startDetox.setFont(new Font("Calibri", Font.BOLD, 30));		
-		bold.setFont(new Font("serif", Font.PLAIN, 20));
-		italic.setFont(new Font("serif", Font.PLAIN, 20));
-
+		bold.setFont(new Font("serif", Font.BOLD, 20));
+		italic.setFont(new Font("serif", Font.BOLD, 20));
+		underline.setFont(new Font("serif", Font.BOLD, 20));
 		back.setFont(new Font("Calibri", Font.PLAIN, 17)); 
 		save.setFont(new Font("Calibri", Font.PLAIN, 17));
 		saveExisting.setFont(new Font("Calibri", Font.PLAIN, 17));
@@ -255,9 +259,9 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		//add components into otherPane
 		otherPane.add(entryBox, BorderLayout.NORTH); 
 		otherPane.add(scrollPane, BorderLayout.SOUTH); 
-		otherPane.add(bold, BorderLayout.LINE_START); 
-		otherPane.add(italic, BorderLayout.LINE_END); 
-
+		otherPane.add(bold, BorderLayout.WEST); 
+		otherPane.add(italic, BorderLayout.CENTER); 
+		otherPane.add(underline, BorderLayout.EAST); 
 		
 		//change JLabel font to Calibri
 		titleBox.setFont(new Font("Calibri", Font.ITALIC, 15));

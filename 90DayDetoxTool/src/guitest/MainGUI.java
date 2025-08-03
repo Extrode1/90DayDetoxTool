@@ -92,7 +92,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private JButton italic; 
 	//create underline button
 	private JButton underline; 
-	
+	//try to add JTextPane
+	private JTextPane journalEntryPane; 
 	
 	public MainGUI()
 	{
@@ -151,7 +152,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		entryCreation.addActionListener(this);
 		editEntries.addActionListener(this);
 		back.addActionListener(this); 
-		
+		bold.addActionListener(this); 
 		//create JTextFields
 		inFieldPane = new JPanel();
 		otherPane = new JPanel(); 
@@ -229,6 +230,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 				
 				
 				);
+		journalEntryPane = new JTextPane (); 
+		
 		otherPane.setLayout(new BorderLayout());
 		//create labelled fields		
 		frame.add(inFieldPane); 
@@ -946,6 +949,12 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			deleteEntry.setVisible(false);
 			editEntry.setVisible(false);
 
+		}
+		else if (e.getSource() == bold)
+		{
+			//change text to bold
+			Font font = journalEntry.getFont();
+			journalEntry.setFont(font.deriveFont(Font.BOLD));
 		}
 	
 		

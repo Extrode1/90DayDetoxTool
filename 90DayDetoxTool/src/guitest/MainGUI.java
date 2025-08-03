@@ -96,6 +96,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private JTextPane journalEntryPane; 
 	//add JCheckBox
 	private JCheckBox boldCheckBox; 
+	private JCheckBox italicCheckBox; 
 	
 	public MainGUI()
 	{
@@ -126,6 +127,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		//create italic button
 		String italicSymbol = new String("𝐼"); 
 		italic = new JButton(italicSymbol); 
+		italicCheckBox = new JCheckBox(italicSymbol); 
 		//create underline symbol
 		underline = new JButton("<html><u>U</u></html>"); 
 		//change size of text change JButtons		
@@ -270,9 +272,10 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		otherPane.add(entryBox, BorderLayout.NORTH); 
 		otherPane.add(scrollPane, BorderLayout.SOUTH); 
 //		otherPane.add(bold, BorderLayout.WEST); 
-		otherPane.add(italic, BorderLayout.CENTER); 
+//		otherPane.add(italic, BorderLayout.CENTER); 
 		otherPane.add(underline, BorderLayout.EAST); 
 		otherPane.add(boldCheckBox, BorderLayout.WEST); 
+		otherPane.add(italicCheckBox, BorderLayout.CENTER); 
 		
 		//change JLabel font to Calibri
 		titleBox.setFont(new Font("Calibri", Font.ITALIC, 15));

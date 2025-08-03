@@ -94,6 +94,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private JButton underline; 
 	//try to add JTextPane
 	private JTextPane journalEntryPane; 
+	//add JCheckBox
+	private JCheckBox boldCheckBox; 
 	
 	public MainGUI()
 	{
@@ -120,6 +122,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		//create bold button
 		String boldSymbol = new String("𝐁");
 		bold = new JButton(boldSymbol);
+		boldCheckBox = new JCheckBox(boldSymbol); 
 		//create italic button
 		String italicSymbol = new String("𝐼"); 
 		italic = new JButton(italicSymbol); 
@@ -266,9 +269,10 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		//add components into otherPane
 		otherPane.add(entryBox, BorderLayout.NORTH); 
 		otherPane.add(scrollPane, BorderLayout.SOUTH); 
-		otherPane.add(bold, BorderLayout.WEST); 
+//		otherPane.add(bold, BorderLayout.WEST); 
 		otherPane.add(italic, BorderLayout.CENTER); 
 		otherPane.add(underline, BorderLayout.EAST); 
+		otherPane.add(boldCheckBox, BorderLayout.WEST); 
 		
 		//change JLabel font to Calibri
 		titleBox.setFont(new Font("Calibri", Font.ITALIC, 15));

@@ -91,7 +91,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private JCheckBox boldCheckBox; 
 	private JCheckBox italicCheckBox; 
 	private JCheckBox underlineCheckBox; 
-	
+	//create textPane
+	private JScrollPane textPane; 
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -145,6 +146,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		//create JTextFields
 		inFieldPane = new JPanel();
 		otherPane = new JPanel(); 
+		textPane = new JScrollPane(otherPane); 
 		day = new JTextField (15);
 		day.getDocument().addUndoableEditListener(
 				new UndoableEditListener() {
@@ -221,7 +223,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 				);
 		journalEntryPane = new JTextPane (); 
 		
-		otherPane.setLayout(new BorderLayout());
+		otherPane.setLayout(new FlowLayout());
 		//create labelled fields		
 		frame.add(inFieldPane); 
 		frame.add(otherPane); 
@@ -255,9 +257,13 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		//add components into otherPane
 		otherPane.add(entryBox, BorderLayout.NORTH); 
 		otherPane.add(scrollPane, BorderLayout.SOUTH); 
-		otherPane.add(boldCheckBox, BorderLayout.WEST); 
-		otherPane.add(italicCheckBox, BorderLayout.CENTER); 
-		otherPane.add(underlineCheckBox, BorderLayout.EAST); 
+		otherPane.add(boldCheckBox, BorderLayout.LINE_START);
+		otherPane.add(italicCheckBox, BorderLayout.CENTER);
+		otherPane.add(underlineCheckBox, BorderLayout.LINE_END); 
+		//change dimensions of checkbox
+		boldCheckBox.setSize(new Dimension(200, 200)); 
+		italicCheckBox.setSize(new Dimension(200, 200)); 
+		underlineCheckBox.setSize(new Dimension(200, 200)); 
 		
 		//change JLabel font to Calibri
 		titleBox.setFont(new Font("Calibri", Font.ITALIC, 15));
@@ -265,6 +271,9 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		monthBox.setFont(new Font("Calibri", Font.ITALIC, 15));
 		dayBox.setFont(new Font("Calibri", Font.ITALIC, 15));
 		entryBox.setFont(new Font("Calibri", Font.ITALIC, 15));
+		boldCheckBox.setFont(new Font("serif", Font.PLAIN, 30)); 
+		italicCheckBox.setFont(new Font("serif", Font.PLAIN, 30)); 
+		underlineCheckBox.setFont(new Font("serif", Font.PLAIN, 30)); 
 
 		//add save button for journal entry
 		savePane = new JPanel(); 

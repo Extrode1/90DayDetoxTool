@@ -11,7 +11,7 @@ import java.util.*;
 import javax.swing.UIManager.*; 
 import java.time. *; 
 
-public class MainGUI implements ActionListener, ListSelectionListener, WindowListener
+public class MainGUI implements ActionListener, ListSelectionListener, WindowListener, ItemListener
 {
 	//declare JFrame
 	private JFrame frame; 
@@ -123,6 +123,11 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		italicCheckBox = new JCheckBox(italicSymbol); 
 		//create underline symbol
 		underlineCheckBox = new JCheckBox("<html><u>U</u></html>"); 
+		//add item listeners
+		
+		boldCheckBox.addItemListener(this); 
+		italicCheckBox.addItemListener(this); 
+		underlineCheckBox.addItemListener(this); 
 		//change font of button
 		entryCreation.setFont(new Font("Calibri", Font.BOLD, 30));
 		editEntries.setFont(new Font("Calibri", Font.BOLD, 30)); 
@@ -1026,6 +1031,29 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	@Override
 	public void windowDeactivated(WindowEvent e) {
 		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		// TODO Auto-generated method stub
+		//create source object
+		Object source = e.getItemSelectable(); 
+		if (source == boldCheckBox)
+		{
+			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.BOLD, journalEntry.getFont().getSize())); 
+		}
+		else if (source == italicCheckBox)
+		{
+			
+		}
+		else if (source == underlineCheckBox)
+		{
+			
+		}
+		if (e.getStateChange() == ItemEvent.DESELECTED)
+		{
+			
+		}
 		
 	}
 	

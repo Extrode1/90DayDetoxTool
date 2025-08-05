@@ -1044,15 +1044,16 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		}
 		else if (source == italicCheckBox)
 		{
-			
+			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.ITALIC, journalEntry.getFont().getSize())); 
+
 		}
 		else if (source == underlineCheckBox)
 		{
-			
+			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.ITALIC + Font.BOLD, journalEntry.getFont().getSize())); 
 		}
 		if (e.getStateChange() == ItemEvent.DESELECTED)
 		{
-			
+			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.PLAIN, journalEntry.getFont().getSize()));
 		}
 		
 	}

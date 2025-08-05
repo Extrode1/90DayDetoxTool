@@ -1061,8 +1061,12 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		}
 		if (e.getStateChange() == ItemEvent.DESELECTED)
 		{
-			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.PLAIN, journalEntry.getFont().getSize()));
-		}
+			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.PLAIN, journalEntry.getFont().getSize())); 
+			Font font = journalEntry.getFont(); 
+			Map attributes = font.getAttributes(); 
+			attributes.put(TextAttribute.UNDERLINE, null); 
+			journalEntry.setFont(font.deriveFont(attributes));
+		}	
 		
 	}
 	

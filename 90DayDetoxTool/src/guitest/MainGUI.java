@@ -2,6 +2,8 @@ package guitest;
 import javax.swing.*; 
 import java.awt.*; 
 import java.awt.event.*;
+import java.awt.font.TextAttribute;
+
 import javax.swing.event.*;
 import javax.swing.text.DefaultEditorKit;
 import javax.swing.undo.*; 
@@ -93,6 +95,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private JCheckBox underlineCheckBox; 
 	//create textPane
 	private JScrollPane textPane; 
+	//create StringBuffer in order to determine state of text via JCheckBox
+	private StringBuffer choices; 
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -124,10 +128,10 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		//create underline symbol
 		underlineCheckBox = new JCheckBox("<html><u>U</u></html>"); 
 		//add item listeners
-		
 		boldCheckBox.addItemListener(this); 
 		italicCheckBox.addItemListener(this); 
 		underlineCheckBox.addItemListener(this); 
+		//indicates what is on the 
 		//change font of button
 		entryCreation.setFont(new Font("Calibri", Font.BOLD, 30));
 		editEntries.setFont(new Font("Calibri", Font.BOLD, 30)); 
@@ -1049,7 +1053,11 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		}
 		else if (source == underlineCheckBox)
 		{
-			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.ITALIC + Font.BOLD, journalEntry.getFont().getSize())); 
+			//set up underline
+			Font font = journalEntry.getFont(); 
+			Map attributes = font.getAttributes(); 
+			attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON); 
+			journalEntry.setFont(font.deriveFont(attributes)); 
 		}
 		if (e.getStateChange() == ItemEvent.DESELECTED)
 		{

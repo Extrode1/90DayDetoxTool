@@ -131,7 +131,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		boldCheckBox.addItemListener(this); 
 		italicCheckBox.addItemListener(this); 
 		underlineCheckBox.addItemListener(this); 
-		//indicates what is on the 
+		//indicates what type of text there is via StringBuffer
+		choices = new StringBuffer("---"); 
 		//change font of button
 		entryCreation.setFont(new Font("Calibri", Font.BOLD, 30));
 		editEntries.setFont(new Font("Calibri", Font.BOLD, 30)); 
@@ -1040,34 +1041,62 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		// TODO Auto-generated method stub
+		//create an index counter as well as a way to detect if there is no selection
+		int index = 0; 
+		char c = '-'; 
 		//create source object
 		Object source = e.getItemSelectable(); 
 		if (source == boldCheckBox)
 		{
-			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.BOLD, journalEntry.getFont().getSize())); 
+			index = 0; 
+			c = 'b'; 
 		}
 		else if (source == italicCheckBox)
 		{
-			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.ITALIC, journalEntry.getFont().getSize())); 
+			index = 1; 
+			c = 'i'; 
+//			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.ITALIC, journalEntry.getFont().getSize())); 
 
 		}
 		else if (source == underlineCheckBox)
 		{
+			index = 2; 
+			c = 'u'; 
 			//set up underline
+			 
+		}
+		//find out if the JCheckBox was selected or deselected
+		if (e.getStateChange() == ItemEvent.DESELECTED)
+		{
+			c = '-'; 
+
+		}	
+		
+		//apply changes to string
+		choices.setCharAt(index, c);
+		System.out.println(choices);
+		updateText(); 
+	}
+	protected void updateText()
+	{
+		if (choices.toString().equals("b--"))
+		{
+			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.BOLD, journalEntry.getFont().getSize())); 
+
+		}
+		else if (choices.toString() == "biu")
+		{
 			Font font = journalEntry.getFont(); 
 			Map attributes = font.getAttributes(); 
 			attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON); 
-			journalEntry.setFont(font.deriveFont(attributes)); 
-		}
-		if (e.getStateChange() == ItemEvent.DESELECTED)
-		{
-			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.PLAIN, journalEntry.getFont().getSize())); 
-			Font font = journalEntry.getFont(); 
-			Map attributes = font.getAttributes(); 
-			attributes.put(TextAttribute.UNDERLINE, null); 
 			journalEntry.setFont(font.deriveFont(attributes));
-		}	
-		
+			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.BOLD + Font.ITALIC, journalEntry.getFont().getSize())); 
+
+		}
+		else if (choices.toString() == "b--")
+		{
+			
+		}
 	}
 	
 }

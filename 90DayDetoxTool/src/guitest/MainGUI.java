@@ -1055,14 +1055,12 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		{
 			index = 1; 
 			c = 'i'; 
-//			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.ITALIC, journalEntry.getFont().getSize())); 
 
 		}
 		else if (source == underlineCheckBox)
 		{
 			index = 2; 
 			c = 'u'; 
-			//set up underline
 			 
 		}
 		//find out if the JCheckBox was selected or deselected
@@ -1074,17 +1072,30 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		
 		//apply changes to string
 		choices.setCharAt(index, c);
-		System.out.println(choices);
+//		System.out.println(choices);
 		updateText(); 
 	}
 	protected void updateText()
 	{
 		if (choices.toString().equals("b--"))
 		{
+			Font font = journalEntry.getFont(); 
+			Map attributes = font.getAttributes(); 
+			attributes.put(TextAttribute.UNDERLINE, null); 
+			journalEntry.setFont(font.deriveFont(attributes));
 			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.BOLD, journalEntry.getFont().getSize())); 
 
 		}
-		else if (choices.toString() == "biu")
+		else if (choices.toString().equals("bi-"))
+		{
+			Font font = journalEntry.getFont(); 
+			Map attributes = font.getAttributes(); 
+			attributes.put(TextAttribute.UNDERLINE, null); 
+			journalEntry.setFont(font.deriveFont(attributes));
+			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.BOLD + Font.ITALIC, journalEntry.getFont().getSize())); 
+
+		}
+		else if (choices.toString().equals("biu")) 
 		{
 			Font font = journalEntry.getFont(); 
 			Map attributes = font.getAttributes(); 
@@ -1093,9 +1104,47 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.BOLD + Font.ITALIC, journalEntry.getFont().getSize())); 
 
 		}
-		else if (choices.toString() == "b--")
+		else if (choices.toString().equals("-i-"))
 		{
-			
+			Font font = journalEntry.getFont(); 
+			Map attributes = font.getAttributes(); 
+			attributes.put(TextAttribute.UNDERLINE, null); 
+			journalEntry.setFont(font.deriveFont(attributes));
+			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.ITALIC, journalEntry.getFont().getSize())); 
+
+		}
+		else if (choices.toString().equals("-iu"))
+		{
+			Font font = journalEntry.getFont(); 
+			Map attributes = font.getAttributes(); 
+			attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON); 
+			journalEntry.setFont(font.deriveFont(attributes));
+			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.ITALIC, journalEntry.getFont().getSize()));
+		}
+		else if (choices.toString().equals("--u"))
+		{
+			Font font = journalEntry.getFont(); 
+			Map attributes = font.getAttributes(); 
+			attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON); 
+			journalEntry.setFont(font.deriveFont(attributes));
+			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.PLAIN, journalEntry.getFont().getSize()));
+		}
+		else if (choices.toString().equals("b-u"))
+		{
+			Font font = journalEntry.getFont(); 
+			Map attributes = font.getAttributes(); 
+			attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON); 
+			journalEntry.setFont(font.deriveFont(attributes));
+			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.BOLD, journalEntry.getFont().getSize()));
+
+		}
+		else if (choices.toString().equals("---"))
+		{
+			Font font = journalEntry.getFont(); 
+			Map attributes = font.getAttributes(); 
+			attributes.put(TextAttribute.UNDERLINE, null); 
+			journalEntry.setFont(font.deriveFont(attributes));
+			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.PLAIN, journalEntry.getFont().getSize()));
 		}
 	}
 	

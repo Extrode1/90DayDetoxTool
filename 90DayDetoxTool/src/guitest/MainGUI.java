@@ -663,7 +663,9 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		aboutPane.add(aboutTheApp2, BorderLayout.SOUTH); 
 
 		aboutPane.setVisible(false);
-		
+		//get the current date
+		LocalDate startDetoxDate = LocalDate.now(); 
+		System.out.println(startDetoxDate); 
 	}
 	//required by ListSelectionListener
 	public void valueChanged(ListSelectionEvent e)

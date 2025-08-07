@@ -753,8 +753,6 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			deleteEntry.setVisible(false);
 			editEntry.setVisible(false);
 			aboutPane.setVisible(false);
-
-
 		}
 		else if (e.getSource() == save)
 		{

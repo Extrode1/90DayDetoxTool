@@ -765,7 +765,6 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			{
 				titleString = "no title entered"; 
 			}
-				
 			//add element to list
 			listModel.addElement(new JournalEntry(dayString, monthString, yearString, entryFullString, titleString));
 			saveExisting.setEnabled(true); 

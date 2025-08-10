@@ -153,6 +153,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		entryCreation.addActionListener(this);
 		editEntries.addActionListener(this);
 		back.addActionListener(this); 
+		startDetox.addActionListener(this); 		
 		//create JTextFields
 		inFieldPane = new JPanel();
 		otherPane = new JPanel(); 
@@ -956,6 +957,24 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			deleteEntry.setVisible(false);
 			editEntry.setVisible(false);
 
+		}
+		else if (e.getSource() == startDetox)
+		{
+			entryCreation.setVisible(false);
+			editEntries.setVisible(false);
+			startDetox.setVisible(false); 
+			back.setVisible(true);
+			inFieldPane.setVisible(false);
+			otherPane.setVisible(false); 
+			savePane.setVisible(false);
+			mainPane.setVisible(false);
+			aboutPane.setVisible(false);
+			
+			//make entry information hidden  
+			entryList.setVisible(false); 
+			entryLabel.setVisible(false); 
+			deleteEntry.setVisible(false);
+			editEntry.setVisible(false);
 		}
 
 				

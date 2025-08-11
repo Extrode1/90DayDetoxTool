@@ -21,7 +21,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	//declare buttons
 	private JButton entryCreation = new JButton("Create a new journal entry"); 
 	private JButton editEntries = new JButton("Edit current journal entries");
-	private JButton startDetox = new JButton("Start a 90 Day Detox"); 
+	private JButton trackDetox = new JButton("Track your 90 Day Detox"); 
 	private JButton back = new JButton("Back"); 
 	private JButton save = new JButton("Save New");
 	private JButton saveExisting = new JButton ("Save Existing"); 
@@ -101,7 +101,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-		frame.setSize(1100, 900); 
+		frame.setSize(1200, 900); 
 		frame.setVisible(true); 
 		frame.setLayout(new FlowLayout()); 
 		frame.addWindowListener(this); 
@@ -136,7 +136,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		//change font of button
 		entryCreation.setFont(new Font("Calibri", Font.BOLD, 30));
 		editEntries.setFont(new Font("Calibri", Font.BOLD, 30)); 
-		startDetox.setFont(new Font("Calibri", Font.BOLD, 30));		
+		trackDetox.setFont(new Font("Calibri", Font.BOLD, 30));		
 		back.setFont(new Font("Calibri", Font.PLAIN, 17)); 
 		save.setFont(new Font("Calibri", Font.PLAIN, 17));
 		saveExisting.setFont(new Font("Calibri", Font.PLAIN, 17));
@@ -147,13 +147,13 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		frame.add(entryCreation); 
 		frame.add(editEntries); 
 		frame.add(back);
-		frame.add(startDetox);
+		frame.add(trackDetox);
 
 		//add action listener
 		entryCreation.addActionListener(this);
 		editEntries.addActionListener(this);
 		back.addActionListener(this); 
-		startDetox.addActionListener(this); 		
+		trackDetox.addActionListener(this); 		
 		//create JTextFields
 		inFieldPane = new JPanel();
 		otherPane = new JPanel(); 
@@ -712,7 +712,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		{
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
-			startDetox.setVisible(false); 
+			trackDetox.setVisible(false); 
 			back.setVisible(true);
 			inFieldPane.setVisible(true);
 			otherPane.setVisible(true); 
@@ -727,7 +727,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		{
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
-			startDetox.setVisible(false);
+			trackDetox.setVisible(false);
 			back.setVisible(true);
 			mainPane.setVisible(false);
 			entryList.setVisible(true); 
@@ -743,7 +743,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		{
 			entryCreation.setVisible(true);
 			editEntries.setVisible(true);
-			startDetox.setVisible(true);
+			trackDetox.setVisible(true);
 			back.setVisible(false);
 			inFieldPane.setVisible(false);
 			otherPane.setVisible(false); 
@@ -829,7 +829,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			//original entry editing shows
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
-			startDetox.setVisible(false);
+			trackDetox.setVisible(false);
 			mainPane.setVisible(false);
 			inFieldPane.setVisible(false);
 			otherPane.setVisible(false); 
@@ -884,7 +884,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		{
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
-			startDetox.setVisible(false); 
+			trackDetox.setVisible(false); 
 			back.setVisible(true);
 			inFieldPane.setVisible(true);
 			otherPane.setVisible(true); 
@@ -943,7 +943,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			//hide information when about is clicked
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
-			startDetox.setVisible(false); 
+			trackDetox.setVisible(false); 
 			back.setVisible(true);
 			inFieldPane.setVisible(false);
 			otherPane.setVisible(false); 
@@ -958,11 +958,11 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			editEntry.setVisible(false);
 
 		}
-		else if (e.getSource() == startDetox)
+		else if (e.getSource() == trackDetox)
 		{
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
-			startDetox.setVisible(false); 
+			trackDetox.setVisible(false); 
 			back.setVisible(true);
 			inFieldPane.setVisible(false);
 			otherPane.setVisible(false); 

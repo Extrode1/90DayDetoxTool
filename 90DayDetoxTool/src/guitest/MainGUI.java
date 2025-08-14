@@ -159,7 +159,9 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		entryCreation.addActionListener(this);
 		editEntries.addActionListener(this);
 		back.addActionListener(this); 
-		trackDetox.addActionListener(this); 		
+		trackDetox.addActionListener(this); 
+		startDetox.addActionListener(this); 
+		stopDetox.addActionListener(this); 
 		//create JTextFields
 		inFieldPane = new JPanel();
 		otherPane = new JPanel(); 
@@ -345,7 +347,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		
 		//disable saveExisting
 		saveExisting.setEnabled(false);
-		
+		//disable stopDetox button upon opening
+		stopDetox.setEnabled(false); 
 		//instantiate JMenu
 		menuBar = new JMenuBar(); 
 		a = new JMenu("File"); 
@@ -986,6 +989,16 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			//make start and stop buttons visible
 			startDetox.setVisible(true);
 			stopDetox.setVisible(true);
+		}
+		else if (e.getSource() == startDetox)
+		{
+			stopDetox.setEnabled(true); 
+			startDetox.setEnabled(false);
+		}
+		else if (e.getSource() == stopDetox)
+		{
+			startDetox.setEnabled(true);
+			stopDetox.setEnabled(false);
 		}
 
 				

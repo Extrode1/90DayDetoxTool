@@ -41,6 +41,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private JPanel savePane; 
 	private JPanel entryPane; 
 	private JPanel crudPane; 	
+	private JPanel detoxTrackerPane; 
 	//create additional JLabel
 	private JLabel mainMenuLabel; 
 	private JPanel mainPane; 
@@ -149,15 +150,17 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		editEntry.setFont(new Font("Calibri", Font.PLAIN, 17));
 		startDetox.setFont(new Font("Calibri", Font.PLAIN, 17));
 		stopDetox.setFont(new Font("Calibri", Font.PLAIN, 17));
-
+		//initialize detoxTrackerPane
+		detoxTrackerPane = new JPanel(new FlowLayout()); 
 		//add buttons to JFrame
 		frame.add(mainPane); 
 		frame.add(entryCreation); 
 		frame.add(editEntries); 
 		frame.add(back);
 		frame.add(trackDetox);
-		frame.add(startDetox); 
-		frame.add(stopDetox); 
+		frame.add(detoxTrackerPane); 
+		detoxTrackerPane.add(startDetox);
+		detoxTrackerPane.add(stopDetox); 
 		//add action listener
 		entryCreation.addActionListener(this);
 		editEntries.addActionListener(this);
@@ -677,7 +680,10 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		aboutPane.add(aboutTheApp2, BorderLayout.SOUTH); 
 
 		aboutPane.setVisible(false);
-		
+		//set an empty date
+		initialDate = new JLabel("Detox hasn't started yet"); 
+		detoxTrackerPane.add(initialDate); 
+
 	}
 	//required by ListSelectionListener
 	public void valueChanged(ListSelectionEvent e)
@@ -1002,7 +1008,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			//format date
 			DateTimeFormatter formattedInitialDateObj = DateTimeFormatter.ofPattern("dd/MM/yyyy"); 
 			String formattedDateString = startDetoxDateObj.format(formattedInitialDateObj); 
-			initialDate = new JLabel(formattedDateString); 
+			initialDate.setText(formattedDateString); 
 		}
 		else if (e.getSource() == stopDetox)
 		{

@@ -1096,8 +1096,6 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			
 			oos.close();
 			fos.close(); 
-			
-			
 		}
 		catch(IOException i) 
 		{

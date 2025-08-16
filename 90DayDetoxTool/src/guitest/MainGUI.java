@@ -332,7 +332,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		crudPane.add(editEntry, BorderLayout.SOUTH); 
 		frame.add(crudPane); 
 		
-		//hide entry creation when JFrame opens
+		//hide other tabs when JFrame opens
 		entryList.setVisible(false);
 		entryLabel.setVisible(false);
 		inFieldPane.setVisible(false); 
@@ -340,6 +340,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		savePane.setVisible(false);
 		startDetox.setVisible(false);
 		stopDetox.setVisible(false);
+		detoxTrackerPane.setVisible(false); 
 		
 		//implement button that deletes journal entries
 		deleteEntry.setVisible(false);
@@ -681,7 +682,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 
 		aboutPane.setVisible(false);
 		//set an empty date
-		initialDate = new JLabel("Detox hasn't started yet"); 
+		initialDate = new JLabel("Detox progress: Detox hasn't started yet"); 
 		detoxTrackerPane.add(initialDate); 
 
 	}
@@ -737,7 +738,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			mainPane.setVisible(false);
 			aboutPane.setVisible(false);
 			startDetox.setVisible(false);
-			stopDetox.setVisible(false);		
+			stopDetox.setVisible(false);	
+			detoxTrackerPane.setVisible(false);
 			
 		}
 		else if (e.getSource() == editEntries)
@@ -754,6 +756,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			aboutPane.setVisible(false);
 			startDetox.setVisible(false);
 			stopDetox.setVisible(false);
+			detoxTrackerPane.setVisible(false); 
+			
 		}
 		else if (e.getSource() == back)
 		{
@@ -772,6 +776,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			aboutPane.setVisible(false);
 			startDetox.setVisible(false);
 			stopDetox.setVisible(false);
+			detoxTrackerPane.setVisible(true);
 		}
 		else if (e.getSource() == save)
 		{
@@ -809,6 +814,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			aboutPane.setVisible(false);
 			startDetox.setVisible(false);
 			stopDetox.setVisible(false);
+			detoxTrackerPane.setVisible(true);
 			//make entry editing information hidden
 			
 		}
@@ -860,6 +866,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			aboutPane.setVisible(false);
 			startDetox.setVisible(false);
 			stopDetox.setVisible(false);
+			detoxTrackerPane.setVisible(false);
 			//reset fields to blank
 			day.setText(""); 
 			month.setText("");
@@ -915,6 +922,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			aboutPane.setVisible(false);
 			startDetox.setVisible(false);
 			stopDetox.setVisible(false);
+			detoxTrackerPane.setVisible(false);
 			//convert JTextField to string
 			entryIndex = list.getSelectedIndex();
 			if (entryIndex >= 0)
@@ -975,6 +983,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			entryLabel.setVisible(false); 
 			deleteEntry.setVisible(false);
 			editEntry.setVisible(false);
+			detoxTrackerPane.setVisible(false);
+
 		}
 		else if (e.getSource() == trackDetox)
 		{
@@ -993,9 +1003,11 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			entryLabel.setVisible(false); 
 			deleteEntry.setVisible(false);
 			editEntry.setVisible(false);
-			//make start and stop buttons visible
+			//make detox tracker visible
 			startDetox.setVisible(true);
 			stopDetox.setVisible(true);
+			detoxTrackerPane.setVisible(true);
+
 		}
 		else if (e.getSource() == startDetox)
 		{
@@ -1006,9 +1018,11 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			//prints to console
 			System.out.println(startDetoxDateObj); 
 			//format date
-			DateTimeFormatter formattedInitialDateObj = DateTimeFormatter.ofPattern("dd/MM/yyyy"); 
+			DateTimeFormatter formattedInitialDateObj = DateTimeFormatter.ofPattern("yyyy/MM/dd"); 
 			String formattedDateString = startDetoxDateObj.format(formattedInitialDateObj); 
-			initialDate.setText(formattedDateString); 
+			initialDate.setText("Detox progress: " + formattedDateString); 
+			//make detox tracker visible
+			detoxTrackerPane.setVisible(true);
 		}
 		else if (e.getSource() == stopDetox)
 		{

@@ -11,7 +11,8 @@ import javax.swing.undo.*;
 import java.io.*; 
 import java.util.*;
 import javax.swing.UIManager.*; 
-import java.time. *; 
+import java.time. *;
+import java.time.format.DateTimeFormatter; 
 
 public class MainGUI implements ActionListener, ListSelectionListener, WindowListener, ItemListener
 {
@@ -99,6 +100,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private JScrollPane textPane; 
 	//create StringBuffer in order to determine state of text via JCheckBox
 	private StringBuffer choices; 
+	//create JLabel to store initial date
+	private JLabel initialDate; 
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -674,9 +677,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		aboutPane.add(aboutTheApp2, BorderLayout.SOUTH); 
 
 		aboutPane.setVisible(false);
-		//get the current date
-		LocalDate startDetoxDate = LocalDate.now(); 
-		System.out.println(startDetoxDate); 
+		
 	}
 	//required by ListSelectionListener
 	public void valueChanged(ListSelectionEvent e)
@@ -994,6 +995,14 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		{
 			stopDetox.setEnabled(true); 
 			startDetox.setEnabled(false);
+			//get the current date
+			LocalDate startDetoxDateObj = LocalDate.now();
+			//prints to console
+			System.out.println(startDetoxDateObj); 
+			//format date
+			DateTimeFormatter formattedInitialDateObj = DateTimeFormatter.ofPattern("dd/MM/yyyy"); 
+			String formattedDateString = startDetoxDateObj.format(formattedInitialDateObj); 
+			initialDate = new JLabel(formattedDateString); 
 		}
 		else if (e.getSource() == stopDetox)
 		{

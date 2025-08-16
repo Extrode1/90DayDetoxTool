@@ -1023,6 +1023,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			initialDate.setText("Detox progress: " + formattedDateString); 
 			//make detox tracker visible
 			detoxTrackerPane.setVisible(true);
+			//write date into text file
+
 		}
 		else if (e.getSource() == stopDetox)
 		{
@@ -1053,6 +1055,24 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		catch(IOException | ClassNotFoundException i)
 		{
 			i.printStackTrace();
+		}
+		try 
+		{
+			File storeDate = new File("dates.txt"); 
+			if (storeDate.createNewFile())
+			{
+				System.out.println("File created. "); 
+				
+			}
+			else
+			{
+				System.out.println("File already exists. "); 
+			}
+		}
+		catch (IOException i)
+		{
+			System.out.println("An error occurred. "); 
+			i.printStackTrace(); 
 		}
 	}
 	@Override

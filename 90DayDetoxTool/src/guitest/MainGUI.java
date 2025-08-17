@@ -683,7 +683,11 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		aboutPane.setVisible(false);
 		//set an empty date
 		initialDate = new JLabel("Detox progress: Detox hasn't started yet"); 
+		//make JLabel look nice
 		initialDate.setFont(new Font("Calibri",  Font.BOLD, 40)); 
+		initialDate.setForeground(Color.blue); 
+		initialDate.setBackground(Color.yellow);
+		initialDate.setOpaque(true); 
 		detoxTrackerPane.add(initialDate); 
 		//make detoxTrackerPane visible
 		detoxTrackerPane.setVisible(true); 

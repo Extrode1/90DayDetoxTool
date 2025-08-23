@@ -1031,6 +1031,17 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			//make detox tracker visible
 			detoxTrackerPane.setVisible(true);
 			//write date into text file
+			try {
+				FileWriter myWriter = new FileWriter("dates.txt");
+				myWriter.write(formattedDateString); 
+				myWriter.close(); 
+				System.out.println("Successfully wrote to the file. "); 
+				} 
+			catch (IOException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			} 
+			
 
 		}
 		else if (e.getSource() == stopDetox)
@@ -1044,6 +1055,10 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	@Override
 	public void windowOpened(WindowEvent e) {
 		// TODO Auto-generated method stub
+		
+		
+		
+		//do Object I/O for journal entries
 		try 
 		{
 			//read file

@@ -102,7 +102,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	//create StringBuffer in order to determine state of text via JCheckBox
 	private StringBuffer choices; 
 	//create JLabel to store initial date
-	private JLabel initialDate; 
+	private JLabel initialDate = new JLabel("Detox progress: Detox hasn't started yet "); 
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -682,7 +682,6 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 
 		aboutPane.setVisible(false);
 		//set an empty date
-		initialDate = new JLabel("Detox progress: Detox hasn't started yet"); 
 		//make JLabel look nice
 		initialDate.setFont(new Font("Calibri",  Font.BOLD, 40)); 
 		initialDate.setForeground(Color.blue); 
@@ -1027,7 +1026,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			//format date
 			DateTimeFormatter formattedInitialDateObj = DateTimeFormatter.ofPattern("yyyy/MM/dd"); 
 			String formattedDateString = startDetoxDateObj.format(formattedInitialDateObj); 
-			initialDate.setText("Detox progress: " + formattedDateString); 
+			initialDate.setText("Detox progress: Detox started on " + formattedDateString); 
 			//make detox tracker visible
 			detoxTrackerPane.setVisible(true);
 			//write date into text file
@@ -1055,7 +1054,20 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	@Override
 	public void windowOpened(WindowEvent e) {
 		// TODO Auto-generated method stub
-		
+		//read existing file and pull detox starting date from it
+		try {
+			File myObj = new File("dates.txt"); 
+			Scanner myReader = new Scanner(myObj); 
+			while (myReader.hasNextLine()) {
+				String data = myReader.nextLine(); 
+				initialDate.setText("Detox progress: Detox started on " + data);
+			}
+			myReader.close(); 
+		}
+		catch (FileNotFoundException ex) {
+			System.out.println("An error occurred");
+			ex.printStackTrace(); 
+		}
 		
 		
 		//do Object I/O for journal entries

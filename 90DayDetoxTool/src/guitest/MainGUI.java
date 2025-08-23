@@ -102,7 +102,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	//create StringBuffer in order to determine state of text via JCheckBox
 	private StringBuffer choices; 
 	//create JLabel to store initial date
-	private JLabel initialDate = new JLabel("Detox progress: Detox hasn't started yet "); 
+	private JLabel initialDate = new JLabel("Detox progress: Detox hasn't started yet"); 
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -354,8 +354,15 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		
 		//disable saveExisting
 		saveExisting.setEnabled(false);
-		//disable stopDetox button upon opening
-		stopDetox.setEnabled(false); 
+		//disable stop detox button
+		if (initialDate.getText().equals("Detox progress: Detox hasn't started yet"))
+		{
+			stopDetox.setEnabled(false); 
+		}
+		else
+		{
+			stopDetox.setEnabled(true); 
+		}
 		//instantiate JMenu
 		menuBar = new JMenuBar(); 
 		a = new JMenu("File"); 
@@ -1060,6 +1067,11 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			Scanner myReader = new Scanner(myObj); 
 			while (myReader.hasNextLine()) {
 				String data = myReader.nextLine(); 
+				//check if there is written text
+				if (data.equals(null) == false)
+				{
+					startDetox.setEnabled(false);
+				}
 				initialDate.setText("Detox progress: Detox started on " + data);
 			}
 			myReader.close(); 

@@ -827,7 +827,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			aboutPane.setVisible(false);
 			startDetox.setVisible(false);
 			stopDetox.setVisible(false);
-			detoxTrackerPane.setVisible(true);
+			detoxTrackerPane.setVisible(false);
 			//make entry editing information hidden
 			
 		}

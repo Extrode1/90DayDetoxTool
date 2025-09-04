@@ -111,7 +111,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-		frame.setSize(1200, 900); 
+		frame.setSize(1200, 750); 
 		frame.setVisible(true); 
 		frame.setLayout(new FlowLayout()); 
 		frame.addWindowListener(this); 

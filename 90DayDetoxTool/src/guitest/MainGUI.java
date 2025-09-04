@@ -42,6 +42,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private JPanel entryPane; 
 	private JPanel crudPane; 	
 	private JPanel detoxTrackerPane; 
+	//create pane for progress
+	private JPanel progressPane; 
 	//create additional JLabel
 	private JLabel mainMenuLabel; 
 	private JPanel mainPane; 
@@ -112,7 +114,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private LocalDate date1;  
 	String formattedCurrentDateString; 
 	private LocalDate date2; 
-
+	//create a JLabel for daily streaks
+	private JLabel dailyStreak = new JLabel("Your daily streak is 0 days"); 
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -162,6 +165,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		stopDetox.setFont(new Font("Calibri", Font.PLAIN, 17));
 		//initialize detoxTrackerPane
 		detoxTrackerPane = new JPanel(new FlowLayout()); 
+		//initialize progressPane
+		progressPane = new JPanel(new BorderLayout());  
 		//add buttons to JFrame
 		frame.add(mainPane); 
 		frame.add(entryCreation); 
@@ -169,6 +174,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		frame.add(back);
 		frame.add(trackDetox);
 		frame.add(detoxTrackerPane); 
+		frame.add(progressPane); 
 		detoxTrackerPane.add(startDetox);
 		detoxTrackerPane.add(stopDetox); 
 		//add action listener
@@ -704,9 +710,11 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		initialDate.setForeground(Color.blue); 
 		initialDate.setBackground(Color.yellow);
 		initialDate.setOpaque(true); 
-		detoxTrackerPane.add(initialDate); 
+		progressPane.add(initialDate, BorderLayout.NORTH); 
+		progressPane.add(dailyStreak, BorderLayout.SOUTH); 
 		//make detoxTrackerPane visible
 		detoxTrackerPane.setVisible(true); 
+		progressPane.setVisible(true);  
 		
 		//put current date in a String
 		System.out.println(initialDateString); 
@@ -723,11 +731,15 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			if (daysBetween == 1)
 			{
 				System.out.println("Current streak is " + daysBetween + " day."); 
+				dailyStreak.setText("Your current streak is " + daysBetween + " day.");
 			}
 			else 
 			{
 				System.out.println("Current streak is " + daysBetween + " days."); 
+				dailyStreak.setText("Your current streak is " + daysBetween + " days."); 
+
 			}
+			progressPane.add(dailyStreak, BorderLayout.SOUTH); 
 		}
 		
 	}
@@ -785,7 +797,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			startDetox.setVisible(false);
 			stopDetox.setVisible(false);	
 			detoxTrackerPane.setVisible(false);
-			
+			progressPane.setVisible(false);
 		}
 		else if (e.getSource() == editEntries)
 		{
@@ -802,7 +814,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			startDetox.setVisible(false);
 			stopDetox.setVisible(false);
 			detoxTrackerPane.setVisible(false); 
-			
+			progressPane.setVisible(false);
+
 		}
 		else if (e.getSource() == back)
 		{
@@ -822,6 +835,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			startDetox.setVisible(false);
 			stopDetox.setVisible(false);
 			detoxTrackerPane.setVisible(true);
+			progressPane.setVisible(true);
+
 		}
 		else if (e.getSource() == save)
 		{
@@ -860,8 +875,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			startDetox.setVisible(false);
 			stopDetox.setVisible(false);
 			detoxTrackerPane.setVisible(false);
-			//make entry editing information hidden
-			
+			progressPane.setVisible(false);			
 		}
 		else if (e.getSource() == saveExisting)
 		{
@@ -912,6 +926,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			startDetox.setVisible(false);
 			stopDetox.setVisible(false);
 			detoxTrackerPane.setVisible(false);
+			progressPane.setVisible(false);
 			//reset fields to blank
 			day.setText(""); 
 			month.setText("");
@@ -968,6 +983,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			startDetox.setVisible(false);
 			stopDetox.setVisible(false);
 			detoxTrackerPane.setVisible(false);
+			progressPane.setVisible(false);
 			//convert JTextField to string
 			entryIndex = list.getSelectedIndex();
 			if (entryIndex >= 0)
@@ -1029,7 +1045,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			deleteEntry.setVisible(false);
 			editEntry.setVisible(false);
 			detoxTrackerPane.setVisible(false);
-
+			progressPane.setVisible(false);
 		}
 		else if (e.getSource() == trackDetox)
 		{
@@ -1052,7 +1068,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			startDetox.setVisible(true);
 			stopDetox.setVisible(true);
 			detoxTrackerPane.setVisible(true);
-
+			progressPane.setVisible(true);
 		}
 		else if (e.getSource() == startDetox)
 		{

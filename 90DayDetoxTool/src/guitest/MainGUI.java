@@ -103,6 +103,10 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private StringBuffer choices; 
 	//create JLabel to store initial date
 	private JLabel initialDate = new JLabel("Detox progress: Detox hasn't started yet"); 
+	private String initialDateString = initialDate.getText().trim(); 
+	//create a variable for DateTimeFormatter
+	private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MM yyyy"); 
+	
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -1080,8 +1084,12 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			System.out.println("An error occurred");
 			ex.printStackTrace(); 
 		}
-		
-		
+		//calculate a daily streak for the 90 day detox if it is started already
+		if (initialDateString.startsWith("Detox progress: Detox started on "))
+		{
+			LocalDate currentDate = LocalDate.now(); 
+		}
+				
 		//do Object I/O for journal entries
 		try 
 		{

@@ -13,7 +13,7 @@ import java.util.*;
 import javax.swing.UIManager.*; 
 import java.time. *;
 import java.time.format.DateTimeFormatter; 
-
+import java.time.temporal.ChronoUnit;
 public class MainGUI implements ActionListener, ListSelectionListener, WindowListener, ItemListener
 {
 	//declare JFrame
@@ -103,10 +103,16 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private StringBuffer choices; 
 	//create JLabel to store initial date
 	private JLabel initialDate = new JLabel("Detox progress: Detox hasn't started yet"); 
-	private String initialDateString = initialDate.getText().trim(); 
-	//create a variable for DateTimeFormatter
-	private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MM yyyy"); 
+	private DateTimeFormatter formattedInitialDateObj; 
+	private String initialDateString; 
+	//set up DateTimeFormatter
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd"); 
+	//create date object
 	
+	private LocalDate date1;  
+	String formattedCurrentDateString; 
+	private LocalDate date2; 
+
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -701,7 +707,29 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		detoxTrackerPane.add(initialDate); 
 		//make detoxTrackerPane visible
 		detoxTrackerPane.setVisible(true); 
-
+		
+		//put current date in a String
+		System.out.println(initialDateString); 
+		//set initialDateString to correct value
+		date1 = LocalDate.parse(initialDateString, dtf);
+		//calculate a daily streak for the 90 day detox if it is started already
+		if (initialDateString != null)
+		{
+			LocalDate currentDate = LocalDate.now(); 
+			DateTimeFormatter formattedCurrentDate = DateTimeFormatter.ofPattern("yyyy/MM/dd"); 
+			formattedCurrentDateString = currentDate.format(formattedCurrentDate); 
+			date2 = LocalDate.parse(formattedCurrentDateString, dtf); 
+			long daysBetween = ChronoUnit.DAYS.between(date1, date2); 
+			if (daysBetween == 1)
+			{
+				System.out.println("Current streak is " + daysBetween + " day."); 
+			}
+			else 
+			{
+				System.out.println("Current streak is " + daysBetween + " days."); 
+			}
+		}
+		
 	}
 	//required by ListSelectionListener
 	public void valueChanged(ListSelectionEvent e)
@@ -1035,9 +1063,10 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			//prints to console
 			System.out.println(startDetoxDateObj); 
 			//format date
-			DateTimeFormatter formattedInitialDateObj = DateTimeFormatter.ofPattern("yyyy/MM/dd"); 
+			formattedInitialDateObj = DateTimeFormatter.ofPattern("yyyy/MM/dd"); 
 			String formattedDateString = startDetoxDateObj.format(formattedInitialDateObj); 
 			initialDate.setText("Detox progress: Detox started on " + formattedDateString); 
+
 			//make detox tracker visible
 			detoxTrackerPane.setVisible(true);
 			//write date into text file
@@ -1077,6 +1106,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 					startDetox.setEnabled(false);
 				}
 				initialDate.setText("Detox progress: Detox started on " + data);
+				initialDateString = data; 
 			}
 			myReader.close(); 
 		}
@@ -1084,12 +1114,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			System.out.println("An error occurred");
 			ex.printStackTrace(); 
 		}
-		//calculate a daily streak for the 90 day detox if it is started already
-		if (initialDateString.startsWith("Detox progress: Detox started on "))
-		{
-			LocalDate currentDate = LocalDate.now(); 
-		}
-				
+
 		//do Object I/O for journal entries
 		try 
 		{

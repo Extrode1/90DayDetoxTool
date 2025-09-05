@@ -710,6 +710,10 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		initialDate.setForeground(Color.blue); 
 		initialDate.setBackground(Color.yellow);
 		initialDate.setOpaque(true); 
+		dailyStreak.setFont(new Font("Comic Sans",  Font.ITALIC, 40)); 
+		dailyStreak.setForeground(Color.BLACK); 
+		dailyStreak.setBackground(Color.CYAN);
+		dailyStreak.setOpaque(true);
 		progressPane.add(initialDate, BorderLayout.NORTH); 
 		progressPane.add(dailyStreak, BorderLayout.SOUTH); 
 		//make detoxTrackerPane visible
@@ -741,7 +745,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			}
 			progressPane.add(dailyStreak, BorderLayout.SOUTH); 
 		}
-		
+	 	
 	}
 	//required by ListSelectionListener
 	public void valueChanged(ListSelectionEvent e)

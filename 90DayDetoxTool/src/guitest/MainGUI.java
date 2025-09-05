@@ -115,7 +115,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	String formattedCurrentDateString; 
 	private LocalDate date2; 
 	//create a JLabel for daily streaks
-	private JLabel dailyStreak = new JLabel("Your daily streak is 0 days"); 
+	private JLabel dailyStreak = new JLabel("You don't have a daily streak. "); 
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -720,13 +720,14 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		detoxTrackerPane.setVisible(true); 
 		progressPane.setVisible(true);  
 		
-		//put current date in a String
-		System.out.println(initialDateString); 
-		//set initialDateString to correct value
-		date1 = LocalDate.parse(initialDateString, dtf);
+		
 		//calculate a daily streak for the 90 day detox if it is started already
 		if (initialDateString != null)
 		{
+			//put current date in a String
+			System.out.println(initialDateString); 
+			//set initialDateString to correct value
+			date1 = LocalDate.parse(initialDateString, dtf);
 			LocalDate currentDate = LocalDate.now(); 
 			DateTimeFormatter formattedCurrentDate = DateTimeFormatter.ofPattern("yyyy/MM/dd"); 
 			formattedCurrentDateString = currentDate.format(formattedCurrentDate); 
@@ -1086,7 +1087,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			formattedInitialDateObj = DateTimeFormatter.ofPattern("yyyy/MM/dd"); 
 			String formattedDateString = startDetoxDateObj.format(formattedInitialDateObj); 
 			initialDate.setText("Detox progress: Detox started on " + formattedDateString); 
-
+			dailyStreak.setText("Your current streak is 0 days"); 
 			//make detox tracker visible
 			detoxTrackerPane.setVisible(true);
 			//write date into text file

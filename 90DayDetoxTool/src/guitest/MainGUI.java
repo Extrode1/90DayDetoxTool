@@ -116,6 +116,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private LocalDate date2; 
 	//create a JLabel for daily streaks
 	private JLabel dailyStreak = new JLabel("You don't have a daily streak. "); 
+	//declare variable to store dates (long) 
+	long daysBetween; 
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -732,7 +734,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 			DateTimeFormatter formattedCurrentDate = DateTimeFormatter.ofPattern("yyyy/MM/dd"); 
 			formattedCurrentDateString = currentDate.format(formattedCurrentDate); 
 			date2 = LocalDate.parse(formattedCurrentDateString, dtf); 
-			long daysBetween = ChronoUnit.DAYS.between(date1, date2); 
+			daysBetween = ChronoUnit.DAYS.between(date1, date2); 
 			if (daysBetween == 1)
 			{
 				System.out.println("Current streak is " + daysBetween + " day."); 
@@ -1108,6 +1110,18 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		{
 			startDetox.setEnabled(true);
 			stopDetox.setEnabled(false);
+			//change detox progress
+			initialDate.setText("Detox progress: Detox stopped."); 
+			if (daysBetween == 1L)
+			{
+				dailyStreak.setText("Your daily streak ended on " + daysBetween + " day");
+			}
+			else
+			{
+				dailyStreak.setText("Your daily streak ended on " + daysBetween + " days"); 
+			}
+			//reset detox
+			daysBetween = 0L; 
 		}
 
 				

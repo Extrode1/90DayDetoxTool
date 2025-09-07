@@ -429,6 +429,7 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		a.add(a1);
 		b.add(b1);
 		b.add(b2);
+		b.addSeparator(); 
 		b.add(b3); 
 		b.add(b4); 
 		b.add(b5); 

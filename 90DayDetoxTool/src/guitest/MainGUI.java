@@ -14,7 +14,7 @@ import javax.swing.UIManager.*;
 import java.time. *;
 import java.time.format.DateTimeFormatter; 
 import java.time.temporal.ChronoUnit;
-public class MainGUI implements ActionListener, ListSelectionListener, WindowListener, ItemListener
+public class MainGUI extends JFrame implements ActionListener, ListSelectionListener, WindowListener, ItemListener
 {
 	//declare JFrame
 	private JFrame frame; 
@@ -44,6 +44,8 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 	private JPanel detoxTrackerPane; 
 	//create pane for progress
 	private JPanel progressPane; 
+	//create a pane that combines detoxTrackerPane and progressPane
+	private JPanel combinedDetoxPane; 
 	//create additional JLabel
 	private JLabel mainMenuLabel; 
 	private JPanel mainPane; 
@@ -163,20 +165,23 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		saveExisting.setFont(new Font("Calibri", Font.PLAIN, 17));
 		deleteEntry.setFont(new Font("Calibri", Font.PLAIN, 17));
 		editEntry.setFont(new Font("Calibri", Font.PLAIN, 17));
-		startDetox.setFont(new Font("Calibri", Font.PLAIN, 17));
-		stopDetox.setFont(new Font("Calibri", Font.PLAIN, 17));
+		startDetox.setFont(new Font("Calibri", Font.BOLD, 30));
+		stopDetox.setFont(new Font("Calibri", Font.BOLD, 30));
 		//initialize detoxTrackerPane
 		detoxTrackerPane = new JPanel(new FlowLayout()); 
 		//initialize progressPane
-		progressPane = new JPanel(new BorderLayout());  
+		progressPane = new JPanel(new BorderLayout());
+		//initialize combined panel
+		combinedDetoxPane = new JPanel(new BorderLayout()); 
 		//add buttons to JFrame
 		frame.add(mainPane); 
 		frame.add(entryCreation); 
 		frame.add(editEntries); 
 		frame.add(back);
 		frame.add(trackDetox);
-		frame.add(detoxTrackerPane); 
-		frame.add(progressPane); 
+		frame.add(combinedDetoxPane); 
+		combinedDetoxPane.add(detoxTrackerPane, BorderLayout.NORTH); 
+		combinedDetoxPane.add(progressPane, BorderLayout.SOUTH); 
 		detoxTrackerPane.add(startDetox);
 		detoxTrackerPane.add(stopDetox); 
 		//add action listener

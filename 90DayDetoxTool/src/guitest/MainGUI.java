@@ -394,13 +394,13 @@ public class MainGUI implements ActionListener, ListSelectionListener, WindowLis
 		b1.addActionListener(this);
 		b2 = new JMenuItem("Redo                                                                     Ctrl+Y");
 		b2.addActionListener(this);
-		b3 = new JMenuItem("Move caret forward                                       Ctrl+F");
+		b3 = new JMenuItem("Move caret forward                                            Ctrl+F");
 		b3.addActionListener(this);
-		b4 = new JMenuItem("Move caret backward                                   Ctrl+B");
+		b4 = new JMenuItem("Move caret backward                                        Ctrl+B");
 		b4.addActionListener(this);
-		b5 = new JMenuItem("Move caret down one line                        Ctrl+N"); 
+		b5 = new JMenuItem("Move caret down one line                            	    Ctrl+N"); 
 		b5.addActionListener(this);
-		b6 = new JMenuItem("Move caret up one line                               Ctrl+P"); 
+		b6 = new JMenuItem("Move caret up one line                                     Ctrl+P"); 
 		b6.addActionListener(this); 
 		c1 = new JMenuItem("Properties"); 
 		c1.addActionListener(this); 

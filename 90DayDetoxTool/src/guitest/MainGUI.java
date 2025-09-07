@@ -10,7 +10,9 @@ import javax.swing.undo.*;
 
 import java.io.*; 
 import java.util.*;
-import javax.swing.UIManager.*; 
+import javax.swing.UIManager.*;
+import javax.swing.border.Border;
+
 import java.time. *;
 import java.time.format.DateTimeFormatter; 
 import java.time.temporal.ChronoUnit;
@@ -119,7 +121,8 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 	//create a JLabel for daily streaks
 	private JLabel dailyStreak = new JLabel("You don't have a daily streak. "); 
 	//declare variable to store dates (long) 
-	long daysBetween; 
+	private long daysBetween; 
+
 	public MainGUI()
 	{
 		frame = new JFrame ("90 Day Detox Tool"); 
@@ -137,6 +140,9 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		mainPane = new JPanel(new BorderLayout()); 
 		mainMenuLabel = new JLabel("Welcome to the 90 Day Detox Tool!", SwingConstants.CENTER); 
 		mainMenuLabel.setFont(new Font("Calibri",  Font.BOLD, 40)); 
+		mainMenuLabel.setBackground(Color.YELLOW); 
+		mainMenuLabel.setForeground(Color.RED);
+		mainMenuLabel.setOpaque(true);
 		mainMenuLabel2 = new JLabel("This tool will allow you to create journal entries to keep track of your progress and record your thoughts and feelings when you are doing the 90 day detox. ");
 		mainMenuLabel2.setFont(new Font ("Calibri", Font.ITALIC, 15)); 
 		
@@ -777,6 +783,8 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			}
 		}
 	}
+	//create border
+	Border blackline, raisedetched, loweretched, raisedbevel, lowerbevel, empty; 
 	public static void main(String[] args)  {
 		// TODO Auto-generated method stub
 		//change look and feel to nimbus

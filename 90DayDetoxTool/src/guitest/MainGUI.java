@@ -709,7 +709,8 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		aboutPane = new JPanel(new BorderLayout()); 
 		frame.add(aboutPane);
 		aboutTheApp = new JLabel("<html>This application was made to help those who struggle with a video game addiction. This app specifically <br/> helps you with keeping track of your thoughts and feelings during the 90 day detox. To use this app, you </html>");
-		aboutTheApp2 = new JLabel("<html> can create a new entry every single day of the 90 day detox. </html>"); 
+		aboutTheApp2 = new JLabel("<html> can create a new entry every single day of the 90 day detox. You are also able to keep track of how many <br/> days you have gone on the 90 day detox. </html>"); 
+		
 		
 		aboutTheApp.setFont(new Font("Calibri",  Font.PLAIN, 20)); 
 		aboutTheApp2.setFont(new Font("Calibri",  Font.PLAIN, 20)); 
@@ -784,7 +785,6 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		}
 	}
 	//create border
-	Border blackline, raisedetched, loweretched, raisedbevel, lowerbevel, empty; 
 	public static void main(String[] args)  {
 		// TODO Auto-generated method stub
 		//change look and feel to nimbus

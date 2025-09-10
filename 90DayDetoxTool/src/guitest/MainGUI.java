@@ -726,10 +726,12 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		initialDate.setForeground(Color.blue); 
 		initialDate.setBackground(Color.yellow);
 		initialDate.setOpaque(true); 
+		initialDate.setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, Color.BLACK)); 
 		dailyStreak.setFont(new Font("Comic Sans",  Font.ITALIC, 40)); 
 		dailyStreak.setForeground(Color.BLACK); 
 		dailyStreak.setBackground(Color.CYAN);
 		dailyStreak.setOpaque(true);
+		dailyStreak.setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, Color.BLACK)); 
 		progressPane.add(initialDate, BorderLayout.NORTH); 
 		progressPane.add(dailyStreak, BorderLayout.SOUTH); 
 		//make detoxTrackerPane visible

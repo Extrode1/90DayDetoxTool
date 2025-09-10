@@ -143,6 +143,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		mainMenuLabel.setBackground(Color.YELLOW); 
 		mainMenuLabel.setForeground(Color.RED);
 		mainMenuLabel.setOpaque(true);
+		mainMenuLabel.setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, Color.black)); 
 		mainMenuLabel2 = new JLabel("This tool will allow you to create journal entries to keep track of your progress and record your thoughts and feelings when you are doing the 90 day detox. ");
 		mainMenuLabel2.setFont(new Font ("Calibri", Font.ITALIC, 15)); 
 		

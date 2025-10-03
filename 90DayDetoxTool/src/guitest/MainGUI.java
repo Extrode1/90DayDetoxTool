@@ -32,6 +32,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 	private JButton editEntry = new JButton("Edit Entry"); 
 	private JButton startDetox = new JButton("Start detox");
 	private JButton stopDetox = new JButton("Stop detox"); 
+	private JButton setDate = new JButton("Set a detox start date"); 
 	private JTextField day; 
 	private JTextField month;
 	private JTextField year;
@@ -174,6 +175,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		editEntry.setFont(new Font("Calibri", Font.PLAIN, 17));
 		startDetox.setFont(new Font("Calibri", Font.BOLD, 30));
 		stopDetox.setFont(new Font("Calibri", Font.BOLD, 30));
+		setDate.setFont(new Font("Calibri", Font.BOLD, 30));
 		//initialize detoxTrackerPane
 		detoxTrackerPane = new JPanel(new FlowLayout()); 
 		//initialize progressPane
@@ -191,6 +193,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		combinedDetoxPane.add(progressPane, BorderLayout.SOUTH); 
 		detoxTrackerPane.add(startDetox);
 		detoxTrackerPane.add(stopDetox); 
+		detoxTrackerPane.add(setDate); 
 		//add action listener
 		entryCreation.addActionListener(this);
 		editEntries.addActionListener(this);
@@ -819,7 +822,8 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			mainPane.setVisible(false);
 			aboutPane.setVisible(false);
 			startDetox.setVisible(false);
-			stopDetox.setVisible(false);	
+			stopDetox.setVisible(false);
+			setDate.setVisible(false); 
 			detoxTrackerPane.setVisible(false);
 			progressPane.setVisible(false);
 		}
@@ -837,6 +841,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			aboutPane.setVisible(false);
 			startDetox.setVisible(false);
 			stopDetox.setVisible(false);
+			setDate.setVisible(false); 
 			detoxTrackerPane.setVisible(false); 
 			progressPane.setVisible(false);
 
@@ -858,6 +863,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			aboutPane.setVisible(false);
 			startDetox.setVisible(false);
 			stopDetox.setVisible(false);
+			setDate.setVisible(false); 
 			detoxTrackerPane.setVisible(true);
 			progressPane.setVisible(true);
 
@@ -898,6 +904,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			aboutPane.setVisible(false);
 			startDetox.setVisible(false);
 			stopDetox.setVisible(false);
+			setDate.setVisible(false); 
 			detoxTrackerPane.setVisible(false);
 			progressPane.setVisible(false);			
 		}
@@ -948,6 +955,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			editEntry.setVisible(true);	
 			aboutPane.setVisible(false);
 			startDetox.setVisible(false);
+			setDate.setVisible(false); 
 			stopDetox.setVisible(false);
 			detoxTrackerPane.setVisible(false);
 			progressPane.setVisible(false);
@@ -1006,6 +1014,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			aboutPane.setVisible(false);
 			startDetox.setVisible(false);
 			stopDetox.setVisible(false);
+			setDate.setVisible(false); 
 			detoxTrackerPane.setVisible(false);
 			progressPane.setVisible(false);
 			//convert JTextField to string
@@ -1063,6 +1072,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			aboutPane.setVisible(true);
 			startDetox.setVisible(false);
 			stopDetox.setVisible(false);
+			setDate.setVisible(false); 
 			//make entry information hidden  
 			entryList.setVisible(false); 
 			entryLabel.setVisible(false); 
@@ -1091,6 +1101,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			//make detox tracker visible
 			startDetox.setVisible(true);
 			stopDetox.setVisible(true);
+			setDate.setVisible(true); 
 			detoxTrackerPane.setVisible(true);
 			progressPane.setVisible(true);
 		}

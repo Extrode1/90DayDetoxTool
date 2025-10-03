@@ -373,6 +373,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		savePane.setVisible(false);
 		startDetox.setVisible(false);
 		stopDetox.setVisible(false);
+		setDate.setVisible(false); 
 		detoxTrackerPane.setVisible(false); 
 		
 		//implement button that deletes journal entries

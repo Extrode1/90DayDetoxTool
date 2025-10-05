@@ -201,6 +201,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		trackDetox.addActionListener(this); 
 		startDetox.addActionListener(this); 
 		stopDetox.addActionListener(this); 
+		setDate.addActionListener(this); 
 		//create JTextFields
 		inFieldPane = new JPanel();
 		otherPane = new JPanel(); 

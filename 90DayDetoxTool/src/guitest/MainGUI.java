@@ -1153,6 +1153,10 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			//reset detox
 			daysBetween = 0L; 
 		}
+		else if (e.getSource() == setDate)
+		{
+			String name  = JOptionPane.showInputDialog("Please enter your detox start date (YYYY/MM/DD): "); 
+		}
 
 				
 	}

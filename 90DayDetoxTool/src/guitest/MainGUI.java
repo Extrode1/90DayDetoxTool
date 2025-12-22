@@ -1056,13 +1056,25 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			daysBetween = 0L; 
 		}
 		else if (e.getSource() == setDate) { 
-			String name  = JOptionPane.showInputDialog("Please enter your detox start date (YYYY/MM/DD): "); 
+			String date  = JOptionPane.showInputDialog("Please enter your detox start date (YYYY/MM/DD): "); 
 			try {
 				FileWriter myWriter = new FileWriter("dates.txt");
-				myWriter.write(name); 
+				myWriter.write(date); 
 				myWriter.close(); 
-				initialDate.setText("Detox progress: Detox started on " + name);
-				if (daysBetween == 1) { 
+				if (date != null) { 
+					//put current date in a String
+					System.out.println(date); 
+					//set initialDateString to correct value
+					date1 = LocalDate.parse(date, dtf);
+					LocalDate currentDate = LocalDate.now(); 
+					DateTimeFormatter formattedCurrentDate = DateTimeFormatter.ofPattern("yyyy/MM/dd"); 
+					formattedCurrentDateString = currentDate.format(formattedCurrentDate); 
+					date2 = LocalDate.parse(formattedCurrentDateString, dtf); 
+					daysBetween = ChronoUnit.DAYS.between(date1, date2); 
+				}
+				initialDate.setText("Detox progress: Detox started on " + date);
+				
+				if (daysBetween == 1L) { 
 					System.out.println("Current streak is " + daysBetween + " day."); 
 					dailyStreak.setText("Your current streak is " + daysBetween + " day.");
 				}

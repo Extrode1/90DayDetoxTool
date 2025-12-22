@@ -16,8 +16,7 @@ import javax.swing.border.Border;
 import java.time. *;
 import java.time.format.DateTimeFormatter; 
 import java.time.temporal.ChronoUnit;
-public class MainGUI extends JFrame implements ActionListener, ListSelectionListener, WindowListener, ItemListener
-{
+public class MainGUI extends JFrame implements ActionListener, ListSelectionListener, WindowListener, ItemListener {
 	//declare JFrame
 	private JFrame frame; 
 	
@@ -124,8 +123,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 	//declare variable to store dates (long) 
 	private long daysBetween; 
 
-	public MainGUI()
-	{
+	public MainGUI() {
 		frame = new JFrame ("90 Day Detox Tool"); 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		frame.setSize(1200, 750); 
@@ -133,8 +131,8 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		frame.setLayout(new FlowLayout()); 
 		frame.addWindowListener(this); 
 		frame.setLocationRelativeTo(null);
-		//create JButtons		
-		 
+		
+		//create JButtons				 
 		back.setVisible(false);
 		
 		//create a main menu label 
@@ -210,11 +208,9 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		day.getDocument().addUndoableEditListener(
 				new UndoableEditListener() {
 					@Override
-					public void undoableEditHappened(UndoableEditEvent e)
-					{
+					public void undoableEditHappened(UndoableEditEvent e) {
 						//remember the edit and update menus
-						undo.addEdit(e.getEdit());
-						
+						undo.addEdit(e.getEdit());						
 					}
 				}
 				
@@ -224,44 +220,32 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		month.getDocument().addUndoableEditListener(
 				new UndoableEditListener() {
 					@Override
-					public void undoableEditHappened(UndoableEditEvent e)
-					{
+					public void undoableEditHappened(UndoableEditEvent e) {
 						//remember the edit and update menus
-						undo.addEdit(e.getEdit());
-						
+						undo.addEdit(e.getEdit());	
 					}
-				}
-				
-				
+				}	
 				);
 		year = new JTextField (15); 
 		year.getDocument().addUndoableEditListener(
 				new UndoableEditListener() {
 					@Override
-					public void undoableEditHappened(UndoableEditEvent e)
-					{
+					public void undoableEditHappened(UndoableEditEvent e) { 
 						//remember the edit and update menus
 						undo.addEdit(e.getEdit());
-						
 					}
-				}
-				
-				
+				}				
 				);;
 		fullDate = new JTextField (15); 
 		title = new JTextField(15); 
 		title.getDocument().addUndoableEditListener(
 				new UndoableEditListener() {
 					@Override
-					public void undoableEditHappened(UndoableEditEvent e)
-					{
+					public void undoableEditHappened(UndoableEditEvent e) { 
 						//remember the edit and update menus
 						undo.addEdit(e.getEdit());
-						
 					}
-				}
-				
-				
+				}			
 				);
 		fullDate.setEditable(false); 
 		journalEntry = new JTextArea (15, 30);
@@ -270,15 +254,11 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		journalEntry.getDocument().addUndoableEditListener(
 				new UndoableEditListener() {
 					@Override
-					public void undoableEditHappened(UndoableEditEvent e)
-					{
+					public void undoableEditHappened(UndoableEditEvent e) { 
 						//remember the edit and update menus
 						undo.addEdit(e.getEdit());
-						
 					}
-				}
-				
-				
+				}	
 				);
 		journalEntryPane = new JTextPane (); 
 		
@@ -390,12 +370,10 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		//disable saveExisting
 		saveExisting.setEnabled(false);
 		//disable stop detox button
-		if (initialDate.getText().equals("Detox progress: Detox hasn't started yet"))
-		{
+		if (initialDate.getText().equals("Detox progress: Detox hasn't started yet")) { 
 			stopDetox.setEnabled(false); 
 		}
-		else
-		{
+		else { 
 			stopDetox.setEnabled(true); 
 		}
 		//instantiate JMenu
@@ -524,8 +502,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		//set up actionMap for undo
 		actionMap1.put("Undo", new AbstractAction() {
 			@Override
-			public void actionPerformed(ActionEvent e)
-			{
+			public void actionPerformed(ActionEvent e) { 
 				try {
 						if (undo.canUndo())
 							undo.undo(); 
@@ -536,13 +513,11 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 
 					}
 			}
-		
 			
 		});
 		actionMap2.put("Undo", new AbstractAction() {
 			@Override
-			public void actionPerformed(ActionEvent e)
-			{
+			public void actionPerformed(ActionEvent e) { 
 				try {
 						if (undo.canUndo())
 							undo.undo(); 
@@ -553,21 +528,17 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 
 					}
 			}
-		
-			
+					
 		});
 		actionMap3.put("Undo", new AbstractAction() {
 			@Override
-			public void actionPerformed(ActionEvent e)
-			{
+			public void actionPerformed(ActionEvent e) { 
 				try {
 						if (undo.canUndo())
 							undo.undo(); 
-						
 					}
 					catch (CannotRedoException ex) {
 						JOptionPane.showMessageDialog(frame, "Unable to undo: " + ex, "Undo error", JOptionPane.ERROR_MESSAGE);
-
 					}
 			}
 		
@@ -575,77 +546,56 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		});
 		actionMap4.put("Undo", new AbstractAction() {
 			@Override
-			public void actionPerformed(ActionEvent e)
-			{
+			public void actionPerformed(ActionEvent e) { 
 				try {
 						if (undo.canUndo())
-							undo.undo(); 
-						
+							undo.undo(); 		
 					}
 					catch (CannotRedoException ex) {
 						JOptionPane.showMessageDialog(frame, "Unable to undo: " + ex, "Undo error", JOptionPane.ERROR_MESSAGE);
-
 					}
 			}
-		
-			
 		});
 		actionMap5.put("Undo", new AbstractAction() {
 			@Override
-			public void actionPerformed(ActionEvent e)
-			{
+			public void actionPerformed(ActionEvent e) { 
 				try {
 						if (undo.canUndo())
-							undo.undo(); 
-						
+							undo.undo(); 						
 					}
 					catch (CannotRedoException ex) {
 						JOptionPane.showMessageDialog(frame, "Unable to undo: " + ex, "Undo error", JOptionPane.ERROR_MESSAGE);
-
 					}
-			}
-		
-			
+			}			
 		});
 		//set up action map for redo
 				actionMap1.put("Redo", new AbstractAction() {
 					@Override
-					public void actionPerformed(ActionEvent e)
-					{
+					public void actionPerformed(ActionEvent e) { 
 						try {
 								if(undo.canRedo())
-									undo.redo(); 
-								
+									undo.redo(); 								
 							}
 							catch (CannotRedoException ex) {
 								JOptionPane.showMessageDialog(frame, "Unable to redo: " + ex, "redo error", JOptionPane.ERROR_MESSAGE);
-
 							}
-					}
-				
-					
+					}		
 				});
 				actionMap1.put("Redo", new AbstractAction() {
 					@Override
-					public void actionPerformed(ActionEvent e)
-					{
+					public void actionPerformed(ActionEvent e) { 
 						try {
 								if(undo.canRedo())
-									undo.redo(); 
-								
+									undo.redo(); 		
 							}
 							catch (CannotRedoException ex) {
 								JOptionPane.showMessageDialog(frame, "Unable to redo: " + ex, "redo error", JOptionPane.ERROR_MESSAGE);
-
 							}
-					}
-				
-					
+					}				
 				});	
 				actionMap2.put("Redo", new AbstractAction() {
 					@Override
-					public void actionPerformed(ActionEvent e)
-					{
+					public void actionPerformed(ActionEvent e) { 
 						try {
 								if(undo.canRedo())
 									undo.redo(); 
@@ -653,33 +603,24 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 							}
 							catch (CannotRedoException ex) {
 								JOptionPane.showMessageDialog(frame, "Unable to redo: " + ex, "redo error", JOptionPane.ERROR_MESSAGE);
-
 							}
-					}
-				
-					
+					}		
 				});		
 				actionMap3.put("Redo", new AbstractAction() {
 					@Override
-					public void actionPerformed(ActionEvent e)
-					{
+					public void actionPerformed(ActionEvent e) { 
 						try {
 								if(undo.canRedo())
 									undo.redo(); 
-								
 							}
 							catch (CannotRedoException ex) {
 								JOptionPane.showMessageDialog(frame, "Unable to redo: " + ex, "redo error", JOptionPane.ERROR_MESSAGE);
-
 							}
-					}
-				
-					
+					}			
 				});		
 				actionMap4.put("Redo", new AbstractAction() {
 					@Override
-					public void actionPerformed(ActionEvent e)
-					{
+					public void actionPerformed(ActionEvent e) { 
 						try {
 								if(undo.canRedo())
 									undo.redo(); 
@@ -687,7 +628,6 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 							}
 							catch (CannotRedoException ex) {
 								JOptionPane.showMessageDialog(frame, "Unable to redo: " + ex, "redo error", JOptionPane.ERROR_MESSAGE);
-
 							}
 					}
 				
@@ -695,8 +635,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 				});		
 				actionMap5.put("Redo", new AbstractAction() {
 					@Override
-					public void actionPerformed(ActionEvent e)
-					{
+					public void actionPerformed(ActionEvent e) { 
 						try {
 								if(undo.canRedo())
 									undo.redo(); 
@@ -704,11 +643,8 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 							}
 							catch (CannotRedoException ex) {
 								JOptionPane.showMessageDialog(frame, "Unable to redo: " + ex, "redo error", JOptionPane.ERROR_MESSAGE);
-
 							}
-					}
-				
-					
+					}					
 				});		
 				
 		//add information for about page
@@ -745,8 +681,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		
 		
 		//calculate a daily streak for the 90 day detox if it is started already
-		if (initialDateString != null)
-		{
+		if (initialDateString != null) { 
 			//put current date in a String
 			System.out.println(initialDateString); 
 			//set initialDateString to correct value
@@ -756,35 +691,29 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			formattedCurrentDateString = currentDate.format(formattedCurrentDate); 
 			date2 = LocalDate.parse(formattedCurrentDateString, dtf); 
 			daysBetween = ChronoUnit.DAYS.between(date1, date2); 
-			if (daysBetween == 1)
-			{
+			if (daysBetween == 1) { 
 				System.out.println("Current streak is " + daysBetween + " day."); 
 				dailyStreak.setText("Your current streak is " + daysBetween + " day.");
 			}
-			else 
-			{
+			else { 
 				System.out.println("Current streak is " + daysBetween + " days."); 
 				dailyStreak.setText("Your current streak is " + daysBetween + " days."); 
-
 			}
 			progressPane.add(dailyStreak, BorderLayout.SOUTH); 
 		}
 	 	
 	}
 	//required by ListSelectionListener
-	public void valueChanged(ListSelectionEvent e)
-	{
+	public void valueChanged(ListSelectionEvent e) { 
 		if (e.getValueIsAdjusting() == false)
 		{
-			if (list.getSelectedIndex() == -1)
-			{
+			if (list.getSelectedIndex() == -1) { 
 			//no selection, disable delete button
 				deleteEntry.setEnabled(false); 
 				editEntry.setEnabled(false);
 				saveExisting.setEnabled(false);
 			}
-			else
-			{
+			else { 
 			//selection, enable fire button
 				deleteEntry.setEnabled(true);
 				editEntry.setEnabled(true);
@@ -812,8 +741,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 	}
 	public void actionPerformed(ActionEvent e)
 	{
-		if (e.getSource() == entryCreation)
-		{
+		if (e.getSource() == entryCreation) { 
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
 			trackDetox.setVisible(false); 
@@ -829,8 +757,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			detoxTrackerPane.setVisible(false);
 			progressPane.setVisible(false);
 		}
-		else if (e.getSource() == editEntries)
-		{
+		else if (e.getSource() == editEntries) { 
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
 			trackDetox.setVisible(false);
@@ -848,8 +775,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			progressPane.setVisible(false);
 
 		}
-		else if (e.getSource() == back)
-		{
+		else if (e.getSource() == back) { 
 			entryCreation.setVisible(true);
 			editEntries.setVisible(true);
 			trackDetox.setVisible(true);
@@ -868,17 +794,14 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			setDate.setVisible(false); 
 			detoxTrackerPane.setVisible(true);
 			progressPane.setVisible(true);
-
 		}
-		else if (e.getSource() == save)
-		{
+		else if (e.getSource() == save) { 
 			entryFullString = journalEntry.getText().trim(); 
 			titleString = title.getText();
 			dayString = day.getText();
 			monthString = month.getText(); 
 			yearString = year.getText(); 
-			if (titleString.equals(""))
-			{
+			if (titleString.equals("")) { 
 				titleString = "no title entered"; 
 			}
 			//add element to list
@@ -910,24 +833,20 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			detoxTrackerPane.setVisible(false);
 			progressPane.setVisible(false);			
 		}
-		else if (e.getSource() == saveExisting)
-		{
-			
+		else if (e.getSource() == saveExisting) { 
 			entryFullString = journalEntry.getText().trim(); 
 			titleString = title.getText();
 			dayString = day.getText();
 			monthString = month.getText(); 
 			yearString = year.getText(); 
 
-			//add element to list
-			
+			//add element to list		
 			entryFullString = journalEntry.getText().trim(); 
 			titleString = title.getText();
 			dayString = day.getText();
 			monthString = month.getText(); 
 			yearString = year.getText(); 
-			if (titleString.equals(""))
-			{
+			if (titleString.equals("")) { 
 				titleString = "no title entered"; 
 			}
 			//edit element in list
@@ -970,25 +889,20 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			back.setEnabled(true); 
 				
 		}
-		else if (e.getSource() == deleteEntry)
-		{
+		else if (e.getSource() == deleteEntry) { 
 			int choice = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this entry?", "Confirm deletion", JOptionPane.YES_NO_OPTION); 
-			if (choice == JOptionPane.YES_OPTION)
-			{
+			if (choice == JOptionPane.YES_OPTION) { 
 				int index = list.getSelectedIndex();
 				listModel.remove(index); 
 	
 				//consider edge case - nothing left
 				int size = listModel.getSize(); 
 				
-				if (size == 0)
-				{
+				if (size == 0) { 
 					deleteEntry.setEnabled(false); 
 				}
-				else
-				{
-					if (index == listModel.getSize())
-					{
+				else { 
+					if (index == listModel.getSize()) { 
 						//last index removed
 						index--; 
 					}
@@ -998,8 +912,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 
 			}
 		}	
-		else if (e.getSource() == editEntry)
-		{
+		else if (e.getSource() == editEntry) { 
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
 			trackDetox.setVisible(false); 
@@ -1021,8 +934,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			progressPane.setVisible(false);
 			//convert JTextField to string
 			entryIndex = list.getSelectedIndex();
-			if (entryIndex >= 0)
-			{
+			if (entryIndex >= 0) { 
 				JournalEntry index = (JournalEntry) listModel.get(entryIndex);
 				
 				day.setText(index.getDay()); 
@@ -1035,8 +947,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 				
 			}
 		}
-		else if (e.getSource() == b1)
-		{
+		else if (e.getSource() == b1) { 
 			try
 			{
 				if (undo.canUndo())
@@ -1048,8 +959,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		
 			}
 		}
-		else if (e.getSource() == b2)
-		{
+		else if (e.getSource() == b2) { 
 			try {
 				if (undo.canRedo())
 					undo.redo(); 
@@ -1060,8 +970,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			}
 			
 		}
-		else if (e.getSource() == e1)
-		{
+		else if (e.getSource() == e1) { 
 			//hide information when about is clicked
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
@@ -1083,8 +992,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			detoxTrackerPane.setVisible(false);
 			progressPane.setVisible(false);
 		}
-		else if (e.getSource() == trackDetox)
-		{
+		else if (e.getSource() == trackDetox) { 
 			entryCreation.setVisible(false);
 			editEntries.setVisible(false);
 			trackDetox.setVisible(false); 
@@ -1107,8 +1015,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			detoxTrackerPane.setVisible(true);
 			progressPane.setVisible(true);
 		}
-		else if (e.getSource() == startDetox)
-		{
+		else if (e.getSource() == startDetox) { 
 			stopDetox.setEnabled(true); 
 			startDetox.setEnabled(false);
 			//get the current date
@@ -1132,48 +1039,39 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			catch (IOException e2) {
 				// TODO Auto-generated catch block
 				e2.printStackTrace();
-			} 
-			
-
+			} 	
 		}
-		else if (e.getSource() == stopDetox)
-		{
+		else if (e.getSource() == stopDetox) { 
 			startDetox.setEnabled(true);
 			stopDetox.setEnabled(false);
 			//change detox progress
 			initialDate.setText("Detox progress: Detox stopped."); 
-			if (daysBetween == 1L)
-			{
+			if (daysBetween == 1L) { 
 				dailyStreak.setText("Your daily streak ended on " + daysBetween + " day");
 			}
-			else
-			{
+			else { 
 				dailyStreak.setText("Your daily streak ended on " + daysBetween + " days"); 
 			}
 			//reset detox
 			daysBetween = 0L; 
 		}
-		else if (e.getSource() == setDate)
-		{
+		else if (e.getSource() == setDate) { 
 			String name  = JOptionPane.showInputDialog("Please enter your detox start date (YYYY/MM/DD): "); 
 			try {
 				FileWriter myWriter = new FileWriter("dates.txt");
 				myWriter.write(name); 
 				myWriter.close(); 
 				initialDate.setText("Detox progress: Detox started on " + name);
-				if (daysBetween == 1)
-				{
+				if (daysBetween == 1) { 
 					System.out.println("Current streak is " + daysBetween + " day."); 
 					dailyStreak.setText("Your current streak is " + daysBetween + " day.");
 				}
-				else 
-				{
+				else {
 					System.out.println("Current streak is " + daysBetween + " days."); 
 					dailyStreak.setText("Your current streak is " + daysBetween + " days."); 
-
 				}
 				System.out.println("Successfully wrote to the file. "); 
-				} 
+			} 
 			catch (IOException e2) {
 				// TODO Auto-generated catch block
 				e2.printStackTrace();
@@ -1182,9 +1080,6 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		}
 			
 	}
-
-				
-	
 	@Override
 	public void windowOpened(WindowEvent e) {
 		// TODO Auto-generated method stub
@@ -1195,8 +1090,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			while (myReader.hasNextLine()) {
 				String data = myReader.nextLine(); 
 				//check if there is written text
-				if (data.equals(null) == false)
-				{
+				if (data.equals(null) == false) { 
 					startDetox.setEnabled(false);
 				}
 				initialDate.setText("Detox progress: Detox started on " + data);
@@ -1217,33 +1111,26 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			ObjectInputStream ois = new ObjectInputStream(fin); 
 			//deserialize object
 			dataList = (ArrayList<JournalEntry>) ois.readObject(); 
-			for (int i = 0; i < dataList.size(); i++)
-			{
+			for (int i = 0; i < dataList.size(); i++) { 
 				listModel.addElement((JournalEntry) dataList.get(i));
 			}
 			fin.close(); 
-			ois.close(); 
-			
+			ois.close(); 	
 		}
-		catch(IOException | ClassNotFoundException i)
-		{
+		catch(IOException | ClassNotFoundException i) { 
 			i.printStackTrace();
 		}
 		try 
 		{
 			File storeDate = new File("dates.txt"); 
-			if (storeDate.createNewFile())
-			{
-				System.out.println("File created. "); 
-				
+			if (storeDate.createNewFile()) {
+				System.out.println("File created. "); 	
 			}
-			else
-			{
+			else { 
 				System.out.println("File already exists. "); 
 			}
 		}
-		catch (IOException i)
-		{
+		catch (IOException i) { 
 			System.out.println("An error occurred. "); 
 			i.printStackTrace(); 
 		}
@@ -1251,8 +1138,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 	@Override
 	public void windowClosing(WindowEvent e) {
 		// TODO Auto-generated method stub
-		try
-		{
+		try { 
 			//save Object in a file
 			FileOutputStream fos = new FileOutputStream(fileName); 
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -1261,8 +1147,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			//convert to arraylist of objects
 			dataList = new ArrayList<>(); 
 
-			for (int i = 0; i < listModel.size(); i++)
-			{
+			for (int i = 0; i < listModel.size(); i++) { 
 				dataList.add(listModel.elementAt(i)); 
 			}
 			oos.writeObject(dataList);
@@ -1270,8 +1155,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			oos.close();
 			fos.close(); 
 		}
-		catch(IOException i) 
-		{
+		catch(IOException i) { 
 			i.printStackTrace(); 
 		}
 	}
@@ -1308,100 +1192,77 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		char c = '-'; 
 		//create source object
 		Object source = e.getItemSelectable(); 
-		if (source == boldCheckBox)
-		{
+		if (source == boldCheckBox) { 
 			index = 0; 
 			c = 'b'; 
 		}
-		else if (source == italicCheckBox)
-		{
+		else if (source == italicCheckBox) { 
 			index = 1; 
 			c = 'i'; 
-
 		}
-		else if (source == underlineCheckBox)
-		{
+		else if (source == underlineCheckBox) { 
 			index = 2; 
-			c = 'u'; 
-			 
+			c = 'u'; 		 
 		}
 		//find out if the JCheckBox was selected or deselected
-		if (e.getStateChange() == ItemEvent.DESELECTED)
-		{
+		if (e.getStateChange() == ItemEvent.DESELECTED) { 
 			c = '-'; 
-
-		}	
-		
+		}		
 		//apply changes to string
 		choices.setCharAt(index, c);
-//		System.out.println(choices);
 		updateText(); 
 	}
-	protected void updateText()
-	{
-		if (choices.toString().equals("b--"))
-		{
+	protected void updateText() {
+		if (choices.toString().equals("b--")) { 
 			Font font = journalEntry.getFont(); 
 			Map attributes = font.getAttributes(); 
 			attributes.put(TextAttribute.UNDERLINE, null); 
 			journalEntry.setFont(font.deriveFont(attributes));
 			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.BOLD, journalEntry.getFont().getSize())); 
-
 		}
-		else if (choices.toString().equals("bi-"))
-		{
+		else if (choices.toString().equals("bi-")) { 
 			Font font = journalEntry.getFont(); 
 			Map attributes = font.getAttributes(); 
 			attributes.put(TextAttribute.UNDERLINE, null); 
 			journalEntry.setFont(font.deriveFont(attributes));
 			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.BOLD + Font.ITALIC, journalEntry.getFont().getSize())); 
-
 		}
-		else if (choices.toString().equals("biu")) 
-		{
+		else if (choices.toString().equals("biu")) { 
 			Font font = journalEntry.getFont(); 
 			Map attributes = font.getAttributes(); 
 			attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON); 
 			journalEntry.setFont(font.deriveFont(attributes));
 			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.BOLD + Font.ITALIC, journalEntry.getFont().getSize())); 
-
 		}
-		else if (choices.toString().equals("-i-"))
-		{
+		else if (choices.toString().equals("-i-")) { 
 			Font font = journalEntry.getFont(); 
 			Map attributes = font.getAttributes(); 
 			attributes.put(TextAttribute.UNDERLINE, null); 
 			journalEntry.setFont(font.deriveFont(attributes));
 			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.ITALIC, journalEntry.getFont().getSize())); 
-
 		}
-		else if (choices.toString().equals("-iu"))
-		{
+		else if (choices.toString().equals("-iu")) { 
 			Font font = journalEntry.getFont(); 
 			Map attributes = font.getAttributes(); 
 			attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON); 
 			journalEntry.setFont(font.deriveFont(attributes));
 			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.ITALIC, journalEntry.getFont().getSize()));
 		}
-		else if (choices.toString().equals("--u"))
-		{
+		else if (choices.toString().equals("--u")) { 
 			Font font = journalEntry.getFont(); 
 			Map attributes = font.getAttributes(); 
 			attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON); 
 			journalEntry.setFont(font.deriveFont(attributes));
 			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.PLAIN, journalEntry.getFont().getSize()));
 		}
-		else if (choices.toString().equals("b-u"))
-		{
+		else if (choices.toString().equals("b-u")) { 
 			Font font = journalEntry.getFont(); 
 			Map attributes = font.getAttributes(); 
 			attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON); 
 			journalEntry.setFont(font.deriveFont(attributes));
 			journalEntry.setFont(journalEntry.getFont().deriveFont(Font.BOLD, journalEntry.getFont().getSize()));
-
 		}
-		else if (choices.toString().equals("---"))
-		{
+		else if (choices.toString().equals("---")) { 
 			Font font = journalEntry.getFont(); 
 			Map attributes = font.getAttributes(); 
 			attributes.put(TextAttribute.UNDERLINE, null); 

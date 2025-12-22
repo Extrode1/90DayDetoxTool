@@ -13,60 +13,45 @@ public class JournalEntry implements Serializable {
 	private String yearString; 
 	private String entryFullString; 
 	private String titleString; 
-	public JournalEntry (String dayString, String monthString, String yearString, String entryFullString, String titleString)
-	{
+	public JournalEntry (String dayString, String monthString, String yearString, String entryFullString, String titleString) { 
 		this.dayString = dayString; 
 		this.monthString = monthString; 
 		this.yearString = yearString; 
 		this.entryFullString = entryFullString; 
 		this.titleString = titleString; 
 	}
-	public String getDay()
-	{
+	public String getDay() { 
 		return this.dayString; 
 	}
-	public String getMonth()
-	{
+	public String getMonth() { 
 		return this.monthString; 
 	}
-	public String getYear()
-	{
+	public String getYear() { 
 		return this.yearString; 
 	}
-	public String getJournalEntry()
-	{
+	public String getJournalEntry() { 
 		return this.entryFullString; 
 	}
-	public String getTitleString ()
-	{
+	public String getTitleString () { 
 		return this.titleString; 
 	}
-	public void setDay(String dayString)
-	{
+	public void setDay(String dayString) { 
 		this.dayString = dayString; 
 	}
-	public void setMonth (String monthString)
-	{
+	public void setMonth (String monthString) { 
 		this.monthString = monthString; 
 	}
-	public void setYear (String yearString)
-	{
+	public void setYear (String yearString) { 
 		this.yearString = yearString; 
 	}
-	public void setJournalEntry (String entryFullString)
-	{
+	public void setJournalEntry (String entryFullString) { 
 		this.entryFullString = entryFullString; 
 	}
-	public void setTitleString (String titleString)
-	{
+	public void setTitleString (String titleString) { 
 		this.titleString = titleString; 
 	}
 	@Override
-	public String toString()
-	{
+	public String toString() { 
 		return titleString; 
 	}
-
-	
-
 }

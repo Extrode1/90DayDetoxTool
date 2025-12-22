@@ -1156,10 +1156,35 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		else if (e.getSource() == setDate)
 		{
 			String name  = JOptionPane.showInputDialog("Please enter your detox start date (YYYY/MM/DD): "); 
+			try {
+				FileWriter myWriter = new FileWriter("dates.txt");
+				myWriter.write(name); 
+				myWriter.close(); 
+				initialDate.setText("Detox progress: Detox started on " + name);
+				if (daysBetween == 1)
+				{
+					System.out.println("Current streak is " + daysBetween + " day."); 
+					dailyStreak.setText("Your current streak is " + daysBetween + " day.");
+				}
+				else 
+				{
+					System.out.println("Current streak is " + daysBetween + " days."); 
+					dailyStreak.setText("Your current streak is " + daysBetween + " days."); 
+
+				}
+				System.out.println("Successfully wrote to the file. "); 
+				} 
+			catch (IOException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			} 
+				
 		}
+			
+	}
 
 				
-	}
+	
 	@Override
 	public void windowOpened(WindowEvent e) {
 		// TODO Auto-generated method stub

@@ -1059,9 +1059,9 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			String date  = JOptionPane.showInputDialog("Please enter your detox start date (YYYY/MM/DD): "); 
 			try {
 				FileWriter myWriter = new FileWriter("dates.txt");
-				myWriter.write(date); 
-				myWriter.close(); 
-				if (date != null) { 
+				if (date != null) {
+					myWriter.write(date); 
+					myWriter.close(); 
 					//put current date in a String
 					System.out.println(date); 
 					//set initialDateString to correct value

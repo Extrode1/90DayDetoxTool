@@ -1075,6 +1075,8 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 				date2 = LocalDate.parse(formattedCurrentDateString, dtf); 
 				daysBetween = ChronoUnit.DAYS.between(date1, date2);
 				initialDate.setText("Detox progress: Detox started on " + date);
+				startDetox.setEnabled(false); 
+				stopDetox.setEnabled(true); 
 				
 				if (daysBetween == 1L) { 
 					System.out.println("Current streak is " + daysBetween + " day."); 

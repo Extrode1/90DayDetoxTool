@@ -1056,12 +1056,14 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			daysBetween = 0L; 
 		}
 		else if (e.getSource() == setDate) { 
-			String date  = JOptionPane.showInputDialog("Please enter your detox start date (YYYY/MM/DD): ");
-			if (date == null) 
-				throw new IllegalArgumentException("null value"); 
-			
+			String date  = JOptionPane.showInputDialog("Please enter your detox start date (YYYY/MM/DD): "); 
+			System.out.println(date); 
 			try {
-
+				if (date == null) 
+					throw new IllegalArgumentException("null value");
+				else if (date.equals(""))
+					throw new IllegalArgumentException("empty string"); 
+				else { 
 					FileWriter myWriter = new FileWriter("dates.txt");
 					myWriter.write(date); 
 					myWriter.close(); 
@@ -1073,19 +1075,20 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 					DateTimeFormatter formattedCurrentDate = DateTimeFormatter.ofPattern("yyyy/MM/dd"); 
 					formattedCurrentDateString = currentDate.format(formattedCurrentDate); 
 					date2 = LocalDate.parse(formattedCurrentDateString, dtf); 
-					daysBetween = ChronoUnit.DAYS.between(date1, date2); 
-				
-				initialDate.setText("Detox progress: Detox started on " + date);
-				
-				if (daysBetween == 1L) { 
-					System.out.println("Current streak is " + daysBetween + " day."); 
-					dailyStreak.setText("Your current streak is " + daysBetween + " day.");
+					daysBetween = ChronoUnit.DAYS.between(date1, date2);
+					initialDate.setText("Detox progress: Detox started on " + date);
+					
+					if (daysBetween == 1L) { 
+						System.out.println("Current streak is " + daysBetween + " day."); 
+						dailyStreak.setText("Your current streak is " + daysBetween + " day.");
+					}
+					else {
+						System.out.println("Current streak is " + daysBetween + " days."); 
+						dailyStreak.setText("Your current streak is " + daysBetween + " days."); 
+					}
+					System.out.println("Successfully wrote to the file. "); 
 				}
-				else {
-					System.out.println("Current streak is " + daysBetween + " days."); 
-					dailyStreak.setText("Your current streak is " + daysBetween + " days."); 
-				}
-				System.out.println("Successfully wrote to the file. "); 
+				
 			} 
 			catch (IOException e2) {
 				// TODO Auto-generated catch block

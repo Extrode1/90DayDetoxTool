@@ -11,12 +11,17 @@ import javax.swing.undo.*;
 import java.io.*; 
 import java.util.*;
 import javax.swing.UIManager.*;
-import javax.swing.border.Border;
 
 import java.time. *;
 import java.time.format.DateTimeFormatter; 
 import java.time.temporal.ChronoUnit;
+/**
+ * This class controls the GUI of the 90 Day Detox Tool. 
+ */
 public class MainGUI extends JFrame implements ActionListener, ListSelectionListener, WindowListener, ItemListener {
+
+	private static final long serialVersionUID = 8823589013399995994L;
+
 	//declare JFrame
 	private JFrame frame; 
 	
@@ -123,6 +128,9 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 	//declare variable to store dates (long) 
 	private long daysBetween; 
 
+	/**
+	 *  The public constructor for MainGUI. 
+	 */
 	public MainGUI() {
 		frame = new JFrame ("90 Day Detox Tool"); 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
@@ -703,7 +711,9 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		}
 	 	
 	}
-	//required by ListSelectionListener
+	/**
+	 * Required method for ListSelectionListener - makes changes depending on selections
+	 */
 	public void valueChanged(ListSelectionEvent e) { 
 		if (e.getValueIsAdjusting() == false)
 		{
@@ -721,7 +731,10 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			}
 		}
 	}
-	//create border
+	/**
+	 * Main method - mainly changes theme 
+	 * @param args
+	 */
 	public static void main(String[] args)  {
 		// TODO Auto-generated method stub
 		//change look and feel to nimbus
@@ -739,6 +752,10 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		new MainGUI();
 		
 	}
+	/**
+	 * actionPerformed method - assigns actions to when buttons are pressed
+	 * @param e the ActionEvent
+	 */
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getSource() == entryCreation) { 
@@ -947,6 +964,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 				
 			}
 		}
+		//undo action for text 
 		else if (e.getSource() == b1) { 
 			try
 			{
@@ -959,6 +977,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		
 			}
 		}
+		//redo action for text
 		else if (e.getSource() == b2) { 
 			try {
 				if (undo.canRedo())
@@ -1056,12 +1075,16 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			daysBetween = 0L; 
 		}
 		else if (e.getSource() == setDate) { 
+			//gets date string
 			String date  = JOptionPane.showInputDialog("Please enter your detox start date (YYYY/MM/DD): "); 
+			//filter out bad values by throwing exceptions
 			if (date == null) 
 				throw new IllegalArgumentException("null value");
 			else if (date.equals(""))
 				throw new IllegalArgumentException("empty string");
+			//get date1
 			date1 = LocalDate.parse(date, dtf); 
+			//write date to file
 			try {
 				FileWriter myWriter = new FileWriter("dates.txt");
 				myWriter.write(date); 
@@ -1077,7 +1100,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 				initialDate.setText("Detox progress: Detox started on " + date);
 				startDetox.setEnabled(false); 
 				stopDetox.setEnabled(true); 
-				
+				//prints the correct input depending on grammar (single vs plural) 
 				if (daysBetween == 1L) { 
 					System.out.println("Current streak is " + daysBetween + " day."); 
 					dailyStreak.setText("Your current streak is " + daysBetween + " day.");
@@ -1096,6 +1119,10 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		}
 			
 	}
+	/**
+	 * Actions for when the window is opened 
+	 * @param e the WindowEvent 
+	 */
 	@Override
 	public void windowOpened(WindowEvent e) {
 		// TODO Auto-generated method stub
@@ -1136,6 +1163,7 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		catch(IOException | ClassNotFoundException i) { 
 			i.printStackTrace();
 		}
+		//Create a new file when it doesn't exist 
 		try 
 		{
 			File storeDate = new File("dates.txt"); 
@@ -1151,6 +1179,10 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 			i.printStackTrace(); 
 		}
 	}
+	/**
+	 * Actions for when the window is closed. 
+	 * @param e
+	 */
 	@Override
 	public void windowClosing(WindowEvent e) {
 		// TODO Auto-generated method stub
@@ -1200,6 +1232,10 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * Assigns actions based on the change of state of the item. 
+	 * @param e
+	 */
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		// TODO Auto-generated method stub
@@ -1228,6 +1264,9 @@ public class MainGUI extends JFrame implements ActionListener, ListSelectionList
 		choices.setCharAt(index, c);
 		updateText(); 
 	}
+	/**
+	 *  Updates the corresponding text based on if it is bold, italic, or underlined. 
+	 */
 	protected void updateText() {
 		if (choices.toString().equals("b--")) { 
 			Font font = journalEntry.getFont(); 
